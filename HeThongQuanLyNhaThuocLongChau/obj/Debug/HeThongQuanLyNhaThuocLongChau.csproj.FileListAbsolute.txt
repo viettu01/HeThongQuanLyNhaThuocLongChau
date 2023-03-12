@@ -1,0 +1,10 @@
+D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\bin\Debug\HeThongQuanLyNhaThuocLongChau.exe.config
+D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\bin\Debug\HeThongQuanLyNhaThuocLongChau.exe
+D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\bin\Debug\HeThongQuanLyNhaThuocLongChau.pdb
+D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.csproj.AssemblyReference.cache
+D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.SanPhamForm.resources
+D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.Properties.Resources.resources
+D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.csproj.GenerateResource.cache
+D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.csproj.CoreCompileInputs.cache
+D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.exe
+D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.pdb
