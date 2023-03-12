@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HeThongQuanLyNhaThuocLongChau.PresentationLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace HeThongQuanLyNhaThuocLongChau
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SanPhamForm());
+            Application.Run(new TrangChu());
         }
     }
 }
