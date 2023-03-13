@@ -46,7 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogicLayer\SanPham.cs" />
+    <Compile Include="BusinessLogicLayer\CTPhieuThuBLL.cs" />
+    <Compile Include="BusinessLogicLayer\CTPhieuXuatKhoBLL.cs" />
+    <Compile Include="BusinessLogicLayer\KhachHangBLL.cs" />
+    <Compile Include="BusinessLogicLayer\LoaiSanPhamBLL.cs" />
+    <Compile Include="BusinessLogicLayer\NhaCungCapBLLcs.cs" />
+    <Compile Include="BusinessLogicLayer\NhanVienBLL.cs" />
+    <Compile Include="BusinessLogicLayer\PhieuThuBLL.cs" />
+    <Compile Include="BusinessLogicLayer\PhieuXuatKhoBLL.cs" />
+    <Compile Include="BusinessLogicLayer\QuyenBLL.cs" />
+    <Compile Include="BusinessLogicLayer\SanPhamBLL.cs" />
+    <Compile Include="BusinessLogicLayer\TaiKhoanBLL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

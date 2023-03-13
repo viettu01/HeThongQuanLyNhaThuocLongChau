@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HeThongQuanLyNhaThuocLongChau.Database
 {
-    class ConnectDB
+    public class ConnectDB
     {
         public string ConnectString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         
