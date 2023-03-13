@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
 {
-    class SanPhamDAL
+    public class SanPhamDAL
     {
         ConnectDB connectDB = new ConnectDB(); 
 
