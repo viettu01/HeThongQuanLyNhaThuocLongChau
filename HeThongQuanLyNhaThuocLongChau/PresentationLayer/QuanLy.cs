@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    public partial class Form1 : Form
+    public partial class QuanLy : Form
     {
-        public Form1()
+        public QuanLy()
         {
             InitializeComponent();
         }

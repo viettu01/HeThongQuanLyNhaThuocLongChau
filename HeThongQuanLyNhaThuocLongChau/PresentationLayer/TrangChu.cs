@@ -16,17 +16,5 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         {
             InitializeComponent();
         }
-
-        private void TrangChu_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
     }
 }

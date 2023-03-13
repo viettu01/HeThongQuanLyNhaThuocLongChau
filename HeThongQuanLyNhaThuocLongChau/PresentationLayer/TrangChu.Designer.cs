@@ -82,7 +82,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.pictureBox2.Size = new System.Drawing.Size(259, 183);
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // menuStrip1
             // 
@@ -187,7 +186,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TrangChu";
             this.Text = "Trang chủ";
-            this.Load += new System.EventHandler(this.TrangChu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
