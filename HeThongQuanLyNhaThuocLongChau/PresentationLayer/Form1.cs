@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    public partial class QuanLy : Form
+    public partial class Form1 : Form
     {
-        public QuanLy()
+        public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

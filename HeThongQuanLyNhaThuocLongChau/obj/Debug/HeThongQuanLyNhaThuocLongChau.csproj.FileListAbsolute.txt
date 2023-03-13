@@ -23,3 +23,5 @@ C:\Users\Admin\source\repos\Quanlynhathuoc\HeThongQuanLyNhaThuocLongChau\HeThong
 C:\Users\Admin\source\repos\Quanlynhathuoc\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\bin\Debug\MetroFramework.Fonts.dll
 C:\Users\Admin\source\repos\Quanlynhathuoc\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.csproj.CopyComplete
 C:\Users\Admin\source\repos\Quanlynhathuoc\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.PresentationLayer.TrangChu.resources
+C:\Users\Admin\source\repos\Quanlynhathuoc\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.PresentationLayer.Form1.resources
+C:\Users\Admin\source\repos\Quanlynhathuoc\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.PresentationLayer.Form2.resources
