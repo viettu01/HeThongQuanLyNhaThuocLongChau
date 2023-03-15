@@ -2641,11 +2641,11 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.dataGridView1);
-            this.groupBox6.Location = new System.Drawing.Point(3, 97);
+            this.groupBox6.Location = new System.Drawing.Point(3, 105);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox6.Size = new System.Drawing.Size(844, 391);
+            this.groupBox6.Size = new System.Drawing.Size(844, 383);
             this.groupBox6.TabIndex = 9;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Danh sách quyền";
@@ -2694,7 +2694,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(835, 370);
+            this.dataGridView1.Size = new System.Drawing.Size(835, 362);
             this.dataGridView1.TabIndex = 7;
             // 
             // dataGridViewTextBoxColumn17
@@ -2737,7 +2737,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // txtTenQ
             // 
             this.txtTenQ.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtTenQ.Location = new System.Drawing.Point(352, 14);
+            this.txtTenQ.Location = new System.Drawing.Point(352, 17);
             this.txtTenQ.Margin = new System.Windows.Forms.Padding(2, 2, 15, 2);
             this.txtTenQ.Name = "txtTenQ";
             this.txtTenQ.Size = new System.Drawing.Size(203, 20);
@@ -2747,7 +2747,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(2, 18);
+            this.label6.Location = new System.Drawing.Point(2, 21);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(346, 13);
@@ -2765,10 +2765,10 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.panel4.Controls.Add(this.btnThemQ);
             this.panel4.Controls.Add(this.btnTimKiemQ);
             this.panel4.Controls.Add(this.label9);
-            this.panel4.Location = new System.Drawing.Point(2, 51);
+            this.panel4.Location = new System.Drawing.Point(2, 57);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(846, 46);
+            this.panel4.Size = new System.Drawing.Size(846, 40);
             this.panel4.TabIndex = 2;
             // 
             // btnLamMoiQ
@@ -2779,7 +2779,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnLamMoiQ.FlatAppearance.BorderSize = 0;
             this.btnLamMoiQ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLamMoiQ.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnLamMoiQ.Location = new System.Drawing.Point(572, 7);
+            this.btnLamMoiQ.Location = new System.Drawing.Point(572, 4);
             this.btnLamMoiQ.Margin = new System.Windows.Forms.Padding(2);
             this.btnLamMoiQ.Name = "btnLamMoiQ";
             this.btnLamMoiQ.Size = new System.Drawing.Size(80, 30);
@@ -2795,7 +2795,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnXoaQ.FlatAppearance.BorderSize = 0;
             this.btnXoaQ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaQ.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnXoaQ.Location = new System.Drawing.Point(472, 7);
+            this.btnXoaQ.Location = new System.Drawing.Point(472, 4);
             this.btnXoaQ.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoaQ.Name = "btnXoaQ";
             this.btnXoaQ.Size = new System.Drawing.Size(80, 30);
@@ -2811,7 +2811,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnSuaQ.FlatAppearance.BorderSize = 0;
             this.btnSuaQ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaQ.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSuaQ.Location = new System.Drawing.Point(372, 7);
+            this.btnSuaQ.Location = new System.Drawing.Point(372, 4);
             this.btnSuaQ.Margin = new System.Windows.Forms.Padding(2);
             this.btnSuaQ.Name = "btnSuaQ";
             this.btnSuaQ.Size = new System.Drawing.Size(80, 30);
@@ -2826,7 +2826,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnThemQ.FlatAppearance.BorderSize = 0;
             this.btnThemQ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemQ.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnThemQ.Location = new System.Drawing.Point(273, 7);
+            this.btnThemQ.Location = new System.Drawing.Point(273, 4);
             this.btnThemQ.Margin = new System.Windows.Forms.Padding(2);
             this.btnThemQ.Name = "btnThemQ";
             this.btnThemQ.Size = new System.Drawing.Size(80, 30);
@@ -2841,7 +2841,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnTimKiemQ.FlatAppearance.BorderSize = 0;
             this.btnTimKiemQ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiemQ.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnTimKiemQ.Location = new System.Drawing.Point(173, 7);
+            this.btnTimKiemQ.Location = new System.Drawing.Point(173, 4);
             this.btnTimKiemQ.Margin = new System.Windows.Forms.Padding(2);
             this.btnTimKiemQ.Name = "btnTimKiemQ";
             this.btnTimKiemQ.Size = new System.Drawing.Size(80, 30);

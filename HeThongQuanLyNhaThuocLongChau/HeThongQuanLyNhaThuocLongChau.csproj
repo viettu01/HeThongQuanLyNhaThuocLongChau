@@ -80,6 +80,30 @@
     <Compile Include="PresentationLayer\BaoCao.Designer.cs">
       <DependentUpon>BaoCao.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\QuanLyNhanSu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\QuanLyNhanSu.Designer.cs">
+      <DependentUpon>QuanLyNhanSu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\QuanLyKeToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\QuanLyKeToan.Designer.cs">
+      <DependentUpon>QuanLyKeToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\QuanLyBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\QuanLyBanHang.Designer.cs">
+      <DependentUpon>QuanLyBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\QuanLyKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\QuanLyKho.Designer.cs">
+      <DependentUpon>QuanLyKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\TrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +129,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\BaoCao.resx">
       <DependentUpon>BaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\QuanLyNhanSu.resx">
+      <DependentUpon>QuanLyNhanSu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\QuanLyBanHang.resx">
+      <DependentUpon>QuanLyBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\QuanLyKeToan.resx">
+      <DependentUpon>QuanLyKeToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\QuanLyKho.resx">
+      <DependentUpon>QuanLyKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\TrangChu.resx">
       <DependentUpon>TrangChu.cs</DependentUpon>
