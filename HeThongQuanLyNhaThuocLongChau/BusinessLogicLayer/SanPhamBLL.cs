@@ -1,32 +1,45 @@
-﻿using System;
+﻿using HeThongQuanLyNhaThuocLongChau.DataAccessLayer;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace HeThongQuanLyNhaThuocLongChau.Model
 {
-    public class SanPham
+    public class SanPhamBLL
     {
-        public string maSP { get; set; }
-        public string tenSP { get; set; }
-        public string donViTinh { get; set; }
-        public string hanSuDung { get; set; }
-        public long soLuongTon { get; set; }
-        public double donGiaBan { get; set; }
-        public string maLoai { get; set; }
+        SanPhamDAL sanPhamDAL = new SanPhamDAL();
 
-        public SanPham() { }
-
-        public SanPham(string maSP, string tenSP, string donViTinh, string hanSuDung, long soLuongTon, double donGiaBan, string maLoai)
+        public DataTable findAll()
         {
-            this.maSP = maSP;
-            this.tenSP = tenSP;
-            this.donViTinh = donViTinh;
-            this.hanSuDung = hanSuDung;
-            this.soLuongTon = soLuongTon;
-            this.donGiaBan = donGiaBan;
-            this.maLoai = maLoai;
+            return sanPhamDAL.findAll();
+        }
+
+        public bool insert(string maSP, string tenSP, string donViTinh, string hanDung, double donGiaBan, string maLoai)
+        {
+            return sanPhamDAL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai);
+        }
+
+        public bool update(string maSP, string tenSP, string donViTinh, string hanDung, double donGiaBan, string maLoai)
+        {
+            return sanPhamDAL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai);
+        }
+
+        public bool deleteById(string maSP)
+        {
+            return sanPhamDAL.deleteById(maSP);
+        }
+
+        public DataTable search(string maSP, string tenSP, string donViTinh, string hanDung, string soLuongTon, string donGiaBan, string tenLoai)
+        {
+            return sanPhamDAL.search(maSP, tenSP, donViTinh, hanDung, soLuongTon, donGiaBan, tenLoai);
+        }
+
+        public DataTable searchById(String maSP)
+        {
+            return sanPhamDAL.searchById(maSP);
         }
     }
 }

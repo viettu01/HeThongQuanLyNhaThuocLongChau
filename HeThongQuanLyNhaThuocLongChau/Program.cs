@@ -1,4 +1,4 @@
-﻿using HeThongQuanLyNhaThuocLongChau.PresentationLayer;
+﻿using HeThongQuanLyNhaThuocLongChau.DataAccessLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace HeThongQuanLyNhaThuocLongChau
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DangNhap());
+            //Application.Run(new DangNhap());
         }
     }
 }

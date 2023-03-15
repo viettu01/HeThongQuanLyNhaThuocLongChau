@@ -43,6 +43,7 @@
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,18 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogicLayer\CTPhieuThuBLL.cs" />
-    <Compile Include="BusinessLogicLayer\CTPhieuXuatKhoBLL.cs" />
     <Compile Include="BusinessLogicLayer\KhachHangBLL.cs" />
-    <Compile Include="BusinessLogicLayer\LoaiSanPhamBLL.cs" />
-    <Compile Include="BusinessLogicLayer\NhaCungCapBLLcs.cs" />
     <Compile Include="BusinessLogicLayer\NhanVienBLL.cs" />
     <Compile Include="BusinessLogicLayer\PhieuThuBLL.cs" />
-    <Compile Include="BusinessLogicLayer\PhieuXuatKhoBLL.cs" />
-    <Compile Include="BusinessLogicLayer\QuyenBLL.cs" />
     <Compile Include="BusinessLogicLayer\SanPhamBLL.cs" />
     <Compile Include="BusinessLogicLayer\TaiKhoanBLL.cs" />
     <Compile Include="DataAccessLayer\SanPhamDAL.cs" />
-    <Compile Include="Database\ConnectDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -98,7 +93,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\db.sql" />
-    <Content Include="Database\sp.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

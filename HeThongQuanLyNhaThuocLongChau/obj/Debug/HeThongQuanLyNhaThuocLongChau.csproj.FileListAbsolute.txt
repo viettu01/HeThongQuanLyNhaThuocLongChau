@@ -2,7 +2,6 @@ D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\b
 D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\bin\Debug\HeThongQuanLyNhaThuocLongChau.exe
 D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\bin\Debug\HeThongQuanLyNhaThuocLongChau.pdb
 D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.csproj.AssemblyReference.cache
-D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.SanPhamForm.resources
 D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.Properties.Resources.resources
 D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.csproj.GenerateResource.cache
 D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.csproj.CoreCompileInputs.cache
@@ -23,5 +22,7 @@ C:\Users\Admin\source\repos\Quanlynhathuoc\HeThongQuanLyNhaThuocLongChau\HeThong
 C:\Users\Admin\source\repos\Quanlynhathuoc\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\bin\Debug\MetroFramework.Fonts.dll
 C:\Users\Admin\source\repos\Quanlynhathuoc\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.csproj.CopyComplete
 C:\Users\Admin\source\repos\Quanlynhathuoc\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.PresentationLayer.TrangChu.resources
-D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.PresentationLayer.DangNhap.resources
-D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.PresentationLayer.TrangChu.resources
+D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\bin\Debug\MetroFramework.Design.dll
+D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\bin\Debug\MetroFramework.dll
+D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\bin\Debug\MetroFramework.Fonts.dll
+D:\FITHOU\CNPM\BTL\HeThongQuanLyNhaThuocLongChau\HeThongQuanLyNhaThuocLongChau\obj\Debug\HeThongQuanLyNhaThuocLongChau.csproj.CopyComplete
