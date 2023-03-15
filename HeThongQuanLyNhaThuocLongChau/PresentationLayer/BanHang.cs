@@ -10,14 +10,24 @@ using System.Windows.Forms;
 
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    public partial class TrangChu : Form
+    public partial class BanHang : Form
     {
-        public TrangChu()
+        public BanHang()
         {
             InitializeComponent();
         }
 
-        private void bánHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BanHang_Load(object sender, EventArgs e)
         {
 
         }
