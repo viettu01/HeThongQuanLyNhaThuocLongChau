@@ -40,9 +40,9 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.bánHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đổiMậtKhẩuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +91,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.quảnLýKhoToolStripMenuItem.Name = "quảnLýKhoToolStripMenuItem";
             this.quảnLýKhoToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.quảnLýKhoToolStripMenuItem.Text = "Quản lý kho";
+            this.quảnLýKhoToolStripMenuItem.Click += new System.EventHandler(this.quảnLýKhoToolStripMenuItem_Click);
             // 
             // quảnLýBánHàngToolStripMenuItem
             // 
@@ -136,6 +137,18 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(103, 25);
             this.tàiKhoảnToolStripMenuItem.Text = "Tài khoản";
             // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            // 
+            // đổiMậtKhẩuToolStripMenuItem
+            // 
+            this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
+            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
+            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -148,18 +161,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.label1.Size = new System.Drawing.Size(227, 50);
             this.label1.TabIndex = 2;
             this.label1.Text = "LONG CHÂU";
-            // 
-            // đăngXuấtToolStripMenuItem
-            // 
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
-            // 
-            // đổiMậtKhẩuToolStripMenuItem
-            // 
-            this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             // 
             // TrangChu
             // 

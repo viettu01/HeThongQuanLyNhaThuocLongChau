@@ -16,5 +16,10 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         {
             InitializeComponent();
         }
+
+        private void QuanLyKeToan_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

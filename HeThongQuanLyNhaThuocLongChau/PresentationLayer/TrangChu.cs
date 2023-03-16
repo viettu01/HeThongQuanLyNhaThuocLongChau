@@ -21,5 +21,10 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         {
 
         }
+
+        private void quảnLýKhoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

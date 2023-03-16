@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    public partial class BaoCao : Form
+    public partial class DoiMatKhau : Form
     {
-        public BaoCao()
+        public DoiMatKhau()
         {
             InitializeComponent();
-        }
-
-        private void panel9_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
