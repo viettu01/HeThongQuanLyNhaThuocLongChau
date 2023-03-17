@@ -62,6 +62,7 @@
     <Compile Include="BusinessLogicLayer\PhieuThuBLL.cs" />
     <Compile Include="BusinessLogicLayer\SanPhamBLL.cs" />
     <Compile Include="BusinessLogicLayer\TaiKhoanBLL.cs" />
+    <Compile Include="DataAccessLayer\KhachhangDAL.cs" />
     <Compile Include="DataAccessLayer\SanPhamDAL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\db.sql" />
+    <Content Include="Database\tbl_BaoCaoThuChi_TrangThai.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
