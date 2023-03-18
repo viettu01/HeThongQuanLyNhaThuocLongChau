@@ -121,11 +121,5 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                 }
             }
         }
-
-
-
-
-
-
     }
 }
