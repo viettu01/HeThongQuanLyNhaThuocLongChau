@@ -17,7 +17,11 @@ namespace HeThongQuanLyNhaThuocLongChau
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
             //Application.Run(new DangNhap());
+=======
+            Application.Run(new QuanLy());
+>>>>>>> origin/future/ThuPhuong
         }
     }
 }
