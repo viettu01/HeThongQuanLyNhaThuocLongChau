@@ -68,60 +68,6 @@
     <Compile Include="PresentationLayer\Custom\VBButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\DangNhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\DangNhap.Designer.cs">
-      <DependentUpon>DangNhap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PresentationLayer\BaoCao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\BaoCao.Designer.cs">
-      <DependentUpon>BaoCao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PresentationLayer\DoiMatKhau.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\DoiMatKhau.Designer.cs">
-      <DependentUpon>DoiMatKhau.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PresentationLayer\QuanLyNhanSu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\QuanLyNhanSu.Designer.cs">
-      <DependentUpon>QuanLyNhanSu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PresentationLayer\QuanLyKeToan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\QuanLyKeToan.Designer.cs">
-      <DependentUpon>QuanLyKeToan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PresentationLayer\QuanLyBanHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\QuanLyBanHang.Designer.cs">
-      <DependentUpon>QuanLyBanHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PresentationLayer\QuanLyKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\QuanLyKho.Designer.cs">
-      <DependentUpon>QuanLyKho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PresentationLayer\TrangChu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\TrangChu.Designer.cs">
-      <DependentUpon>TrangChu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PresentationLayer\BanHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\BanHang.Designer.cs">
-      <DependentUpon>BanHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="PresentationLayer\QuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,33 +76,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PresentationLayer\DangNhap.resx">
-      <DependentUpon>DangNhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\BaoCao.resx">
-      <DependentUpon>BaoCao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\DoiMatKhau.resx">
-      <DependentUpon>DoiMatKhau.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\QuanLyNhanSu.resx">
-      <DependentUpon>QuanLyNhanSu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\QuanLyBanHang.resx">
-      <DependentUpon>QuanLyBanHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\QuanLyKeToan.resx">
-      <DependentUpon>QuanLyKeToan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\QuanLyKho.resx">
-      <DependentUpon>QuanLyKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\TrangChu.resx">
-      <DependentUpon>TrangChu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\BanHang.resx">
-      <DependentUpon>BanHang.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\QuanLy.resx">
       <DependentUpon>QuanLy.cs</DependentUpon>
     </EmbeddedResource>
