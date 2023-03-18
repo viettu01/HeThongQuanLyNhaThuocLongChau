@@ -17,12 +17,29 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             InitializeComponent();
         }
 
-        private void bánHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        private void TrangChu_Load(object sender, EventArgs e)
+        {
+            if (!Program.maQuyen.Equals(Program.maQuyenQuanLy))
+            {
+                tsmiQuanLy.Visible = false;
+            }
+        }
+
+        private void tsmiDangXuat_Click(object sender, EventArgs e)
+        {
+            Program.maTK = "";
+            Program.maQuyen = "";
+            Program.tenTK = "";
+            new DangNhap().Show();
+            this.Hide();
+        }
+
+        private void tsmiBanHang_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void quảnLýKhoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tsmiQuanLyKho_Click(object sender, EventArgs e)
         {
 
         }

@@ -72,5 +72,43 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                 }
             }
         }
+
+        public int login(string tenTK, string matKhau)
+        {
+            using (SqlConnection cnn = new SqlConnection(constr))
+            {
+                String sql = "SELECT * FROM vv_TaiKhoanNhanVienQuyen WHERE [Tên tài khoản] = '" + tenTK + "'";
+                using (SqlCommand cmd = new SqlCommand(sql, cnn))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    using (SqlDataAdapter ad = new SqlDataAdapter(cmd))
+                    {
+                        using (DataTable dt = new DataTable("vv_TaiKhoanNhanVienQuyen"))
+                        {
+                            ad.Fill(dt);
+                            if (dt.Rows.Count == 0)
+                                return 0; //Tên đăng nhập không tồn tại
+                            else
+                            {
+                                foreach (DataRow dr in dt.Rows)
+                                {
+                                    if (dr["Mật khẩu"].Equals(matKhau))
+                                    {
+                                        Program.maTK = dr["Mã TK"].ToString();
+                                        Program.maQuyen = dr["Mã Quyền"].ToString();
+                                        Program.tenTK = dr["Tên tài khoản"].ToString();
+                                        Program.tenNV = dr["Tên NV"].ToString();
+                                        return 1; //Đúng mật khẩu và tên đăng nhập
+                                    }
+                                    else
+                                        return 2; //Đúng tên dăng nhập nhưng Sai mật khẩu 
+                                }
+                            }
+                        }
+                    }
+                    return -1;
+                }
+            }
+        }
     }
 }

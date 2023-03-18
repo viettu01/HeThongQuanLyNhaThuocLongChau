@@ -34,12 +34,14 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnDangNhap = new HeThongQuanLyNhaThuocLongChau.PresentationLayer.Custom.VBButton();
             this.txtTenTaiKhoan = new MetroFramework.Controls.MetroTextBox();
             this.txtMatKhau = new MetroFramework.Controls.MetroTextBox();
             this.lbQuenMatKhau = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.errorProviderLogin = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnDangNhap = new HeThongQuanLyNhaThuocLongChau.PresentationLayer.Custom.VBButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -47,7 +49,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(522, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(545, 554);
             this.pictureBox1.TabIndex = 0;
@@ -76,25 +78,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.label2.TabIndex = 2;
             this.label2.Text = "Chào mừng bạn đến với  phần mền quản lý nhà thuốc";
             // 
-            // btnDangNhap
-            // 
-            this.btnDangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(112)))), ((int)(((byte)(234)))));
-            this.btnDangNhap.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(112)))), ((int)(((byte)(234)))));
-            this.btnDangNhap.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnDangNhap.BorderRadius = 5;
-            this.btnDangNhap.BorderSize = 0;
-            this.btnDangNhap.FlatAppearance.BorderSize = 0;
-            this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangNhap.ForeColor = System.Drawing.Color.White;
-            this.btnDangNhap.Location = new System.Drawing.Point(76, 366);
-            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(353, 37);
-            this.btnDangNhap.TabIndex = 7;
-            this.btnDangNhap.Text = "Đăng nhập";
-            this.btnDangNhap.TextColor = System.Drawing.Color.White;
-            this.btnDangNhap.UseVisualStyleBackColor = false;
-            // 
             // txtTenTaiKhoan
             // 
             // 
@@ -102,7 +85,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             this.txtTenTaiKhoan.CustomButton.Image = null;
             this.txtTenTaiKhoan.CustomButton.Location = new System.Drawing.Point(317, 1);
-            this.txtTenTaiKhoan.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTenTaiKhoan.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenTaiKhoan.CustomButton.Name = "";
             this.txtTenTaiKhoan.CustomButton.Size = new System.Drawing.Size(35, 35);
             this.txtTenTaiKhoan.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -114,7 +97,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.txtTenTaiKhoan.Icon = ((System.Drawing.Image)(resources.GetObject("txtTenTaiKhoan.Icon")));
             this.txtTenTaiKhoan.Lines = new string[0];
             this.txtTenTaiKhoan.Location = new System.Drawing.Point(76, 220);
-            this.txtTenTaiKhoan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTenTaiKhoan.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenTaiKhoan.MaxLength = 32767;
             this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
             this.txtTenTaiKhoan.PasswordChar = '\0';
@@ -138,7 +121,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             this.txtMatKhau.CustomButton.Image = null;
             this.txtMatKhau.CustomButton.Location = new System.Drawing.Point(317, 1);
-            this.txtMatKhau.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMatKhau.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.txtMatKhau.CustomButton.Name = "";
             this.txtMatKhau.CustomButton.Size = new System.Drawing.Size(35, 35);
             this.txtMatKhau.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -150,10 +133,10 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.txtMatKhau.Icon = ((System.Drawing.Image)(resources.GetObject("txtMatKhau.Icon")));
             this.txtMatKhau.Lines = new string[0];
             this.txtMatKhau.Location = new System.Drawing.Point(76, 277);
-            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4);
             this.txtMatKhau.MaxLength = 32767;
             this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.PasswordChar = '\0';
+            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.PromptText = "Mật khẩu";
             this.txtMatKhau.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtMatKhau.SelectedText = "";
@@ -184,6 +167,30 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // errorProviderLogin
+            // 
+            this.errorProviderLogin.ContainerControl = this;
+            // 
+            // btnDangNhap
+            // 
+            this.btnDangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(112)))), ((int)(((byte)(234)))));
+            this.btnDangNhap.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(112)))), ((int)(((byte)(234)))));
+            this.btnDangNhap.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDangNhap.BorderRadius = 5;
+            this.btnDangNhap.BorderSize = 0;
+            this.btnDangNhap.FlatAppearance.BorderSize = 0;
+            this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangNhap.ForeColor = System.Drawing.Color.White;
+            this.btnDangNhap.Location = new System.Drawing.Point(76, 366);
+            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(353, 37);
+            this.btnDangNhap.TabIndex = 7;
+            this.btnDangNhap.Text = "Đăng nhập";
+            this.btnDangNhap.TextColor = System.Drawing.Color.White;
+            this.btnDangNhap.UseVisualStyleBackColor = false;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
+            // 
             // DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -198,11 +205,12 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "DangNhap";
             this.Text = "  Đăng nhập";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,5 +225,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         private MetroFramework.Controls.MetroTextBox txtMatKhau;
         private System.Windows.Forms.Label lbQuenMatKhau;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ErrorProvider errorProviderLogin;
     }
 }
