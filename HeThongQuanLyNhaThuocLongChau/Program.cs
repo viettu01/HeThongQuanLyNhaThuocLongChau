@@ -19,7 +19,7 @@ namespace HeThongQuanLyNhaThuocLongChau
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new BaoCao());
 
-            //test
+            //Confirm
         }
     }
 }
