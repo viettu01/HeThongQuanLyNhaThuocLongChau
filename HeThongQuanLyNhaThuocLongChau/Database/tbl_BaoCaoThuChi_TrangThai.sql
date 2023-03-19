@@ -14,11 +14,3 @@ CREATE TABLE tbl_CTBaoCaoThuChi
 	PK_FK_sMaSP VARCHAR(10) NOT NULL CONSTRAINT FK_CTBaoCaoThuChi_SanPham FOREIGN KEY REFERENCES dbo.tbl_SanPham(PK_sMaSP),
 	CONSTRAINT PK_CTBaoCaoThuChi PRIMARY KEY (PK_FK_sMaBC, PK_FK_sMaSP)
 )
-
---Thêm trạng thái vào một số bảng
-ALTER TABLE dbo.tbl_PhieuDatHang ADD bTrangThai BIT NOT NULL
-ALTER TABLE dbo.tbl_PhieuYeuCau ADD bTrangThai BIT NOT NULL
-ALTER TABLE dbo.tbl_BienBanHuy ADD bTrangThai BIT NOT NULL
-ALTER TABLE dbo.tbl_BienBanKiemKe ADD bTrangThai BIT NOT NULL
-ALTER TABLE dbo.tbl_NhanVien ADD bTrangThai BIT NOT NULL
-ALTER TABLE dbo.tbl_SanPham ADD sNhaCungCap VARCHAR(10) NOT NULL CONSTRAINT FK_SanPham_NhaCungCap FOREIGN KEY REFERENCES dbo.tbl_NhaCungCap(PK_sMaNCC)

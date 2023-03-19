@@ -203,8 +203,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Database\alertTable.sql" />
     <Content Include="Database\db.sql" />
-    <Content Include="Database\nhanvien.sql" />
+    <Content Include="Database\khachHang.sql" />
+    <Content Include="Database\nhanVien.sql" />
     <Content Include="Database\tbl_BaoCaoThuChi_TrangThai.sql" />
     <Content Include="Database\vv_TaiKhoan_NhanVien.sql" />
   </ItemGroup>
