@@ -110,5 +110,65 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                 }
             }
         }
+
+        public bool checkPassword(string maTK, string matKhau)
+        {
+            using (SqlConnection cnn = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("Select * from vv_TaiKhoanNhanVienQuyen where [Mã TK] = '" + maTK + "'", cnn))
+                {
+                    cnn.Open();
+                    using (SqlDataReader rd = cmd.ExecuteReader())
+                    {
+                        while (rd.Read())
+                        {
+                            if (String.Equals(rd["Mật khẩu"].ToString(), matKhau, StringComparison.InvariantCultureIgnoreCase))
+                                return true;
+                        }
+                        rd.Close();
+                    }
+                    cnn.Close();
+                }
+            }
+            return false;
+        }
+
+        public bool checkStatus(string tenTK)
+        {
+            using (SqlConnection cnn = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("Select * from vv_TaiKhoanNhanVienQuyen where [Tên đăng nhập] = '" + tenTK + "'", cnn))
+                {
+                    cnn.Open();
+                    using (SqlDataReader rd = cmd.ExecuteReader())
+                    {
+                        while (rd.Read())
+                        {
+                            if (bool.Parse(rd["Trạng thái"].ToString()))
+                                return true;
+                        }
+                        rd.Close();
+                    }
+                    cnn.Close();
+                }
+            }
+            return false;
+        }
+
+        public bool changePassword(string maTK, string matKhau)
+        {
+            using (SqlConnection cnn = new SqlConnection(constr))
+            {
+                String sql = "UPDATE dbo.tbl_TaiKhoan SET sMK = '" + matKhau + "' WHERE PK_sMaTK = '" + maTK + "'";
+                using (SqlCommand cmd = new SqlCommand(sql, cnn))
+                {
+                    cnn.Open();
+                    int i = cmd.ExecuteNonQuery();
+                    cnn.Close();
+
+                    return i > 0;
+                }
+            }
+        }
     }
 }

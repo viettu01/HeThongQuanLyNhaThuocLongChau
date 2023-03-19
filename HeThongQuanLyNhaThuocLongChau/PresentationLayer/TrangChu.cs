@@ -36,12 +36,20 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
         private void tsmiBanHang_Click(object sender, EventArgs e)
         {
-
+            new BanHang().Show();
+            this.Hide();
         }
 
         private void tsmiQuanLyKho_Click(object sender, EventArgs e)
         {
+            new QuanLyKho().Show();
+            this.Hide();
+        }
 
+        private void tsmiDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            new DoiMatKhau().Show();
+            this.Hide();
         }
     }
 }

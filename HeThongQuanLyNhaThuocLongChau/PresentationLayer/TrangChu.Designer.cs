@@ -41,7 +41,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDangXuat = new System.Windows.Forms.ToolStripMenuItem();
-            this.đổiMậtKhẩuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDoiMatKhau = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -133,7 +133,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             this.tàiKhoảnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiDangXuat,
-            this.đổiMậtKhẩuToolStripMenuItem});
+            this.tsmiDoiMatKhau});
             this.tàiKhoảnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tàiKhoảnToolStripMenuItem.Image")));
             this.tàiKhoảnToolStripMenuItem.Name = "tàiKhoảnToolStripMenuItem";
             this.tàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(128, 32);
@@ -146,11 +146,12 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tsmiDangXuat.Text = "Đăng xuất";
             this.tsmiDangXuat.Click += new System.EventHandler(this.tsmiDangXuat_Click);
             // 
-            // đổiMậtKhẩuToolStripMenuItem
+            // tsmiDoiMatKhau
             // 
-            this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(224, 32);
-            this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
+            this.tsmiDoiMatKhau.Name = "tsmiDoiMatKhau";
+            this.tsmiDoiMatKhau.Size = new System.Drawing.Size(224, 32);
+            this.tsmiDoiMatKhau.Text = "Đổi mật khẩu";
+            this.tsmiDoiMatKhau.Click += new System.EventHandler(this.tsmiDoiMatKhau_Click);
             // 
             // label1
             // 
@@ -202,6 +203,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         private System.Windows.Forms.ToolStripMenuItem quảnLýKếToánToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýNhânSựToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmiDangXuat;
-        private System.Windows.Forms.ToolStripMenuItem đổiMậtKhẩuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDoiMatKhau;
     }
 }
