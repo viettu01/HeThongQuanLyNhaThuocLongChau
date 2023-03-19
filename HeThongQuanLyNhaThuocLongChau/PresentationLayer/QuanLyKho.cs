@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,48 +18,57 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        //Quản lý sản phẩm
+        private void Load_dgvSanPham(object sender, EventArgs e)
         {
 
         }
 
-        private void label24_Click(object sender, EventArgs e)
+        private void comboBoxMaLoaiSP()
         {
 
         }
 
-        private void nudSoLuong_ValueChanged(object sender, EventArgs e)
+        private void comboBoxNCC()
         {
 
         }
 
-        private void panel9_Paint(object sender, PaintEventArgs e)
+        private void QuanLyKho_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
+        private void dgvSP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void label82_Click(object sender, EventArgs e)
+        private void btnThemSP_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void panel23_Paint(object sender, PaintEventArgs e)
+        private void btnXoaSP_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label10_Click(object sender, EventArgs e)
+        private void btnSuaSP_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void tabPage11_Click(object sender, EventArgs e)
+        private void btnLamMoiSP_Click(object sender, EventArgs e)
+        {
+            txtMaSP.Text = "";
+            txtTenSP.Text = "";
+            txtHanDung.Text = "";
+            txtDVT.Text = "";
+            mtbGiaBan.Text = "";
+        }
+
+        private void btnTimKiemSP_Click(object sender, EventArgs e)
         {
 
         }
