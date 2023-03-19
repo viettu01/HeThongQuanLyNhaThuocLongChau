@@ -32,6 +32,8 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BanHang));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.cmbHinhThucThanhToan = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.tbTenKH = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,8 +60,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.nudSoLuong = new System.Windows.Forms.NumericUpDown();
             this.label22 = new System.Windows.Forms.Label();
             this.crvPhieuThu = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbHinhThucThanhToan = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -109,6 +109,23 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.panel7.Size = new System.Drawing.Size(1042, 407);
             this.panel7.TabIndex = 16;
             this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
+            // 
+            // cmbHinhThucThanhToan
+            // 
+            this.cmbHinhThucThanhToan.FormattingEnabled = true;
+            this.cmbHinhThucThanhToan.Location = new System.Drawing.Point(131, 277);
+            this.cmbHinhThucThanhToan.Name = "cmbHinhThucThanhToan";
+            this.cmbHinhThucThanhToan.Size = new System.Drawing.Size(278, 28);
+            this.cmbHinhThucThanhToan.TabIndex = 26;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 281);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(106, 20);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Hình thức TT";
             // 
             // btnLamMoi
             // 
@@ -392,28 +409,11 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.crvPhieuThu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crvPhieuThu.Cursor = System.Windows.Forms.Cursors.Default;
             this.crvPhieuThu.Location = new System.Drawing.Point(4, 439);
-            this.crvPhieuThu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.crvPhieuThu.Margin = new System.Windows.Forms.Padding(4);
             this.crvPhieuThu.Name = "crvPhieuThu";
             this.crvPhieuThu.Size = new System.Drawing.Size(1042, 291);
             this.crvPhieuThu.TabIndex = 20;
             this.crvPhieuThu.ToolPanelWidth = 267;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 278);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(164, 20);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Hình thức thanh toán";
-            // 
-            // cmbHinhThucThanhToan
-            // 
-            this.cmbHinhThucThanhToan.FormattingEnabled = true;
-            this.cmbHinhThucThanhToan.Location = new System.Drawing.Point(179, 278);
-            this.cmbHinhThucThanhToan.Name = "cmbHinhThucThanhToan";
-            this.cmbHinhThucThanhToan.Size = new System.Drawing.Size(230, 28);
-            this.cmbHinhThucThanhToan.TabIndex = 26;
             // 
             // BanHang
             // 
@@ -423,7 +423,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.Controls.Add(this.crvPhieuThu);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BanHang";
             this.Text = "Phiếu Thu";
             this.Load += new System.EventHandler(this.BanHang_Load);
