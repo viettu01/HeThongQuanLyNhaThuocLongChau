@@ -120,5 +120,13 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             return score;
         }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            txtMatKhauCu.Text = "";
+            txtMatKhauMoi.Text = "";
+            txtNhapLaiMatKhauMoi.Text = "";
+            errorProviderDoiMatKhau.Clear();
+        }
     }
 }

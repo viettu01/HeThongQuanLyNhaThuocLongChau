@@ -160,6 +160,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnLamMoi.TabIndex = 41;
             this.btnLamMoi.Text = "Làm mới";
             this.btnLamMoi.UseVisualStyleBackColor = false;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnVeTrangChu
             // 
@@ -185,6 +186,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.btnVeTrangChu);
             this.Controls.Add(this.btnLamMoi);
