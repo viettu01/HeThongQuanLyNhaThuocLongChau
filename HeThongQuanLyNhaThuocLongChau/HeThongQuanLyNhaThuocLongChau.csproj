@@ -78,9 +78,6 @@
     <Compile Include="DataAccessLayer\QuyenDAL.cs" />
     <Compile Include="DataAccessLayer\SanPhamDAL.cs" />
     <Compile Include="DataAccessLayer\TaiKhoanDAL.cs" />
-    <Content Include="Database\vv_Quyen.sql" />
-    <Content Include="Database\vv_NhaCungCap.sql" />
-    <Content Include="Database\vv_LoaiSanPham.sql" />
     <Compile Include="PresentationLayer\BanHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,12 +210,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Database\alertTable.sql" />
     <Content Include="Database\db.sql" />
-    <Content Include="Database\khachHang.sql" />
-    <Content Include="Database\nhanVien.sql" />
-    <Content Include="Database\tbl_BaoCaoThuChi_TrangThai.sql" />
-    <Content Include="Database\vv_TaiKhoan_NhanVien.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
