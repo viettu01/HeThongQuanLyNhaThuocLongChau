@@ -19,6 +19,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
         private void TrangChu_Load(object sender, EventArgs e)
         {
+            lbTaiKhoanDangDangNhap.Text = "Tài khoản đang đăng nhập: " + Program.tenTK;
             if (!Program.maQuyen.Equals(Program.maQuyenQuanLy))
             {
                 tsmiQuanLy.Visible = false;
@@ -36,19 +37,35 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
         private void tsmiBanHang_Click(object sender, EventArgs e)
         {
-            new BanHang().Show();
+            BanHang banHang = new BanHang();
+            banHang.Show();
             this.Hide();
         }
 
         private void tsmiQuanLyKho_Click(object sender, EventArgs e)
         {
-            new QuanLyKho().Show();
+            QuanLyKho quanLyKho = new QuanLyKho();
+            quanLyKho.Show();
             this.Hide();
         }
 
         private void tsmiDoiMatKhau_Click(object sender, EventArgs e)
         {
             new DoiMatKhau().Show();
+            this.Hide();
+        }
+
+        private void tsmiQuanLyNhanSu_Click(object sender, EventArgs e)
+        {
+            QuanLyNhanSu quanLyNhanSu = new QuanLyNhanSu();
+            quanLyNhanSu.Show();
+            this.Hide();
+        }
+
+        private void tsmiQuanLyBanHang_Click(object sender, EventArgs e)
+        {
+            QuanLyBanHang quanLyBanHang = new QuanLyBanHang();
+            quanLyBanHang.Show();
             this.Hide();
         }
     }

@@ -81,6 +81,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnLamMoiKH = new System.Windows.Forms.Button();
@@ -144,7 +145,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.label46 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.label47 = new System.Windows.Forms.Label();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -686,6 +686,12 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.Column14.MinimumWidth = 6;
             this.Column14.Name = "Column14";
             // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Số điện thoại";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -902,7 +908,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(84, 21);
+            this.comboBox4.Location = new System.Drawing.Point(84, 22);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(275, 24);
@@ -1466,12 +1472,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.label47.TabIndex = 11;
             this.label47.Text = "Mã SP";
             // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Số điện thoại";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
             // QuanLyBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1482,6 +1482,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QuanLyBanHang";
             this.Text = "Quản lý bán hàng";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuanLyBanHang_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);

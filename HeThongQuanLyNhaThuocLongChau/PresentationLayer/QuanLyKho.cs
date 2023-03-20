@@ -27,6 +27,12 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             InitializeComponent();
         }
 
+        private void loadDataToDataGridView(DataGridView dgv, DataTable dt)
+        {
+            dgv.DataSource = dt;
+            dgv.AutoResizeColumns();
+        }
+
         public void loadDataNCCCombox(ComboBox cmb)
         {
             DataTable dtNCC = nhaCungCapBLL.findAll();
@@ -52,13 +58,14 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         //Quản lý sản phẩm
         private void QuanLyKho_Load(object sender, EventArgs e)
         {
-            loadDataNCCCombox(cmbNCC);
-            loadDataLoaiSPCombox(cmbLoaiSP);
             loadDataToDataGridView(dgvSP, sanPhamBLL.findAll());
         }
 
         private void dgvSP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            loadDataNCCCombox(cmbNCC);
+            loadDataLoaiSPCombox(cmbLoaiSP);
+
             maSP = dgvSP.CurrentRow.Cells[0].Value.ToString();
             txtTenSP.Text = dgvSP.CurrentRow.Cells[1].Value.ToString();
             cmbNCC.Text = dgvSP.CurrentRow.Cells[2].Value.ToString();
@@ -280,7 +287,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
                 }
                 loadDataToDataGridView(dgvSP, dt);
             }
-                
         }
 
         private void btnLamMoiSP_Click(object sender, EventArgs e)
@@ -295,12 +301,30 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             btnLamMoiSP.Enabled = false;
             btnThemSP.Enabled = true;
             btnTimKiemSP.Enabled = true;
+
+            loadDataToDataGridView(dgvSP, sanPhamBLL.findAll());
+            cmbLoaiSP.DataSource = null;
+            cmbNCC.DataSource = null;
         }
 
-        private void loadDataToDataGridView(DataGridView dgv, DataTable dt)
+        private void cmbNCC_Click(object sender, EventArgs e)
         {
-            dgv.DataSource = dt;
-            dgv.AutoResizeColumns();
+            loadDataNCCCombox(cmbNCC);
+        }
+
+        private void cmbLoaiSP_Click(object sender, EventArgs e)
+        {
+            loadDataLoaiSPCombox(cmbLoaiSP);
+        }
+
+        private void QuanLyKho_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                // Tạo Form đích và hiển thị nó
+                TrangChu trangChu = new TrangChu();
+                trangChu.Show();
+            }
         }
     }
 }

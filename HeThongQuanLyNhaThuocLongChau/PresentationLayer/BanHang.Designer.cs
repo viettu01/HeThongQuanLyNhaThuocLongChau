@@ -426,6 +426,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BanHang";
             this.Text = "Phiếu Thu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BanHang_FormClosing);
             this.Load += new System.EventHandler(this.BanHang_Load);
             this.groupBox1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);

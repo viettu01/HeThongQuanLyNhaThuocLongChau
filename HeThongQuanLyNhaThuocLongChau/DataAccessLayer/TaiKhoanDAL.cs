@@ -21,10 +21,10 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "sp_ThemTaiKhoan";
-                    cmd.Parameters.AddWithValue("@PK_sMaTK", maTK);
-                    cmd.Parameters.AddWithValue("@sTenTK", tenTK);
-                    cmd.Parameters.AddWithValue("@sMK", matKhau);
-                    cmd.Parameters.AddWithValue("@FK_sMaQuyen", maQuyen);
+                    cmd.Parameters.AddWithValue("@MaTK", maTK);
+                    cmd.Parameters.AddWithValue("@TenTK", tenTK);
+                    cmd.Parameters.AddWithValue("@MatKhau", matKhau);
+                    cmd.Parameters.AddWithValue("@MaQuyen", maQuyen);
                     cnn.Open();
                     int i = cmd.ExecuteNonQuery();
                     cnn.Close();
@@ -46,24 +46,6 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                     cmd.Parameters.AddWithValue("@sTenTK", tenTK);
                     cmd.Parameters.AddWithValue("@sMK", matKhau);
                     cmd.Parameters.AddWithValue("@FK_sMaQuyen", maQuyen);
-                    cnn.Open();
-                    int i = cmd.ExecuteNonQuery();
-                    cnn.Close();
-
-                    return i > 0;
-                }
-            }
-        }
-
-        public bool deleteById(string maTK)
-        {
-            using (SqlConnection cnn = new SqlConnection(constr))
-            {
-                using (SqlCommand cmd = cnn.CreateCommand())
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "sp_XoaTaiKhoan";
-                    cmd.Parameters.AddWithValue("@MaTK", maTK);
                     cnn.Open();
                     int i = cmd.ExecuteNonQuery();
                     cnn.Close();

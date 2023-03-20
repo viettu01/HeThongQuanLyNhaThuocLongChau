@@ -21,11 +21,6 @@ namespace HeThongQuanLyNhaThuocLongChau.BusinessLogicLayer
             return taiKhoanDAL.update(maTK, tenTK, matKhau, maQuyen);
         }
 
-        public bool deleteById(string maTK)
-        {
-            return taiKhoanDAL.deleteById(maTK);
-        }
-
         public int login(string tenTK, string matKhau)
         {
             return taiKhoanDAL.login(tenTK, matKhau);

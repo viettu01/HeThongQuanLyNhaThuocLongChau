@@ -4582,11 +4582,13 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // cmbNCC
             // 
             this.cmbNCC.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cmbNCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNCC.FormattingEnabled = true;
             this.cmbNCC.Location = new System.Drawing.Point(549, 19);
             this.cmbNCC.Name = "cmbNCC";
             this.cmbNCC.Size = new System.Drawing.Size(286, 24);
             this.cmbNCC.TabIndex = 24;
+            this.cmbNCC.Click += new System.EventHandler(this.cmbNCC_Click);
             // 
             // label14
             // 
@@ -4621,12 +4623,15 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             // cmbLoaiSP
             // 
-            this.cmbLoaiSP.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cmbLoaiSP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbLoaiSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLoaiSP.FormattingEnabled = true;
             this.cmbLoaiSP.Location = new System.Drawing.Point(937, 19);
+            this.cmbLoaiSP.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.cmbLoaiSP.Name = "cmbLoaiSP";
             this.cmbLoaiSP.Size = new System.Drawing.Size(302, 24);
             this.cmbLoaiSP.TabIndex = 25;
+            this.cmbLoaiSP.Click += new System.EventHandler(this.cmbLoaiSP_Click);
             // 
             // tabPage2
             // 
@@ -5626,6 +5631,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QuanLyKho";
             this.Text = "Quản lý kho";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuanLyKho_FormClosing);
             this.Load += new System.EventHandler(this.QuanLyKho_Load);
             this.tabPage10.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);

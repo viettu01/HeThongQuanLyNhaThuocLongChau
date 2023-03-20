@@ -31,5 +31,15 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         {
 
         }
+
+        private void BanHang_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                // Tạo Form đích và hiển thị nó
+                TrangChu trangChu = new TrangChu();
+                trangChu.Show();
+            }
+        }
     }
 }

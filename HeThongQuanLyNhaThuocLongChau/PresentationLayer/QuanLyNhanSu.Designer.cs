@@ -29,6 +29,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,14 +41,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgvNV = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.cmbChucVu = new System.Windows.Forms.ComboBox();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -68,7 +61,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.dtpNgayVaoLam = new System.Windows.Forms.DateTimePicker();
             this.label34 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.txtTenDangNhap = new System.Windows.Forms.MaskedTextBox();
+            this.txtTenTaiKhoan = new System.Windows.Forms.MaskedTextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.txtMatKhau = new System.Windows.Forms.MaskedTextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -98,6 +91,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.errorProviderNV = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -112,6 +106,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tabPage3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNV)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -123,7 +118,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(5, 4);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1060, 551);
@@ -134,14 +129,13 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tabPage1.Controls.Add(this.groupBox5);
             this.tabPage1.Controls.Add(this.tableLayoutPanel5);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1052, 522);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Nhân viên";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // groupBox5
             // 
@@ -176,15 +170,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvNV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn12,
-            this.Column1,
-            this.Column2,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.Column3});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -209,54 +194,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.dgvNV.RowTemplate.Height = 24;
             this.dgvNV.Size = new System.Drawing.Size(1048, 278);
             this.dgvNV.TabIndex = 7;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "STT";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Tên đăng nhập";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Mật khẩu";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "Mã NV";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.HeaderText = "Họ tên";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "SĐT";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "Chức vụ";
-            this.dataGridViewTextBoxColumn16.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Trạng thái";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
+            this.dgvNV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNV_CellClick);
             // 
             // tableLayoutPanel5
             // 
@@ -283,7 +221,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tableLayoutPanel5.Controls.Add(this.dtpNgayVaoLam, 3, 1);
             this.tableLayoutPanel5.Controls.Add(this.label34, 4, 1);
             this.tableLayoutPanel5.Controls.Add(this.label17, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.txtTenDangNhap, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.txtTenTaiKhoan, 1, 2);
             this.tableLayoutPanel5.Controls.Add(this.label35, 2, 2);
             this.tableLayoutPanel5.Controls.Add(this.txtMatKhau, 3, 2);
             this.tableLayoutPanel5.Controls.Add(this.label18, 4, 2);
@@ -306,10 +244,11 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.cmbChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChucVu.FormattingEnabled = true;
             this.cmbChucVu.Location = new System.Drawing.Point(811, 64);
-            this.cmbChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 20, 2);
             this.cmbChucVu.Name = "cmbChucVu";
-            this.cmbChucVu.Size = new System.Drawing.Size(239, 24);
+            this.cmbChucVu.Size = new System.Drawing.Size(222, 24);
             this.cmbChucVu.TabIndex = 36;
+            this.cmbChucVu.Click += new System.EventHandler(this.cmbChucVu_Click);
             // 
             // panel10
             // 
@@ -336,13 +275,14 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnKhoaNV.FlatAppearance.BorderSize = 0;
             this.btnKhoaNV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKhoaNV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnKhoaNV.Location = new System.Drawing.Point(588, 7);
+            this.btnKhoaNV.Location = new System.Drawing.Point(620, 5);
             this.btnKhoaNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKhoaNV.Name = "btnKhoaNV";
             this.btnKhoaNV.Size = new System.Drawing.Size(107, 37);
             this.btnKhoaNV.TabIndex = 14;
             this.btnKhoaNV.Text = "Khóa";
             this.btnKhoaNV.UseVisualStyleBackColor = false;
+            this.btnKhoaNV.Click += new System.EventHandler(this.btnKhoaNV_Click);
             // 
             // btnLamMoiNV
             // 
@@ -352,13 +292,14 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnLamMoiNV.FlatAppearance.BorderSize = 0;
             this.btnLamMoiNV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLamMoiNV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnLamMoiNV.Location = new System.Drawing.Point(731, 7);
+            this.btnLamMoiNV.Location = new System.Drawing.Point(763, 5);
             this.btnLamMoiNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLamMoiNV.Name = "btnLamMoiNV";
             this.btnLamMoiNV.Size = new System.Drawing.Size(107, 37);
             this.btnLamMoiNV.TabIndex = 13;
             this.btnLamMoiNV.Text = "Làm mới";
             this.btnLamMoiNV.UseVisualStyleBackColor = false;
+            this.btnLamMoiNV.Click += new System.EventHandler(this.btnLamMoiNV_Click);
             // 
             // btnSuaNV
             // 
@@ -368,13 +309,14 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnSuaNV.FlatAppearance.BorderSize = 0;
             this.btnSuaNV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaNV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSuaNV.Location = new System.Drawing.Point(446, 7);
+            this.btnSuaNV.Location = new System.Drawing.Point(478, 5);
             this.btnSuaNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSuaNV.Name = "btnSuaNV";
             this.btnSuaNV.Size = new System.Drawing.Size(107, 37);
             this.btnSuaNV.TabIndex = 10;
             this.btnSuaNV.Text = "Sửa";
             this.btnSuaNV.UseVisualStyleBackColor = false;
+            this.btnSuaNV.Click += new System.EventHandler(this.btnSuaNV_Click);
             // 
             // btnThemNV
             // 
@@ -383,13 +325,14 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnThemNV.FlatAppearance.BorderSize = 0;
             this.btnThemNV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemNV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnThemNV.Location = new System.Drawing.Point(303, 7);
+            this.btnThemNV.Location = new System.Drawing.Point(335, 5);
             this.btnThemNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemNV.Name = "btnThemNV";
             this.btnThemNV.Size = new System.Drawing.Size(107, 37);
             this.btnThemNV.TabIndex = 9;
             this.btnThemNV.Text = "Thêm mới";
             this.btnThemNV.UseVisualStyleBackColor = false;
+            this.btnThemNV.Click += new System.EventHandler(this.btnThemNV_Click);
             // 
             // btnTimKiemNV
             // 
@@ -398,13 +341,14 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnTimKiemNV.FlatAppearance.BorderSize = 0;
             this.btnTimKiemNV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiemNV.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnTimKiemNV.Location = new System.Drawing.Point(160, 7);
+            this.btnTimKiemNV.Location = new System.Drawing.Point(192, 5);
             this.btnTimKiemNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTimKiemNV.Name = "btnTimKiemNV";
             this.btnTimKiemNV.Size = new System.Drawing.Size(107, 37);
             this.btnTimKiemNV.TabIndex = 8;
             this.btnTimKiemNV.Text = "Tìm kiếm";
             this.btnTimKiemNV.UseVisualStyleBackColor = false;
+            this.btnTimKiemNV.Click += new System.EventHandler(this.btnTimKiemNV_Click);
             // 
             // label38
             // 
@@ -450,9 +394,9 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             this.txtSDTNV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSDTNV.Location = new System.Drawing.Point(811, 14);
-            this.txtSDTNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSDTNV.Margin = new System.Windows.Forms.Padding(3, 2, 20, 2);
             this.txtSDTNV.Name = "txtSDTNV";
-            this.txtSDTNV.Size = new System.Drawing.Size(239, 22);
+            this.txtSDTNV.Size = new System.Drawing.Size(222, 22);
             this.txtSDTNV.TabIndex = 35;
             // 
             // label8
@@ -487,6 +431,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.dtpNgaySinhNV.Name = "dtpNgaySinhNV";
             this.dtpNgaySinhNV.Size = new System.Drawing.Size(220, 22);
             this.dtpNgaySinhNV.TabIndex = 24;
+            this.dtpNgaySinhNV.ValueChanged += new System.EventHandler(this.dtpNgaySinhNV_ValueChanged);
             // 
             // label10
             // 
@@ -509,6 +454,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.dtpNgayVaoLam.Name = "dtpNgayVaoLam";
             this.dtpNgayVaoLam.Size = new System.Drawing.Size(220, 22);
             this.dtpNgayVaoLam.TabIndex = 26;
+            this.dtpNgayVaoLam.ValueChanged += new System.EventHandler(this.dtpNgayVaoLam_ValueChanged);
             // 
             // label34
             // 
@@ -532,14 +478,14 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.label17.TabIndex = 31;
             this.label17.Text = "Tên tài khoản";
             // 
-            // txtTenDangNhap
+            // txtTenTaiKhoan
             // 
-            this.txtTenDangNhap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenDangNhap.Location = new System.Drawing.Point(112, 116);
-            this.txtTenDangNhap.Margin = new System.Windows.Forms.Padding(3, 2, 20, 2);
-            this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(220, 22);
-            this.txtTenDangNhap.TabIndex = 30;
+            this.txtTenTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTenTaiKhoan.Location = new System.Drawing.Point(112, 116);
+            this.txtTenTaiKhoan.Margin = new System.Windows.Forms.Padding(3, 2, 20, 2);
+            this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
+            this.txtTenTaiKhoan.Size = new System.Drawing.Size(220, 22);
+            this.txtTenTaiKhoan.TabIndex = 30;
             // 
             // label35
             // 
@@ -578,24 +524,24 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.cmbQuyen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbQuyen.FormattingEnabled = true;
             this.cmbQuyen.Location = new System.Drawing.Point(811, 115);
-            this.cmbQuyen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbQuyen.Margin = new System.Windows.Forms.Padding(3, 2, 20, 2);
             this.cmbQuyen.Name = "cmbQuyen";
-            this.cmbQuyen.Size = new System.Drawing.Size(239, 24);
+            this.cmbQuyen.Size = new System.Drawing.Size(222, 24);
             this.cmbQuyen.TabIndex = 34;
+            this.cmbQuyen.Click += new System.EventHandler(this.cmbQuyen_Click);
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox6);
             this.tabPage2.Controls.Add(this.tableLayoutPanel6);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1052, 522);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Quyền";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // groupBox6
             // 
@@ -823,9 +769,9 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tabPage3.Controls.Add(this.crystalReportViewer1);
             this.tabPage3.Controls.Add(this.tableLayoutPanel1);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(1052, 522);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Đơn trúng tuyển";
@@ -839,7 +785,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Location = new System.Drawing.Point(7, 134);
-            this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(4);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.Size = new System.Drawing.Size(1038, 375);
             this.crystalReportViewer1.TabIndex = 12;
@@ -935,6 +881,10 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 2;
             // 
+            // errorProviderNV
+            // 
+            this.errorProviderNV.ContainerControl = this;
+            // 
             // QuanLyNhanSu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -942,9 +892,11 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QuanLyNhanSu";
             this.Text = "Quản lý nhân sự";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuanLyNhanSu_FormClosing);
+            this.Load += new System.EventHandler(this.QuanLyNhanSu_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
@@ -964,6 +916,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -995,7 +948,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         private System.Windows.Forms.DateTimePicker dtpNgayVaoLam;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.MaskedTextBox txtTenDangNhap;
+        private System.Windows.Forms.MaskedTextBox txtTenTaiKhoan;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.MaskedTextBox txtMatKhau;
         private System.Windows.Forms.Label label18;
@@ -1024,13 +977,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.ErrorProvider errorProviderNV;
     }
 }

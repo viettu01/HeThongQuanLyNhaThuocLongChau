@@ -18,12 +18,12 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
         {
             using (SqlConnection cnn = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM vv_NhanVien", cnn))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM vv_TaiKhoanNhanVienQuyenKhongMatKhau", cnn))
                 {
                     cmd.CommandType = CommandType.Text;
                     using (SqlDataAdapter ad = new SqlDataAdapter(cmd))
                     {
-                        using (DataTable dt = new DataTable("vv_NhanVien"))
+                        using (DataTable dt = new DataTable("vv_TaiKhoanNhanVienQuyenKhongMatKhau"))
                         {
                             ad.Fill(dt);
                             return dt;
@@ -33,7 +33,9 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
             }
         }
 
-        public bool insert(string maNV, string maTK, string tenNV, DateTime ngaySinh, string cccd, string sdt, DateTime ngayVaoLam, string chucvu)
+        public bool insert(string maNV, string tenNV, DateTime ngaySinh, string cccd,
+                            string sdt, DateTime ngayVaoLam, string chucvu,
+                            string maTK, string tenTK, string matKhau, string maQuyen)
         {
             using (SqlConnection cnn = new SqlConnection(constr))
             {
@@ -41,14 +43,19 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "sp_ThemNhanVien";
-                    cmd.Parameters.AddWithValue("@PK_sMaNV", maNV);
-                    cmd.Parameters.AddWithValue("@FK_sMaTK", maTK);
-                    cmd.Parameters.AddWithValue("@sHoTen", tenNV);
-                    cmd.Parameters.AddWithValue("@dNgaySinh", ngaySinh);
-                    cmd.Parameters.AddWithValue("@sCCCD", cccd);
-                    cmd.Parameters.AddWithValue("@sSDT", sdt);
-                    cmd.Parameters.AddWithValue("@dNgayVaoLam", ngayVaoLam);
-                    cmd.Parameters.AddWithValue("@sCVu", chucvu);
+                    cmd.Parameters.AddWithValue("@MaNV", maNV);
+                    cmd.Parameters.AddWithValue("@MaTK", maTK);
+                    cmd.Parameters.AddWithValue("@HoTen", tenNV);
+                    cmd.Parameters.AddWithValue("@NgaySinh", ngaySinh);
+                    cmd.Parameters.AddWithValue("@CCCD", cccd);
+                    cmd.Parameters.AddWithValue("@SDT", sdt);
+                    cmd.Parameters.AddWithValue("@NgayVaoLam", ngayVaoLam);
+                    cmd.Parameters.AddWithValue("@ChucVu", chucvu);
+
+                    cmd.Parameters.AddWithValue("@TenTK", tenTK);
+                    cmd.Parameters.AddWithValue("@MatKhau", matKhau);
+                    cmd.Parameters.AddWithValue("@MaQuyen", maQuyen);
+
                     cnn.Open();
                     int i = cmd.ExecuteNonQuery();
                     cnn.Close();
@@ -58,7 +65,9 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
             }
         }
 
-        public bool update(string maNV, string maTK, string tenNV, DateTime ngaySinh, string cccd, string sdt, DateTime ngayVaoLam, string chucvu)
+        public bool update(string maNV, string tenNV, DateTime ngaySinh,
+                            string cccd, string sdt, DateTime ngayVaoLam, string chucvu,
+                            string tenTK, string matKhau, string maQuyen)
         {
             using (SqlConnection cnn = new SqlConnection(constr))
             {
@@ -66,14 +75,18 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "sp_SuaNhanVien";
-                    cmd.Parameters.AddWithValue("@PK_sMaNV", maNV);
-                    cmd.Parameters.AddWithValue("@FK_sMaTK", maTK);
-                    cmd.Parameters.AddWithValue("@sHoTen", tenNV);
-                    cmd.Parameters.AddWithValue("@dNgaySinh", ngaySinh);
-                    cmd.Parameters.AddWithValue("@sCCCD", cccd);
-                    cmd.Parameters.AddWithValue("@sSDT", sdt);
-                    cmd.Parameters.AddWithValue("@dNgayVaoLam", ngayVaoLam);
-                    cmd.Parameters.AddWithValue("@sCVu", chucvu);
+                    cmd.Parameters.AddWithValue("@MaNV", maNV);
+                    cmd.Parameters.AddWithValue("@HoTen", tenNV);
+                    cmd.Parameters.AddWithValue("@NgaySinh", ngaySinh);
+                    cmd.Parameters.AddWithValue("@CCCD", cccd);
+                    cmd.Parameters.AddWithValue("@SDT", sdt);
+                    cmd.Parameters.AddWithValue("@NgayVaoLam", ngayVaoLam);
+                    cmd.Parameters.AddWithValue("@ChucVu", chucvu);
+
+                    cmd.Parameters.AddWithValue("@TenTK", tenTK);
+                    cmd.Parameters.AddWithValue("@MatKhau", matKhau);
+                    cmd.Parameters.AddWithValue("@MaQuyen", maQuyen);
+
                     cnn.Open();
                     int i = cmd.ExecuteNonQuery();
                     cnn.Close();
@@ -83,15 +96,13 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
             }
         }
 
-        public bool deleteById(string maNV)
+        public bool changeStatus(string maNV, int trangThai)
         {
             using (SqlConnection cnn = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = cnn.CreateCommand())
+                string sql = "UPDATE dbo.tbl_NhanVien SET bTrangThai = " + trangThai + " WHERE PK_sMaNV = '" + maNV + "'";
+                using (SqlCommand cmd = new SqlCommand(sql, cnn))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "sp_XoaNhanVien";
-                    cmd.Parameters.AddWithValue("@PK_sMaNV", maNV);
                     cnn.Open();
                     int i = cmd.ExecuteNonQuery();
                     cnn.Close();
@@ -101,18 +112,37 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
             }
         }
 
-
-        public DataTable searchById(String maNV)
+        public DataTable search(string tenNV, string ngaySinh, string sdt, string cccd, string ngayVaoLam, string chucvu, string tenTK, string tenQuyen)
         {
             using (SqlConnection cnn = new SqlConnection(constr))
             {
-                String sql = "SELECT * FROM tbl_NhanVien WHERE [Mã NV] LIKE '" + maNV + "' ";
+                string sqlSearchNgaySinh = "", sqlSearchNgayVaoLam = "";
+
+                if (ngaySinh != " ")
+                {
+                    sqlSearchNgaySinh = "AND [Ngày sinh] >= '" + DateTime.Parse(ngaySinh) + "' ";
+                }
+
+                if (ngayVaoLam != " ")
+                {
+                    sqlSearchNgayVaoLam = "AND [Ngày vào làm] >= '" + DateTime.Parse(ngayVaoLam) + "' ";
+                }
+
+                string sql = "SELECT * FROM vv_TaiKhoanNhanVienQuyen " +
+                    "WHERE [Tên NV] LIKE N'%" + tenNV + "%' " +
+                        sqlSearchNgaySinh +
+                        "AND [SĐT] LIKE N'%" + sdt + "%' " +
+                        "AND [CCCD] LIKE N'%" + cccd + "%' " +
+                        sqlSearchNgayVaoLam +
+                        "AND [Chức vụ] LIKE N'%" + chucvu + "%' " +
+                        "AND [Tên tài khoản] LIKE N'%" + tenTK + "%' " +
+                        "AND [Tên quyền] LIKE N'%" + tenQuyen + "%' ";
                 using (SqlCommand cmd = new SqlCommand(sql, cnn))
                 {
                     cmd.CommandType = CommandType.Text;
                     using (SqlDataAdapter ad = new SqlDataAdapter(cmd))
                     {
-                        using (DataTable dt = new DataTable("vv_NhanVien"))
+                        using (DataTable dt = new DataTable("vv_TaiKhoanNhanVienQuyen"))
                         {
                             ad.Fill(dt);
                             return dt;

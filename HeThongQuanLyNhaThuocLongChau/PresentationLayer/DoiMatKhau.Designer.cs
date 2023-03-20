@@ -198,6 +198,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.MinimizeBox = false;
             this.Name = "DoiMatKhau";
             this.Text = "Đổi mật khẩu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DoiMatKhau_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDoiMatKhau)).EndInit();

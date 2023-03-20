@@ -76,9 +76,8 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
                         if (taiKhoanBLL.changePassword(Program.maTK, nhapLaiMatKhauMoi))
                         {
                             MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            txtMatKhauCu.Text = "";
-                            txtMatKhauMoi.Text = "";
-                            txtNhapLaiMatKhauMoi.Text = "";
+                            new DangNhap().Show();
+                            this.Hide();
                         }
                     }
                 }
@@ -127,6 +126,16 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             txtMatKhauMoi.Text = "";
             txtNhapLaiMatKhauMoi.Text = "";
             errorProviderDoiMatKhau.Clear();
+        }
+
+        private void DoiMatKhau_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                // Tạo Form đích và hiển thị nó
+                TrangChu trangChu = new TrangChu();
+                trangChu.Show();
+            }
         }
     }
 }
