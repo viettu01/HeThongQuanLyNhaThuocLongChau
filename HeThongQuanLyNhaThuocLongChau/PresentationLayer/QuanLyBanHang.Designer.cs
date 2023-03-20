@@ -144,6 +144,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.label46 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.label47 = new System.Windows.Forms.Label();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -177,7 +178,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(1, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1352, 805);
@@ -188,9 +189,9 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1344, 776);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Phiếu thu";
@@ -483,10 +484,10 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.panel9.Controls.Add(this.label36);
             this.panel9.Controls.Add(this.label37);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(3, 41);
+            this.panel9.Location = new System.Drawing.Point(3, 19);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1321, 224);
+            this.panel9.Size = new System.Drawing.Size(1321, 246);
             this.panel9.TabIndex = 16;
             // 
             // dgvSPPT
@@ -536,7 +537,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.dgvSPPT.RowHeadersVisible = false;
             this.dgvSPPT.RowHeadersWidth = 51;
             this.dgvSPPT.RowTemplate.Height = 24;
-            this.dgvSPPT.Size = new System.Drawing.Size(1024, 218);
+            this.dgvSPPT.Size = new System.Drawing.Size(1024, 240);
             this.dgvSPPT.TabIndex = 5;
             // 
             // dataGridViewTextBoxColumn6
@@ -638,9 +639,9 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tabPage2.Controls.Add(this.dgvKH);
             this.tabPage2.Controls.Add(this.tableLayoutPanel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1344, 776);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Khách hàng";
@@ -657,9 +658,10 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.dgvKH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column12,
             this.Column13,
-            this.Column14});
+            this.Column14,
+            this.Column2});
             this.dgvKH.Location = new System.Drawing.Point(11, 110);
-            this.dgvKH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvKH.Margin = new System.Windows.Forms.Padding(4);
             this.dgvKH.Name = "dgvKH";
             this.dgvKH.RowHeadersVisible = false;
             this.dgvKH.RowHeadersWidth = 51;
@@ -840,9 +842,9 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tabPage3.Controls.Add(this.groupBox6);
             this.tabPage3.Controls.Add(this.groupBox7);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(1344, 776);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Phiếu yêu cầu xuất kho";
@@ -856,7 +858,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Location = new System.Drawing.Point(7, 426);
-            this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(4);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.Size = new System.Drawing.Size(1331, 119);
             this.crystalReportViewer1.TabIndex = 31;
@@ -900,8 +902,8 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(84, 22);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox4.Location = new System.Drawing.Point(84, 21);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(275, 24);
             this.comboBox4.TabIndex = 22;
@@ -921,7 +923,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox4.Location = new System.Drawing.Point(754, 23);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(248, 22);
             this.textBox4.TabIndex = 24;
@@ -973,7 +975,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             this.comboBox16.FormattingEnabled = true;
             this.comboBox16.Location = new System.Drawing.Point(1129, 5);
-            this.comboBox16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox16.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox16.Name = "comboBox16";
             this.comboBox16.Size = new System.Drawing.Size(121, 24);
             this.comboBox16.TabIndex = 49;
@@ -1464,6 +1466,12 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.label47.TabIndex = 11;
             this.label47.Text = "Mã SP";
             // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Số điện thoại";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
             // QuanLyBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1471,7 +1479,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.ClientSize = new System.Drawing.Size(1352, 805);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QuanLyBanHang";
             this.Text = "Quản lý bán hàng";
             this.tabControl1.ResumeLayout(false);
@@ -1614,5 +1622,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

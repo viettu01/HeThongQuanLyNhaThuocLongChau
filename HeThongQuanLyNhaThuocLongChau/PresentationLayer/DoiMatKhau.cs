@@ -51,7 +51,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (nhapLaiMatKhauMoi.Equals(""))
             {
-                errorProviderDoiMatKhau.SetError(txtNhapLaiMatKhauMoi, "Vui lòng nhập mật khẩu mới");
+                errorProviderDoiMatKhau.SetError(txtNhapLaiMatKhauMoi, "Vui lòng nhập lại mật khẩu mới");
                 checkValid = false;
             }
             else

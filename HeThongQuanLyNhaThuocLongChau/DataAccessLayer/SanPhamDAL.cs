@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
 {
@@ -33,7 +34,7 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
             }
         }
 
-        public bool insert(string maSP, string tenSP, string donViTinh, string hanDung, double donGiaBan, string maLoai)
+        public bool insert(string maSP, string tenSP, string donViTinh, string hanDung, double donGiaBan, string maLoai, string maNCC)
         {
             using (SqlConnection cnn = new SqlConnection(constr))
             {
@@ -47,6 +48,7 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                     cmd.Parameters.AddWithValue("@HanDung", hanDung);
                     cmd.Parameters.AddWithValue("@DonGiaBan", donGiaBan);
                     cmd.Parameters.AddWithValue("@MaLoai", maLoai);
+                    cmd.Parameters.AddWithValue("@MaNCC", maNCC);
                     cnn.Open();
                     int i = cmd.ExecuteNonQuery();
                     cnn.Close();
@@ -56,7 +58,7 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
             }
         }
 
-        public bool update(string maSP, string tenSP, string donViTinh, string hanDung, double donGiaBan, string maLoai)
+        public bool update(string maSP, string tenSP, string donViTinh, string hanDung, double donGiaBan, string maLoai, string maNCC)
         {
             using (SqlConnection cnn = new SqlConnection(constr))
             {
@@ -70,6 +72,7 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                     cmd.Parameters.AddWithValue("@HanDung", hanDung);
                     cmd.Parameters.AddWithValue("@DonGiaBan", donGiaBan);
                     cmd.Parameters.AddWithValue("@MaLoai", maLoai);
+                    cmd.Parameters.AddWithValue("@MaNCC", maNCC);
                     cnn.Open();
                     int i = cmd.ExecuteNonQuery();
                     cnn.Close();
@@ -97,18 +100,14 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
             }
         }
 
-        public DataTable search(string maSP, string tenSP, string donViTinh, string hanDung, string soLuongTon, string donGiaBan, string tenLoai)
+        public DataTable search(string maSP, string tenSP, string donViTinh, string hanDung, string donGiaBan, string tenLoai, string tenNCC)
         {
             using (SqlConnection cnn = new SqlConnection(constr))
             {
-                string sqlSearchPrice = "", sqlSearchQuality = "";
-                if (donGiaBan != "")
+                string sqlSearchPrice = "";
+                if (donGiaBan != "" && double.TryParse(donGiaBan, out _))
                 {
-                    sqlSearchPrice = "AND [Giá] >= " + double.Parse(donGiaBan) + " ";
-                }
-                if (soLuongTon != "")
-                {
-                    sqlSearchQuality = "AND [Số lượng tồn] >= " + int.Parse(soLuongTon) + " ";
+                    sqlSearchPrice = "AND [Giá bán] >= " + double.Parse(donGiaBan) + " ";
                 }
                 String sql = "SELECT * FROM vv_SanPham " +
                     "WHERE [Mã SP] LIKE N'%" + maSP + "%' " +
@@ -116,9 +115,8 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                         "AND [Loại] LIKE N'%" + tenLoai + "%' " +
                         "AND [Đơn vị tính] LIKE N'%" + donViTinh + "%' " +
                         "AND [Hạn dùng] LIKE N'%" + hanDung + "%' " +
-                        sqlSearchQuality +
+                        "AND [Tên NCC] LIKE N'%" + tenNCC + "%' " +
                         sqlSearchPrice;
-                
                 using (SqlCommand cmd = new SqlCommand(sql, cnn))
                 {
                     cmd.CommandType = CommandType.Text;

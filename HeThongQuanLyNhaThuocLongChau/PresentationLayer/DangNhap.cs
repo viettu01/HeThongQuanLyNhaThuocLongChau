@@ -34,7 +34,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
                 errorProviderLogin.SetError(txtTenTaiKhoan, "");
 
                 if (taiKhoanBLL.login(tenTK, matKhau) == 0)
-                    errorProviderLogin.SetError(txtTenTaiKhoan, "Sai tên đăng nhập");
+                    errorProviderLogin.SetError(txtTenTaiKhoan, "Sai tên tên tài khoản");
                 else
                     errorProviderLogin.SetError(txtTenTaiKhoan, "");
             }

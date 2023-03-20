@@ -17,14 +17,14 @@ namespace HeThongQuanLyNhaThuocLongChau.Model
             return sanPhamDAL.findAll();
         }
 
-        public bool insert(string maSP, string tenSP, string donViTinh, string hanDung, double donGiaBan, string maLoai)
+        public bool insert(string maSP, string tenSP, string donViTinh, string hanDung, double donGiaBan, string maLoai, string maNCC)
         {
-            return sanPhamDAL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai);
+            return sanPhamDAL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
         }
 
-        public bool update(string maSP, string tenSP, string donViTinh, string hanDung, double donGiaBan, string maLoai)
+        public bool update(string maSP, string tenSP, string donViTinh, string hanDung, double donGiaBan, string maLoai, string maNCC)
         {
-            return sanPhamDAL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai);
+            return sanPhamDAL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
         }
 
         public bool deleteById(string maSP)
@@ -32,9 +32,9 @@ namespace HeThongQuanLyNhaThuocLongChau.Model
             return sanPhamDAL.deleteById(maSP);
         }
 
-        public DataTable search(string maSP, string tenSP, string donViTinh, string hanDung, string soLuongTon, string donGiaBan, string tenLoai)
+        public DataTable search(string maSP, string tenSP, string donViTinh, string hanDung, string donGiaBan, string tenLoai, string tenNCC)
         {
-            return sanPhamDAL.search(maSP, tenSP, donViTinh, hanDung, soLuongTon, donGiaBan, tenLoai);
+            return sanPhamDAL.search(maSP, tenSP, donViTinh, hanDung, donGiaBan, tenLoai, tenNCC);
         }
 
         public DataTable searchById(String maSP)
