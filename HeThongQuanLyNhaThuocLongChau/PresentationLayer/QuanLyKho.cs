@@ -55,6 +55,66 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             cmb.ValueMember = "Mã loại";
         }
 
+        private bool checkValidSanPham(object sender, EventArgs e)
+        {
+            bool check = true;
+
+            if (txtTenSP.Text == "")
+            {
+                errorProviderQLKho.SetError(txtTenSP, "Tên sản phẩm không được bỏ trống");
+                check = false;
+            }
+            else
+                errorProviderQLKho.SetError(txtTenSP, "");
+
+            if (cmbNCC.Text == "")
+            {
+                errorProviderQLKho.SetError(cmbNCC, "Nhà cung cấp không được bỏ trống");
+                check = false;
+            }
+            else
+                errorProviderQLKho.SetError(cmbNCC, "");
+
+            if (cmbLoaiSP.Text == "")
+            {
+                errorProviderQLKho.SetError(cmbLoaiSP, "Loại sản phẩm không được bỏ trống");
+                check = false;
+            }
+            else
+                errorProviderQLKho.SetError(cmbLoaiSP, "");
+
+            if (txtDVT.Text == "")
+            {
+                errorProviderQLKho.SetError(txtDVT, "Đơn vị tính không được bỏ trống");
+                check = false;
+            }
+            else
+                errorProviderQLKho.SetError(txtDVT, "");
+
+            if (txtHanDung.Text == "")
+            {
+                errorProviderQLKho.SetError(txtHanDung, "Hạn dùng không được bỏ trống");
+                check = false;
+            }
+            else
+                errorProviderQLKho.SetError(txtHanDung, "");
+
+            if (txtGiaBan.Text == "")
+            {
+                errorProviderQLKho.SetError(txtGiaBan, "Giá bán không được bỏ trống");
+                check = false;
+            }
+            else if (!double.TryParse(txtGiaBan.Text, out _) || double.Parse(txtGiaBan.Text) <= 0)
+            {
+                errorProviderQLKho.SetError(txtGiaBan, "Giá bán phải là số lớn hơn 0");
+                check = false;
+            }
+            else
+                errorProviderQLKho.SetError(txtGiaBan, "");
+
+            return check;
+        }
+
         //Quản lý sản phẩm
         private void QuanLyKho_Load(object sender, EventArgs e)
         {
@@ -83,72 +143,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
         private void btnThemSP_Click(object sender, EventArgs e)
         {
-            bool check = true;
-
-            if (txtTenSP.Text == "")
-            {
-                errorProviderQLKho.SetError(txtTenSP, "Tên sản phẩm không được bỏ trống");
-                check = false;
-            }
-            else
-                errorProviderQLKho.SetError(txtTenSP, "");
-
-            if (cmbNCC.Text == "")
-            {
-                errorProviderQLKho.SetError(cmbNCC, "Nhà cung cấp không được bỏ trống");
-                check = false;
-            }
-            else if (nhaCungCapBLL.checkExistsByName(cmbNCC.Text))
-            {
-                errorProviderQLKho.SetError(cmbNCC, "Nhà cung cấp không tồn tại");
-                check = false;
-            }
-            else
-                errorProviderQLKho.SetError(cmbNCC, "");
-
-            if (cmbLoaiSP.Text == "")
-            {
-                errorProviderQLKho.SetError(cmbLoaiSP, "Loại sản phẩm không được bỏ trống");
-                check = false;
-            }
-            else if (loaiSanPhamBLL.checkExistsByName(cmbLoaiSP.Text))
-            {
-                errorProviderQLKho.SetError(cmbLoaiSP, "Loại sản phẩm không tồn tại");
-                check = false;
-            }
-            else
-                errorProviderQLKho.SetError(cmbLoaiSP, "");
-
-            if (txtDVT.Text == "")
-            {
-                errorProviderQLKho.SetError(txtDVT, "Đơn vị tính không được bỏ trống");
-                check = false;
-            }
-            else
-                errorProviderQLKho.SetError(txtDVT, "");
-
-            if (txtHanDung.Text == "")
-            {
-                errorProviderQLKho.SetError(txtHanDung, "Hạn dùng không được bỏ trống");
-                check = false;
-            }
-            else
-                errorProviderQLKho.SetError(txtHanDung, "");
-
-            if (txtGiaBan.Text == "")
-            {
-                errorProviderQLKho.SetError(txtGiaBan, "Giá bán không được bỏ trống");
-                check = false;
-            }
-            else if (!double.TryParse(txtGiaBan.Text, out _) || double.Parse(txtGiaBan.Text) <= 0)
-            {
-                errorProviderQLKho.SetError(txtGiaBan, "Giá bán phải là số lớn hơn 0");
-                check = false;
-            }
-            else
-                errorProviderQLKho.SetError(txtGiaBan, "");
-
-            if (check)
+            if (checkValidSanPham(sender, e))
             {
                 if (sanPhamBLL.insert("SP" + convertDateToSecond.convertDateToSecond(), txtTenSP.Text, txtDVT.Text, txtHanDung.Text, double.Parse(txtGiaBan.Text), cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
                 {
@@ -166,72 +161,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
         private void btnSuaSP_Click(object sender, EventArgs e)
         {
-            bool check = true;
-
-            if (txtTenSP.Text == "")
-            {
-                errorProviderQLKho.SetError(txtTenSP, "Tên sản phẩm không được bỏ trống");
-                check = false;
-            }
-            else
-                errorProviderQLKho.SetError(txtTenSP, "");
-
-            if (cmbNCC.Text == "")
-            {
-                errorProviderQLKho.SetError(cmbNCC, "Nhà cung cấp không được bỏ trống");
-                check = false;
-            }
-            else if (nhaCungCapBLL.checkExistsByName(cmbNCC.Text))
-            {
-                errorProviderQLKho.SetError(cmbNCC, "Nhà cung cấp không tồn tại");
-                check = false;
-            }
-            else
-                errorProviderQLKho.SetError(cmbNCC, "");
-
-            if (cmbLoaiSP.Text == "")
-            {
-                errorProviderQLKho.SetError(cmbLoaiSP, "Loại sản phẩm không được bỏ trống");
-                check = false;
-            }
-            else if (loaiSanPhamBLL.checkExistsByName(cmbLoaiSP.Text))
-            {
-                errorProviderQLKho.SetError(cmbLoaiSP, "Loại sản phẩm không tồn tại");
-                check = false;
-            }
-            else
-                errorProviderQLKho.SetError(cmbLoaiSP, "");
-
-            if (txtDVT.Text == "")
-            {
-                errorProviderQLKho.SetError(txtDVT, "Đơn vị tính không được bỏ trống");
-                check = false;
-            }
-            else
-                errorProviderQLKho.SetError(txtDVT, "");
-
-            if (txtHanDung.Text == "")
-            {
-                errorProviderQLKho.SetError(txtHanDung, "Hạn dùng không được bỏ trống");
-                check = false;
-            }
-            else
-                errorProviderQLKho.SetError(txtHanDung, "");
-
-            if (txtGiaBan.Text == "")
-            {
-                errorProviderQLKho.SetError(txtGiaBan, "Giá bán không được bỏ trống");
-                check = false;
-            }
-            else if (!double.TryParse(txtGiaBan.Text, out _) || double.Parse(txtGiaBan.Text) <= 0)
-            {
-                errorProviderQLKho.SetError(txtGiaBan, "Giá bán phải là số lớn hơn 0");
-                check = false;
-            }
-            else
-                errorProviderQLKho.SetError(txtGiaBan, "");
-
-            if (check)
+            if (checkValidSanPham(sender, e))
             {
                 if (sanPhamBLL.update(maSP, txtTenSP.Text, txtDVT.Text, txtHanDung.Text, double.Parse(txtGiaBan.Text), cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
                 {
@@ -268,17 +198,17 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
                 MessageBox.Show("Bạn cần nhập thông tin muốn tìm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 check = false;
             }
-             
+
             if (txtGiaBan.Text != "")
             {
-                if(!double.TryParse(txtGiaBan.Text, out _) || double.Parse(txtGiaBan.Text) <= 0)
+                if (!double.TryParse(txtGiaBan.Text, out _) || double.Parse(txtGiaBan.Text) <= 0)
                 {
                     MessageBox.Show("Giá bán phải là số lớn hơn 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     check = false;
                 }
             }
 
-            if(check)
+            if (check)
             {
                 DataTable dt = sanPhamBLL.search("", txtTenSP.Text, txtDVT.Text, txtHanDung.Text, txtGiaBan.Text, cmbLoaiSP.Text, cmbNCC.Text);
                 if (dt.Rows.Count == 0)

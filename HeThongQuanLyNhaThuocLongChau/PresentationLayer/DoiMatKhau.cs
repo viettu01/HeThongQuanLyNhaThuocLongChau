@@ -22,66 +22,79 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             InitializeComponent();
         }
 
-        private void btnDoiMatKhau_Click(object sender, EventArgs e)
+        private bool checkValidDoiMatKhau(object sender, EventArgs e)
         {
-            bool checkValid = true;
-            string matKhauCu = txtMatKhauCu.Text;
-            string matKhauMoi = txtMatKhauMoi.Text;
-            string nhapLaiMatKhauMoi = txtNhapLaiMatKhauMoi.Text;
+            bool check = true;
 
-            if (matKhauCu.Equals(""))
+            if (txtMatKhauCu.Text.Equals(""))
             {
                 errorProviderDoiMatKhau.SetError(txtMatKhauCu, "Vui lòng nhập mật khẩu cũ");
-                checkValid = false;
+                check = false;
             }
             else
             {
                 errorProviderDoiMatKhau.SetError(txtMatKhauCu, "");
             }
 
-            if (matKhauMoi.Equals(""))
+            if (txtMatKhauMoi.Text.Equals(""))
             {
                 errorProviderDoiMatKhau.SetError(txtMatKhauMoi, "Vui lòng nhập mật khẩu mới");
-                checkValid = false;
+                check = false;
+            }
+            else if (CheckingPasswordStrength(txtNhapLaiMatKhauMoi.Text) < 4)
+            {
+                MessageBox.Show("Mật khẩu cần có 8 ký tự trở lên, bao gồm chữ số, chữ thường, chữ hoa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                check = false;
             }
             else
             {
                 errorProviderDoiMatKhau.SetError(txtMatKhauMoi, "");
             }
 
-            if (nhapLaiMatKhauMoi.Equals(""))
+            if (txtNhapLaiMatKhauMoi.Text.Equals(""))
             {
                 errorProviderDoiMatKhau.SetError(txtNhapLaiMatKhauMoi, "Vui lòng nhập lại mật khẩu mới");
-                checkValid = false;
+                check = false;
+            }
+            else if (txtNhapLaiMatKhauMoi.Text != txtMatKhauMoi.Text)
+            {
+                errorProviderDoiMatKhau.SetError(txtNhapLaiMatKhauMoi, "Mật khẩu nhập lại không đúng");
+                check = false;
             }
             else
             {
                 errorProviderDoiMatKhau.SetError(txtNhapLaiMatKhauMoi, "");
             }
 
-            if(checkValid)
+            return check;
+        }
+
+        private void btnDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            string matKhauCu = txtMatKhauCu.Text;
+            string matKhauMoi = txtMatKhauMoi.Text;
+            string nhapLaiMatKhauMoi = txtNhapLaiMatKhauMoi.Text;
+
+            if (checkValidDoiMatKhau(sender, e))
             {
-                if (CheckingPasswordStrength(matKhauMoi) < 4)
-                {
-                    MessageBox.Show("Mật khẩu cần có 8 ký tự trở lên, bao gồm chữ số, chữ thường, chữ hoa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                if (!taiKhoanBLL.checkPassword(Program.maTK, matKhauCu))
+                    MessageBox.Show("Mật khẩu cũ không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (nhapLaiMatKhauMoi != matKhauMoi)
+                    MessageBox.Show("Mật khẩu nhập lại không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                 {
-                    if (!taiKhoanBLL.checkPassword(Program.maTK, matKhauCu))
-                        MessageBox.Show("Mật khẩu cũ không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else if (nhapLaiMatKhauMoi != matKhauMoi)
-                        MessageBox.Show("Mật khẩu nhập lại không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (taiKhoanBLL.changePassword(Program.maTK, nhapLaiMatKhauMoi))
+                    {
+                        MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        new DangNhap().Show();
+                        this.Hide();
+                    }
                     else
                     {
-                        if (taiKhoanBLL.changePassword(Program.maTK, nhapLaiMatKhauMoi))
-                        {
-                            MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            new DangNhap().Show();
-                            this.Hide();
-                        }
+                        MessageBox.Show("Đổi mật khẩu không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                
+
             }
         }
 
