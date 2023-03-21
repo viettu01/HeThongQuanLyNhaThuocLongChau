@@ -14,7 +14,7 @@ namespace HeThongQuanLyNhaThuocLongChau
         public static string maQuyenBanHang = "Q02";
         public static string maQuyenKho = "Q03";
 
-        public static string tenNV, maTK, maQuyen, tenTK;
+        public static string maNV, tenNV, maTK, maQuyen, tenTK;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

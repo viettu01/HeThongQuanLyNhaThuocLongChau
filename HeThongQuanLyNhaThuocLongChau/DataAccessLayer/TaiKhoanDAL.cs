@@ -80,6 +80,7 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                                         Program.maQuyen = dr["Mã Quyền"].ToString();
                                         Program.tenTK = dr["Tên tài khoản"].ToString();
                                         Program.tenNV = dr["Tên NV"].ToString();
+                                        Program.maNV = dr["Mã NV"].ToString();
                                         return 1; //Đúng mật khẩu và tên đăng nhập
                                     }
                                     else
