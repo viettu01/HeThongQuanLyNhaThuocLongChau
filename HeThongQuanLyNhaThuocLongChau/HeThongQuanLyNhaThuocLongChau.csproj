@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\BanHangBLL.cs" />
     <Compile Include="BusinessLogicLayer\CTPhieuThuBLL.cs" />
     <Compile Include="BusinessLogicLayer\KhachHangBLL.cs" />
     <Compile Include="BusinessLogicLayer\LoaiSanPhamBLL.cs" />
@@ -70,7 +71,10 @@
     <Compile Include="BusinessLogicLayer\QuyenBLL.cs" />
     <Compile Include="BusinessLogicLayer\SanPhamBLL.cs" />
     <Compile Include="BusinessLogicLayer\TaiKhoanBLL.cs" />
+    <Compile Include="Constant\Const.cs" />
+    <Compile Include="Constant\Messages.cs" />
     <Compile Include="ConvertDateToSecond.cs" />
+    <Compile Include="DataAccessLayer\BanHangDAL.cs" />
     <Compile Include="DataAccessLayer\KhachhangDAL.cs" />
     <Compile Include="DataAccessLayer\LoaiSanPhamDAL.cs" />
     <Compile Include="DataAccessLayer\NhaCungCapDAL.cs" />
@@ -78,6 +82,22 @@
     <Compile Include="DataAccessLayer\QuyenDAL.cs" />
     <Compile Include="DataAccessLayer\SanPhamDAL.cs" />
     <Compile Include="DataAccessLayer\TaiKhoanDAL.cs" />
+    <Compile Include="DTO\CrystalReportPhieuThu.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportPhieuThu.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DTO\DataSetPhieuThu.cs">
+      <DependentUpon>DataSetPhieuThu.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\DataSetPhieuThu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPhieuThu.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\KhachHangDTO.cs" />
+    <Compile Include="DTO\SanPhamDTO.cs" />
     <Compile Include="PresentationLayer\BanHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +172,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DTO\CrystalReportPhieuThu.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportPhieuThu.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\BanHang.resx">
       <DependentUpon>BanHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +218,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DTO\DataSetPhieuThu.xsc">
+      <DependentUpon>DataSetPhieuThu.xsd</DependentUpon>
+    </None>
+    <None Include="DTO\DataSetPhieuThu.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPhieuThu.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DTO\DataSetPhieuThu.xss">
+      <DependentUpon>DataSetPhieuThu.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -208,7 +243,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Database\db.sql" />
   </ItemGroup>

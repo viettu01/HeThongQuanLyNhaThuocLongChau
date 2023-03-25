@@ -1,4 +1,6 @@
-﻿using HeThongQuanLyNhaThuocLongChau.BusinessLogicLayer;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using HeThongQuanLyNhaThuocLongChau.BusinessLogicLayer;
+using HeThongQuanLyNhaThuocLongChau.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,30 +16,18 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
     public partial class BanHang : Form
     {
         BanHangBLL banHangDLL = new BanHangBLL();
-        KhachHangBLL khachHangBLL = new KhachHangBLL();
-        List<SanPham> listSanPhamThem;
-        SanPham sanPhanChon;
 
         public BanHang()
         {
             InitializeComponent();
         }
 
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void BanHang_Load(object sender, EventArgs e)
         {
             Load_cbSDTKH();
             Load_cbMaSP();
-            listSanPhamThem = new List<SanPham>();
+            cmbHinhThucThanhToan.SelectedIndex = 0;
+            //listSanPhamThem = new List<SanPham>();
         }
 
         private void Load_cbMaSP()
@@ -78,62 +68,60 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
         private void cbSDTKH_TextChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(cbSDTKH.Text))
+            if (banHangDLL.isNotPhone(cbSDTKH.Text))
             {
-                DataTable khacHangs = banHangDLL.findKhachHangByPhone(cbSDTKH.Text);
-                DataView v = new DataView(khacHangs);
-                if (v.Count > 0)
-                {
-                    tbTenKH.Text = (string)v[0]["Tên KH"];
-                    tbTenKH.Enabled = false;
-                }
-                else
-                {
-                    tbTenKH.Text = "";
-                    tbTenKH.Enabled = true;
-                }
+                errorSDT.SetError(cbSDTKH, Messages.PHONE_ERROR);
+                tbTenKH.Enabled = false;
+                return;
             }
-            else tbTenKH.Enabled = false;
+
+            errorSDT.Clear();
+            String nameOfUser = banHangDLL.findNameOfUserByPhone(cbSDTKH.Text);
+            tbTenKH.Text = nameOfUser;
+            tbTenKH.Enabled = String.IsNullOrEmpty(nameOfUser);
         }
 
         private void cbSDTKH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable khacHangs = banHangDLL.findKhachHangByPhone(cbSDTKH.Text);
-            DataView v = new DataView(khacHangs);
-            if (v.Count > 0)
+            errorSDT.Clear();
+            String nameOfUser = banHangDLL.findNameOfUserByPhone(cbSDTKH.Text);
+            tbTenKH.Text = nameOfUser;
+            tbTenKH.Enabled = String.IsNullOrEmpty(nameOfUser);
+        }
+
+        private void cbMaSP_TextChanged(object sender, EventArgs e)
+        {
+            errorMaSP.Clear();
+            SanPhamDTO data = banHangDLL.findProductByCode(cbMaSP.Text);
+            if (data == null)
             {
-                tbTenKH.Text = (string)v[0]["Tên KH"];
-                tbTenKH.Enabled = false;
+                txtDVT.Clear();
+                txtDG.Clear();
+                return;
             }
-            else
-            {
-                tbTenKH.Text = "";
-                tbTenKH.Enabled = true;
-            }
+
+            txtDVT.Text = data.sDonViTinh;
+            txtDG.Text = data.fDonGiaBan.ToString();
         }
 
         private void cbMaSP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable khacHangs = banHangDLL.findSanPhamByMaSP(cbMaSP.Text);
-            DataView v = new DataView(khacHangs);
-            if (v.Count > 0)
+            errorMaSP.Clear();
+            btnSua.Enabled = false;
+            SanPhamDTO data = banHangDLL.findProductByCode(cbMaSP.Text);
+            if (data == null)
             {
-                txtDVT.Text = (string)v[0]["sDonViTinh"];
-                txtDG.Text = v[0]["fDonGiaBan"].ToString();
+                txtDVT.Clear();
+                txtDG.Clear();
+                return;
+            }
 
-                sanPhanChon = new SanPham();
-                sanPhanChon.maSP = (string)v[0]["PK_sMaSP"];
-                sanPhanChon.tenSP = (string)v[0]["sTenSP"];
-                sanPhanChon.donGia = float.Parse(v[0]["fDonGiaBan"].ToString());
-            }
-            else
-            {
-                txtDVT.Text = "";
-                txtDG.Text = "";
-            }
+            txtDVT.Text = data.sDonViTinh;
+            txtDG.Text = data.fDonGiaBan.ToString();
         }
 
-        private void btnLamMoi_Click(object sender, EventArgs e)
+
+        private void btnSua_Click(object sender, EventArgs e)
         {
             cbSDTKH.Text = "";
             tbTenKH.Text = "";
@@ -144,117 +132,98 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             nudSoLuong.Value = 1;
         }
 
-        private class SanPham
-        {
-            public String maSP { set; get; }
-            public String tenSP { set; get; }
-            public int soLuong { set; get; }
-            public float donGia { set; get; }
-            public float thanhTien { set; get; }
-        }
-
         private void btnThemSP_Click(object sender, EventArgs e)
         {
-            if (sanPhanChon != null)
+            btnSua.Enabled = false;
+
+            SanPhamDTO sanPham = banHangDLL.findProductByCode(cbMaSP.Text);
+            if (sanPham == null)
             {
-                SanPham sanPhamThem = new SanPham();
-                sanPhamThem.maSP = sanPhanChon.maSP;
-                sanPhamThem.tenSP = sanPhanChon.tenSP;
-                sanPhamThem.donGia = sanPhanChon.donGia;
-                sanPhamThem.soLuong = (int)nudSoLuong.Value;
-                sanPhamThem.thanhTien = sanPhamThem.soLuong * sanPhamThem.donGia;
+                errorMaSP.SetError(cbMaSP, Messages.PRODUCT_CODE_ERROR);
+                return;
+            }
 
-                listSanPhamThem.Add(sanPhamThem);
+            sanPham.iSL = (int)nudSoLuong.Value;
+            sanPham.fThanhTien = sanPham.iSL * sanPham.fDonGiaBan;
 
-                BindingSource binding = new BindingSource();
-                binding.DataSource = listSanPhamThem;
+            bool isNewRow = true;
+            float totalMoney = 0;
 
-                dtgvDSSP.DataSource = binding;
+            foreach (DataGridViewRow row in dtgvDSSP.Rows)
+            {
+                if (row.Cells["maSP"].Value.ToString() == sanPham.sMaSP)
+                {
+                    isNewRow = false;
 
-                cbMaSP.Text = "";
-                txtDVT.Text = "";
-                txtDG.Text = "";
-                nudSoLuong.Value = 1;
-
-                float tongTien = 0;
-                foreach(SanPham sp in listSanPhamThem){
-                    tongTien += sp.thanhTien;
+                    int quatity = (int)row.Cells["soLuong"].Value;
+                    quatity += sanPham.iSL;
+                    row.Cells["soLuong"].Value = quatity;
+                    row.Cells["thanhTien"].Value = quatity * sanPham.fDonGiaBan;
                 }
 
-                lbTongTien.Text = tongTien.ToString();
-
-                sanPhanChon = null;
-                btnThanhToan.Enabled = true;
+                totalMoney += (float)row.Cells["thanhTien"].Value;
             }
+
+            if (isNewRow)
+            {
+                dtgvDSSP.Rows.Add(sanPham.sMaSP, sanPham.sTenSP, sanPham.sDonViTinh, sanPham.iSL, sanPham.fDonGiaBan, sanPham.fThanhTien);
+                totalMoney += sanPham.fThanhTien;
+            }
+
+            cbMaSP.Text = "";
+            txtDVT.Clear();
+            txtDG.Clear();
+            nudSoLuong.Value = 1;
+            lbTongTien.Text = totalMoney.ToString();
+            btnThanhToan.Enabled = true;
         }
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            if (listSanPhamThem.Count != 0)
+            btnSua.Enabled = false;
+            if (banHangDLL.isNotPhone(cbSDTKH.Text))
             {
-                if (String.IsNullOrEmpty(cbSDTKH.Text))
-                {
-                    cbSDTKH.Focus();
-                    return;
-                }
+                errorSDT.SetError(cbSDTKH, Messages.PHONE_ERROR);
+                return;
+            }
 
-                if (String.IsNullOrEmpty(cmbHinhThucThanhToan.Text)){
-                    cmbHinhThucThanhToan.Focus();
-                    return;
-                }
+            if (String.IsNullOrEmpty(tbTenKH.Text))
+            {
+                errorTenKH.SetError(tbTenKH, Messages.NAME_OF_USER_ERROR);
+                return;
+            }
 
-                DataTable khacHangs = banHangDLL.findKhachHangByPhone(tbTenKH.Text);
-                DataView vKachHangs = new DataView(khacHangs);
-                int idKH;
-                bool insertKhachHangSuccess = false;
-                if (vKachHangs.Count > 0)
-                {
-                    idKH = int.Parse(vKachHangs[0]["Mã KH"].ToString());
-                    insertKhachHangSuccess = true;
-                }
-                else
-                {
-                    DataTable khachHangCuoi = banHangDLL.getIdMaKhachHangCuoi();
-                    DataView vKachHangCuoi = new DataView(khachHangCuoi);
-                    if (vKachHangCuoi.Count > 0)
-                        idKH = int.Parse(vKachHangCuoi[0]["PK_sMaKH"].ToString());
-                    else
-                        idKH = 0;
+            KhachHangDTO khachHang = new KhachHangDTO();
+            khachHang.sTenKH = tbTenKH.Text;
+            khachHang.sSDT = cbSDTKH.Text;
 
-                    idKH++;
-                    insertKhachHangSuccess = khachHangBLL.insert(idKH.ToString(), tbTenKH.Text, cbSDTKH.Text);
-                }
+            float totalMoney = float.Parse(lbTongTien.Text);
+            String payments = cmbHinhThucThanhToan.Text;
 
-                if (!insertKhachHangSuccess)
-                {
-                    cbSDTKH.Focus();
-                    return;
-                }
+            List<SanPhamDTO> sanPhams = new List<SanPhamDTO>();
 
-                DataTable phieuThuCuoi = banHangDLL.getIdMaPhieuThuCuoi();
-                DataView vPhieuThuCuoi = new DataView(phieuThuCuoi);
-                int idPT;
-                if (vPhieuThuCuoi.Count != 0)
-                    idPT = int.Parse(vPhieuThuCuoi[0]["PK_sMaPT"].ToString());
-                else
-                    idPT = 0;
+            foreach (DataGridViewRow row in dtgvDSSP.Rows)
+            {
+                SanPhamDTO sanPham = new SanPhamDTO();
+                sanPham.sMaSP = row.Cells["maSP"].Value.ToString();
+                sanPham.sTenSP = row.Cells["tenSP"].Value.ToString();
+                sanPham.sDonViTinh = row.Cells["donViTinh"].Value.ToString();
+                sanPham.iSL = (int)row.Cells["soLuong"].Value;
+                sanPham.fDonGiaBan = (float)row.Cells["donGia"].Value;
+                sanPham.fThanhTien = (float)row.Cells["thanhTien"].Value;
 
-                idPT++;
+                sanPhams.Add(sanPham);
+            }
 
-                bool insertPhieuThuSuccess = banHangDLL.insertPhieuThu(idPT.ToString(), "20220202", 
-                    Program.maNV, idKH.ToString(), cmbHinhThucThanhToan.Text);
+            String message;
+            String receiptCode;
 
-                if (!insertPhieuThuSuccess)
-                {
-                    cbMaSP.Focus();
-                    return;
-                }
+            bool result = banHangDLL.saveReceiptInfo(khachHang, sanPhams, payments, out message, out receiptCode);
 
-                foreach(SanPham sp in listSanPhamThem)
-                {
-                    banHangDLL.insertCTPhieuThu(idPT.ToString(), sp.maSP, sp.soLuong);
-                }
+            MessageBox.Show(message, "Message", MessageBoxButtons.OK);
 
+            if (result)
+            {
                 cbSDTKH.Text = "";
                 tbTenKH.Text = "";
                 tbTenKH.Enabled = false;
@@ -263,12 +232,100 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
                 txtDG.Text = "";
                 nudSoLuong.Value = 1;
                 lbTongTien.Text = "0";
-                listSanPhamThem.Clear();
-                BindingSource binding = new BindingSource();
-                binding.DataSource = listSanPhamThem;
+                cmbHinhThucThanhToan.Text = "";
+                dtgvDSSP.Rows.Clear();
+                btnThanhToan.Enabled = false;
 
-                dtgvDSSP.DataSource = binding;
+                showCrystalReport(khachHang, receiptCode, sanPhams, payments, totalMoney);
             }
+        }
+
+        private void showCrystalReport(KhachHangDTO khachHang, String receiptCode, List<SanPhamDTO> sanPhams, String payments, float totalMoney)
+        {
+            DataTable data = convertListSanPhamDtoToTable(sanPhams);
+            ReportClass phieuThu = new CrystalReportPhieuThu();
+            phieuThu.SetDataSource(data);
+            crvPhieuThu.ReportSource = phieuThu;
+            SetTextCrystal(phieuThu, "Section1", "rptMaPhieuThu", receiptCode);
+            SetTextCrystal(phieuThu, "Section1", "rptDiaChi", "Sô 123 Thanh Xuân, Hà Nội");
+            SetTextCrystal(phieuThu, "Section1", "rptDienThoaiCuaHang", "0123456789");
+            SetTextCrystal(phieuThu, "Section1", "rptNguoiLap", Program.tenNV);
+            SetTextCrystal(phieuThu, "Section1", "rptKhachHang", khachHang.sTenKH);
+            SetTextCrystal(phieuThu, "Section1", "rptSoDienThoaiKhachHang", khachHang.sSDT);
+            SetTextCrystal(phieuThu, "Section1", "rptHinhThucThanhToan", payments);
+            SetTextCrystal(phieuThu, "Section3", "rptTongTien", totalMoney.ToString());
+        }
+
+        private void SetTextCrystal(ReportClass reportClass, string section, string Name, string value)
+        {
+            TextObject textObject = (TextObject)reportClass.ReportDefinition.Sections[section].ReportObjects[Name];
+            textObject.Text = value;
+        }
+
+        private DataTable convertListSanPhamDtoToTable(List<SanPhamDTO> sanPhams)
+        {
+            DataTable data = new DataTable("dtPhieuThu");
+            data.Columns.Add("maSP");
+            data.Columns.Add("tenSP");
+            data.Columns.Add("donViTinh");
+            data.Columns.Add("soLuong");
+            data.Columns.Add("DonGia");
+            data.Columns.Add("ThanhTien");
+
+            foreach (SanPhamDTO sanPham in sanPhams)
+            {
+                DataRow row = data.NewRow();
+                row[0] = sanPham.sMaSP;
+                row[1] = sanPham.sTenSP;
+                row[2] = sanPham.sDonViTinh;
+                row[3] = sanPham.iSL;
+                row[4] = sanPham.fDonGiaBan;
+                row[5] = sanPham.fThanhTien;
+
+                data.Rows.Add(row);
+            }
+
+            return data;
+        }
+
+        private void dtgvDSSP_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0
+                && dtgvDSSP.Columns[e.ColumnIndex].Name == "Delete"
+                && MessageBox.Show("Delete", "Message", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                DataGridViewRow row = dtgvDSSP.Rows[e.RowIndex];
+                float tongTien = float.Parse(lbTongTien.Text) - (float)row.Cells["thanhTien"].Value;
+                lbTongTien.Text = tongTien.ToString();
+
+                dtgvDSSP.Rows.RemoveAt(dtgvDSSP.SelectedRows[0].Index);
+
+                if (dtgvDSSP.Rows.Count == 0)
+                    btnThanhToan.Enabled = false;
+            }
+
+            if (e.RowIndex >= 0
+                && dtgvDSSP.Columns[e.ColumnIndex].Name != "Delete")
+            {
+                btnSua.Enabled = true;
+                DataGridViewRow rowEdit = dtgvDSSP.Rows[e.RowIndex];
+                cbMaSP.Text = (string)rowEdit.Cells["maSP"].Value;
+            }
+        }
+
+        private void nudSoLuong_ValueChanged(object sender, EventArgs e)
+        {
+            errorSoLuong.Clear();
+        }
+
+        private void cmbHinhThucThanhToan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            errorHinhThucTT.Clear();
+        }
+
+        private void tbTenKH_TextChanged(object sender, EventArgs e)
+        {
+            errorTenKH.Clear();
         }
     }
 }

@@ -29,12 +29,13 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BanHang));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.cmbHinhThucThanhToan = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnLamMoi = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
             this.tbTenKH = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbSDTKH = new System.Windows.Forms.ComboBox();
@@ -54,17 +55,28 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.nudSoLuong = new System.Windows.Forms.NumericUpDown();
             this.label22 = new System.Windows.Forms.Label();
             this.crvPhieuThu = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.errorSDT = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorTenKH = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorMaSP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorHinhThucTT = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorSoLuong = new System.Windows.Forms.ErrorProvider(this.components);
             this.maSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.donViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.donGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDSSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoLuong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSDT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTenKH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorMaSP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorHinhThucTT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSoLuong)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -77,7 +89,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(786, 350);
+            this.groupBox1.Size = new System.Drawing.Size(983, 350);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sản phẩm";
@@ -86,7 +98,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             this.panel7.Controls.Add(this.cmbHinhThucThanhToan);
             this.panel7.Controls.Add(this.label2);
-            this.panel7.Controls.Add(this.btnLamMoi);
+            this.panel7.Controls.Add(this.btnSua);
             this.panel7.Controls.Add(this.tbTenKH);
             this.panel7.Controls.Add(this.label4);
             this.panel7.Controls.Add(this.cbSDTKH);
@@ -106,13 +118,12 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.panel7.Location = new System.Drawing.Point(2, 18);
             this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(782, 330);
+            this.panel7.Size = new System.Drawing.Size(979, 330);
             this.panel7.TabIndex = 16;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // cmbHinhThucThanhToan
             // 
-            this.cmbHinhThucThanhToan.DisplayMember = "Tiền mặt";
+            this.cmbHinhThucThanhToan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHinhThucThanhToan.FormattingEnabled = true;
             this.cmbHinhThucThanhToan.Items.AddRange(new object[] {
             "Qua tài khoản",
@@ -122,7 +133,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.cmbHinhThucThanhToan.Name = "cmbHinhThucThanhToan";
             this.cmbHinhThucThanhToan.Size = new System.Drawing.Size(210, 25);
             this.cmbHinhThucThanhToan.TabIndex = 26;
-            this.cmbHinhThucThanhToan.ValueMember = "Tiền mặt";
+            this.cmbHinhThucThanhToan.SelectedIndexChanged += new System.EventHandler(this.cmbHinhThucThanhToan_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -134,22 +145,23 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.label2.TabIndex = 25;
             this.label2.Text = "Hình thức TT";
             // 
-            // btnLamMoi
+            // btnSua
             // 
-            this.btnLamMoi.AutoSize = true;
-            this.btnLamMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(112)))), ((int)(((byte)(234)))));
-            this.btnLamMoi.FlatAppearance.BorderSize = 0;
-            this.btnLamMoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnLamMoi.Location = new System.Drawing.Point(66, 272);
-            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(114, 31);
-            this.btnLamMoi.TabIndex = 24;
-            this.btnLamMoi.Text = "Làm mới";
-            this.btnLamMoi.UseVisualStyleBackColor = false;
-            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            this.btnSua.AutoSize = true;
+            this.btnSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(112)))), ((int)(((byte)(234)))));
+            this.btnSua.Enabled = false;
+            this.btnSua.FlatAppearance.BorderSize = 0;
+            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSua.Location = new System.Drawing.Point(66, 272);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(114, 31);
+            this.btnSua.TabIndex = 24;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // tbTenKH
             // 
@@ -159,6 +171,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tbTenKH.Name = "tbTenKH";
             this.tbTenKH.Size = new System.Drawing.Size(244, 23);
             this.tbTenKH.TabIndex = 1;
+            this.tbTenKH.TextChanged += new System.EventHandler(this.tbTenKH_TextChanged);
             // 
             // label4
             // 
@@ -200,19 +213,18 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lbTongTien);
             this.panel1.Controls.Add(this.btnThanhToan);
-            this.panel1.Location = new System.Drawing.Point(314, 218);
+            this.panel1.Location = new System.Drawing.Point(346, 218);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(465, 85);
+            this.panel1.Size = new System.Drawing.Size(630, 85);
             this.panel1.TabIndex = 18;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(344, 8);
+            this.label1.Location = new System.Drawing.Point(427, 8);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 17);
@@ -224,7 +236,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.lbTongTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbTongTien.AutoSize = true;
             this.lbTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTongTien.Location = new System.Drawing.Point(416, 8);
+            this.lbTongTien.Location = new System.Drawing.Point(499, 8);
             this.lbTongTien.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTongTien.Name = "lbTongTien";
             this.lbTongTien.Size = new System.Drawing.Size(28, 17);
@@ -240,7 +252,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnThanhToan.FlatAppearance.BorderSize = 0;
             this.btnThanhToan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThanhToan.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnThanhToan.Location = new System.Drawing.Point(346, 34);
+            this.btnThanhToan.Location = new System.Drawing.Point(511, 34);
             this.btnThanhToan.Margin = new System.Windows.Forms.Padding(2);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(114, 46);
@@ -251,6 +263,8 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             // dtgvDSSP
             // 
+            this.dtgvDSSP.AllowUserToAddRows = false;
+            this.dtgvDSSP.AllowUserToDeleteRows = false;
             this.dtgvDSSP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -260,19 +274,23 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.dtgvDSSP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maSP,
             this.tenSP,
+            this.donViTinh,
             this.soLuong,
             this.donGia,
             this.thanhTien,
-            this.Column5});
+            this.Delete});
             this.dtgvDSSP.EnableHeadersVisualStyles = false;
-            this.dtgvDSSP.Location = new System.Drawing.Point(314, 2);
+            this.dtgvDSSP.Location = new System.Drawing.Point(346, 2);
             this.dtgvDSSP.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvDSSP.Name = "dtgvDSSP";
+            this.dtgvDSSP.ReadOnly = true;
             this.dtgvDSSP.RowHeadersVisible = false;
             this.dtgvDSSP.RowHeadersWidth = 51;
             this.dtgvDSSP.RowTemplate.Height = 24;
-            this.dtgvDSSP.Size = new System.Drawing.Size(465, 206);
+            this.dtgvDSSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvDSSP.Size = new System.Drawing.Size(630, 206);
             this.dtgvDSSP.TabIndex = 5;
+            this.dtgvDSSP.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvDSSP_CellContentClick);
             // 
             // label25
             // 
@@ -294,6 +312,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.cbMaSP.Size = new System.Drawing.Size(244, 25);
             this.cbMaSP.TabIndex = 2;
             this.cbMaSP.SelectedIndexChanged += new System.EventHandler(this.cbMaSP_SelectedIndexChanged);
+            this.cbMaSP.TextChanged += new System.EventHandler(this.cbMaSP_TextChanged);
             // 
             // txtDG
             // 
@@ -368,6 +387,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             0,
             0,
             0});
+            this.nudSoLuong.ValueChanged += new System.EventHandler(this.nudSoLuong_ValueChanged);
             // 
             // label22
             // 
@@ -390,8 +410,28 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.crvPhieuThu.Cursor = System.Windows.Forms.Cursors.Default;
             this.crvPhieuThu.Location = new System.Drawing.Point(3, 357);
             this.crvPhieuThu.Name = "crvPhieuThu";
-            this.crvPhieuThu.Size = new System.Drawing.Size(782, 237);
+            this.crvPhieuThu.Size = new System.Drawing.Size(979, 237);
             this.crvPhieuThu.TabIndex = 20;
+            // 
+            // errorSDT
+            // 
+            this.errorSDT.ContainerControl = this;
+            // 
+            // errorTenKH
+            // 
+            this.errorTenKH.ContainerControl = this;
+            // 
+            // errorMaSP
+            // 
+            this.errorMaSP.ContainerControl = this;
+            // 
+            // errorHinhThucTT
+            // 
+            this.errorHinhThucTT.ContainerControl = this;
+            // 
+            // errorSoLuong
+            // 
+            this.errorSoLuong.ContainerControl = this;
             // 
             // maSP
             // 
@@ -409,12 +449,19 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.tenSP.Name = "tenSP";
             this.tenSP.ReadOnly = true;
             // 
+            // donViTinh
+            // 
+            this.donViTinh.HeaderText = "Đơn Vị";
+            this.donViTinh.Name = "donViTinh";
+            this.donViTinh.ReadOnly = true;
+            // 
             // soLuong
             // 
             this.soLuong.DataPropertyName = "soLuong";
             this.soLuong.HeaderText = "Số lượng";
             this.soLuong.MinimumWidth = 6;
             this.soLuong.Name = "soLuong";
+            this.soLuong.ReadOnly = true;
             // 
             // donGia
             // 
@@ -432,18 +479,22 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.thanhTien.Name = "thanhTien";
             this.thanhTien.ReadOnly = true;
             // 
-            // Column5
+            // Delete
             // 
-            this.Column5.HeaderText = "";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
             // 
             // BanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 603);
+            this.ClientSize = new System.Drawing.Size(986, 603);
             this.Controls.Add(this.crvPhieuThu);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -458,6 +509,11 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDSSP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoLuong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSDT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTenKH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorMaSP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorHinhThucTT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSoLuong)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -466,7 +522,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button btnLamMoi;
+        private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.TextBox tbTenKH;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbSDTKH;
@@ -488,11 +544,17 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crvPhieuThu;
         private System.Windows.Forms.ComboBox cmbHinhThucThanhToan;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ErrorProvider errorSDT;
+        private System.Windows.Forms.ErrorProvider errorTenKH;
+        private System.Windows.Forms.ErrorProvider errorMaSP;
+        private System.Windows.Forms.ErrorProvider errorHinhThucTT;
+        private System.Windows.Forms.ErrorProvider errorSoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn maSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn donViTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn soLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn donGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn thanhTien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }
