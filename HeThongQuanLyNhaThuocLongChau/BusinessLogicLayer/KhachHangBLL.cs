@@ -30,7 +30,6 @@ namespace HeThongQuanLyNhaThuocLongChau.BusinessLogicLayer
             return KhachhangDAL.deleteById(PK_sMaKH);
         }
 
-
         public DataTable searchById(String PK_sMaKH)
         {
             return KhachhangDAL.searchById(PK_sMaKH);

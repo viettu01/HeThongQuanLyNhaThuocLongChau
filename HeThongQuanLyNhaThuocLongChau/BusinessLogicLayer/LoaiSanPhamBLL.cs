@@ -16,10 +16,5 @@ namespace HeThongQuanLyNhaThuocLongChau.BusinessLogicLayer
         {
             return loaiSanPhamDAL.findAll();
         }
-
-        public bool checkExistsByName(string tenLoaiSP)
-        {
-            return loaiSanPhamDAL.checkExistsByName(tenLoaiSP);
-        }
     }
 }

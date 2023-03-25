@@ -31,27 +31,5 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                 }
             }
         }
-
-        public bool checkExistsByName(string tenNCC)
-        {
-            using (SqlConnection cnn = new SqlConnection(constr))
-            {
-                using (SqlCommand cmd = new SqlCommand("Select * from vv_NhaCungCap", cnn))
-                {
-                    cnn.Open();
-                    using (SqlDataReader rd = cmd.ExecuteReader())
-                    {
-                        while (rd.Read())
-                        {
-                            if (String.Equals(rd["Tên NCC"].ToString(), tenNCC, StringComparison.InvariantCultureIgnoreCase))
-                                return false;
-                        }
-                        rd.Close();
-                    }
-                    cnn.Close();
-                }
-            }
-            return true;
-        }
     }
 }

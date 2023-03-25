@@ -31,27 +31,5 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                 }
             }
         }
-
-        public bool checkExistsByName(string tenLoaiSP)
-        {
-            using (SqlConnection cnn = new SqlConnection(constr))
-            {
-                using (SqlCommand cmd = new SqlCommand("Select * from vv_LoaiSanPham", cnn))
-                {
-                    cnn.Open();
-                    using (SqlDataReader rd = cmd.ExecuteReader())
-                    {
-                        while (rd.Read())
-                        {
-                            if (String.Equals(rd["Tên loại"].ToString(), tenLoaiSP, StringComparison.InvariantCultureIgnoreCase))
-                                return false;
-                        }
-                        rd.Close();
-                    }
-                    cnn.Close();
-                }
-            }
-            return true;
-        }
     }
 }

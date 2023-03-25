@@ -32,14 +32,22 @@ namespace HeThongQuanLyNhaThuocLongChau.Model
             return sanPhamDAL.deleteById(maSP);
         }
 
-        public DataTable search(string maSP, string tenSP, string donViTinh, string hanDung, string donGiaBan, string tenLoai, string tenNCC)
+        public DataTable search(string tenSP, string donViTinh, string hanDung, string donGiaBan, string tenLoai, string tenNCC)
         {
-            return sanPhamDAL.search(maSP, tenSP, donViTinh, hanDung, donGiaBan, tenLoai, tenNCC);
-        }
+            string sqlSearchPrice = "";
+            if (donGiaBan != "" && double.TryParse(donGiaBan, out _))
+            {
+                sqlSearchPrice = "AND [Giá bán] >= " + double.Parse(donGiaBan) + " ";
+            }
+            String sql = "SELECT * FROM vv_SanPham " +
+                "WHERE [Tên SP] LIKE N'%" + tenSP + "%' " +
+                    "AND [Loại] LIKE N'%" + tenLoai + "%' " +
+                    "AND [Đơn vị tính] LIKE N'%" + donViTinh + "%' " +
+                    "AND [Hạn dùng] LIKE N'%" + hanDung + "%' " +
+                    "AND [Tên NCC] LIKE N'%" + tenNCC + "%' " +
+                    sqlSearchPrice;
 
-        public DataTable searchById(String maSP)
-        {
-            return sanPhamDAL.searchById(maSP);
+            return sanPhamDAL.search(sql);
         }
     }
 }

@@ -94,7 +94,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
                         MessageBox.Show("Đổi mật khẩu không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-
             }
         }
 

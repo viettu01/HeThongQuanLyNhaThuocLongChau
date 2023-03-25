@@ -55,7 +55,7 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
             }
         }
 
-        public int login(string tenTK, string matKhau)
+        public DataTable login(string tenTK, string matKhau)
         {
             using (SqlConnection cnn = new SqlConnection(constr))
             {
@@ -68,82 +68,43 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                         using (DataTable dt = new DataTable("vv_TaiKhoanNhanVienQuyen"))
                         {
                             ad.Fill(dt);
-                            if (dt.Rows.Count == 0)
-                                return 0; //Tên đăng nhập không tồn tại
-                            else
-                            {
-                                foreach (DataRow dr in dt.Rows)
-                                {
-                                    if (dr["Mật khẩu"].Equals(matKhau))
-                                    {
-                                        Program.maTK = dr["Mã TK"].ToString();
-                                        Program.maQuyen = dr["Mã Quyền"].ToString();
-                                        Program.tenTK = dr["Tên tài khoản"].ToString();
-                                        Program.tenNV = dr["Tên NV"].ToString();
-                                        return 1; //Đúng mật khẩu và tên đăng nhập
-                                    }
-                                    else
-                                        return 2; //Đúng tên dăng nhập nhưng Sai mật khẩu 
-                                }
-                            }
+                            return dt;
                         }
                     }
-                    return -1;
                 }
             }
         }
 
-        public bool checkPassword(string maTK, string matKhau)
+        public DataTable checkPassword(string maTK, string matKhau)
         {
             using (SqlConnection cnn = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("Select * from vv_TaiKhoanNhanVienQuyen where [Mã TK] = '" + maTK + "'", cnn))
+                String sql = "Select * from vv_TaiKhoanNhanVienQuyen where [Mã TK] = '" + maTK + "'";
+                using (SqlCommand cmd = new SqlCommand(sql, cnn))
                 {
-                    cnn.Open();
-                    using (SqlDataReader rd = cmd.ExecuteReader())
+                    cmd.CommandType = CommandType.Text;
+                    using (SqlDataAdapter ad = new SqlDataAdapter(cmd))
                     {
-                        while (rd.Read())
+                        using (DataTable dt = new DataTable("vv_TaiKhoanNhanVienQuyen"))
                         {
-                            if (String.Equals(rd["Mật khẩu"].ToString(), matKhau, StringComparison.InvariantCultureIgnoreCase))
-                                return true;
+                            ad.Fill(dt);
+                            return dt;
                         }
-                        rd.Close();
                     }
-                    cnn.Close();
                 }
             }
-            return false;
-        }
-
-        public bool checkStatus(string tenTK)
-        {
-            using (SqlConnection cnn = new SqlConnection(constr))
-            {
-                using (SqlCommand cmd = new SqlCommand("Select * from vv_TaiKhoanNhanVienQuyen where [Tên đăng nhập] = '" + tenTK + "'", cnn))
-                {
-                    cnn.Open();
-                    using (SqlDataReader rd = cmd.ExecuteReader())
-                    {
-                        while (rd.Read())
-                        {
-                            if (bool.Parse(rd["Trạng thái"].ToString()))
-                                return true;
-                        }
-                        rd.Close();
-                    }
-                    cnn.Close();
-                }
-            }
-            return false;
         }
 
         public bool changePassword(string maTK, string matKhau)
         {
             using (SqlConnection cnn = new SqlConnection(constr))
             {
-                String sql = "UPDATE dbo.tbl_TaiKhoan SET sMK = '" + matKhau + "' WHERE PK_sMaTK = '" + maTK + "'";
-                using (SqlCommand cmd = new SqlCommand(sql, cnn))
+                using (SqlCommand cmd = cnn.CreateCommand())
                 {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "sp_DoiMatKhau";
+                    cmd.Parameters.AddWithValue("@maTK", maTK);
+                    cmd.Parameters.AddWithValue("@MK", matKhau);
                     cnn.Open();
                     int i = cmd.ExecuteNonQuery();
                     cnn.Close();

@@ -16,10 +16,5 @@ namespace HeThongQuanLyNhaThuocLongChau.BusinessLogicLayer
         {
             return nhaCungCapDAL.findAll();
         }
-
-        public bool checkExistsByName(string tenNCC)
-        {
-            return nhaCungCapDAL.checkExistsByName(tenNCC);
-        }
     }
 }
