@@ -15,11 +15,11 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
     {
         private string constr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
 
-        public DataTable findAll()
+        public DataTable findAll(String sql)
         {
             using (SqlConnection cnn = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM vv_SanPham", cnn))
+                using (SqlCommand cmd = new SqlCommand(sql, cnn))
                 {
                     cmd.CommandType = CommandType.Text;
                     using (SqlDataAdapter ad = new SqlDataAdapter(cmd))
@@ -96,25 +96,6 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                     cnn.Close();
 
                     return i > 0;
-                }
-            }
-        }
-
-        public DataTable search(string sql)
-        {
-            using (SqlConnection cnn = new SqlConnection(constr))
-            {
-                using (SqlCommand cmd = new SqlCommand(sql, cnn))
-                {
-                    cmd.CommandType = CommandType.Text;
-                    using (SqlDataAdapter ad = new SqlDataAdapter(cmd))
-                    {
-                        using (DataTable dt = new DataTable("vv_SanPham"))
-                        {
-                            ad.Fill(dt);
-                            return dt;
-                        }
-                    }
                 }
             }
         }

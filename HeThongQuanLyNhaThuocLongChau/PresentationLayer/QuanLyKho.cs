@@ -137,17 +137,25 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         {
             if (checkValidSanPham(sender, e))
             {
-                if (sanPhamBLL.insert("SP" + convertDateToSecond.convertDateToSecond(), txtTenSP.Text, txtDVT.Text, txtHanDung.Text, double.Parse(txtGiaBan.Text), cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
+                if (sanPhamBLL.checkExistsNameAndCategory(txtTenSP.Text, cmbLoaiSP.Text))
                 {
-                    MessageBox.Show("Thêm sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    errorProviderQLKho.Clear();
-                    loadDataToDataGridView(dgvSP, sanPhamBLL.findAll());
-                    btnLamMoiSP_Click(sender, e);
+                    if (sanPhamBLL.insert("SP" + convertDateToSecond.convertDateToSecond(), txtTenSP.Text, txtDVT.Text, txtHanDung.Text, double.Parse(txtGiaBan.Text), cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
+                    {
+                        MessageBox.Show("Thêm sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        errorProviderQLKho.Clear();
+                        loadDataToDataGridView(dgvSP, sanPhamBLL.findAll());
+                        btnLamMoiSP_Click(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm sản phẩm thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Thêm sản phẩm thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Sản phẩm đã tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
             }
         }
 
@@ -155,14 +163,21 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         {
             if (checkValidSanPham(sender, e))
             {
-                if (sanPhamBLL.update(maSP, txtTenSP.Text, txtDVT.Text, txtHanDung.Text, double.Parse(txtGiaBan.Text), cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
+                if (sanPhamBLL.checkExistsNameAndCategoryForUpdate(maSP, txtTenSP.Text, cmbLoaiSP.Text))
                 {
-                    MessageBox.Show("Sửa sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    loadDataToDataGridView(dgvSP, sanPhamBLL.findAll());
-                    btnLamMoiSP_Click(sender, e);
+                    if (sanPhamBLL.update(maSP, txtTenSP.Text, txtDVT.Text, txtHanDung.Text, double.Parse(txtGiaBan.Text), cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
+                    {
+                        MessageBox.Show("Sửa sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadDataToDataGridView(dgvSP, sanPhamBLL.findAll());
+                        btnLamMoiSP_Click(sender, e);
+                    }
+                    else
+                        MessageBox.Show("Sửa sản phẩm thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MessageBox.Show("Sửa sản phẩm thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                {
+                    MessageBox.Show("Sản phẩm đã tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -202,7 +217,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (check)
             {
-                MessageBox.Show("abc");
                 btnLamMoiSP.Enabled = true;
                 DataTable dt = sanPhamBLL.search(txtTenSP.Text, txtDVT.Text, txtHanDung.Text, txtGiaBan.Text, cmbLoaiSP.Text, cmbNCC.Text);
                 if (dt.Rows.Count == 0)

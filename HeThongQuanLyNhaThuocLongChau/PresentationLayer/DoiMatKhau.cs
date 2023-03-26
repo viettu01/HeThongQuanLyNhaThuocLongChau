@@ -43,7 +43,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             }
             else if (CheckingPasswordStrength(txtNhapLaiMatKhauMoi.Text) < 4)
             {
-                MessageBox.Show("Mật khẩu cần có 8 ký tự trở lên, bao gồm chữ số, chữ thường, chữ hoa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Mật khẩu cần có 8 ký tự trở lên, tối đa 20 ký tự, bao gồm chữ số, chữ thường, chữ hoa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 check = false;
             }
             else
@@ -107,11 +107,9 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         {
             int score = 0;
 
-            if (password.Length >= 8)
+            //Độ dài mật khẩu phải từ 8-20 ký tự
+            if (password.Length >= 8 && password.Length <= 20)
                 score++;
-
-            //if (password.Length >= 12)
-            //    score++;
 
             //Check xem mật khẩu có số hay không
             if (Regex.IsMatch(password, @"[0-9]+(\.[0-9][0-9]?)?", RegexOptions.ECMAScript))   //number only //"^\d+$" if you need to match more than one digit.

@@ -14,7 +14,8 @@ namespace HeThongQuanLyNhaThuocLongChau.Model
 
         public DataTable findAll()
         {
-            return sanPhamDAL.findAll();
+            string sql = "SELECT * FROM vv_SanPham";
+            return sanPhamDAL.findAll(sql);
         }
 
         public bool insert(string maSP, string tenSP, string donViTinh, string hanDung, double donGiaBan, string maLoai, string maNCC)
@@ -47,7 +48,38 @@ namespace HeThongQuanLyNhaThuocLongChau.Model
                     "AND [Tên NCC] LIKE N'%" + tenNCC + "%' " +
                     sqlSearchPrice;
 
-            return sanPhamDAL.search(sql);
+            return sanPhamDAL.findAll(sql);
+        }
+
+        public bool checkExistsNameAndCategory(string tenSP, string tenLoai)
+        {
+            string sql = "SELECT * FROM vv_SanPham";
+            DataTable dt = sanPhamDAL.findAll(sql);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (String.Equals(dr["Tên SP"].ToString(), tenSP, StringComparison.InvariantCultureIgnoreCase) &&
+                    String.Equals(dr["Loại"].ToString(), tenLoai, StringComparison.InvariantCultureIgnoreCase))
+                    return false;
+            }
+
+            return true;
+        }
+
+        public bool checkExistsNameAndCategoryForUpdate(string maSP, string tenSP, string tenLoai)
+        {
+            string sql = "SELECT * FROM vv_SanPham";
+            DataTable dt = sanPhamDAL.findAll(sql);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (!String.Equals(dr["Mã SP"].ToString(), maSP, StringComparison.InvariantCultureIgnoreCase))
+                    if (String.Equals(dr["Tên SP"].ToString(), tenSP, StringComparison.InvariantCultureIgnoreCase) &&
+                        String.Equals(dr["Loại"].ToString(), tenLoai, StringComparison.InvariantCultureIgnoreCase))
+                        return false;
+            }
+
+            return true;
         }
     }
 }
