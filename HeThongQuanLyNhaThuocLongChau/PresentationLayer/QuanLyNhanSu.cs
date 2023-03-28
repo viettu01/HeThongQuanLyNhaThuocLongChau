@@ -14,7 +14,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
     public partial class QuanLyNhanSu : Form
     {
         ConvertDateToSecond convertDateToSecond = new ConvertDateToSecond();
-        NhanVienBLL nhanVienBLL = new NhanVienBLL();
         TaiKhoanBLL taiKhoanBLL = new TaiKhoanBLL();
         QuyenBLL quyenBLL = new QuyenBLL();
         string maNV = "";
@@ -54,7 +53,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
         private void QuanLyNhanSu_Load(object sender, EventArgs e)
         {
-            loadDataToDataGridView(dgvNV, nhanVienBLL.findAll());
+            
         }
 
         private void dgvNV_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -176,18 +175,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (check)
             {
-                if (nhanVienBLL.insert("NV" + convertDateToSecond.convertDateToSecond(), txtHoTenNV.Text, dtpNgaySinhNV.Value,
-                                        txtCCCDNV.Text, txtSDTNV.Text, dtpNgayVaoLam.Value, cmbChucVu.Text,
-                                        "TK" + convertDateToSecond.convertDateToSecond(), txtTenTaiKhoan.Text, txtMatKhau.Text,
-                                        cmbQuyen.SelectedValue.ToString()))
-                {
-                    MessageBox.Show("Thêm nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btnLamMoiNV_Click(sender, e);
-                }
-                else
-                {
-                    MessageBox.Show("Thêm nhân viên thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                
             }
 
         }
@@ -272,18 +260,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (check)
             {
-                if (nhanVienBLL.update(maNV, txtHoTenNV.Text, dtpNgaySinhNV.Value, txtCCCDNV.Text, txtSDTNV.Text,
-                                    dtpNgayVaoLam.Value, cmbChucVu.Text, txtTenTaiKhoan.Text, txtMatKhau.Text,
-                                    cmbQuyen.SelectedValue.ToString()))
-                {
-                    MessageBox.Show("Sửa nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    loadDataToDataGridView(dgvNV, nhanVienBLL.findAll());
-                    btnLamMoiNV_Click(sender, e);
-                }
-                else
-                {
-                    MessageBox.Show("Sửa nhân viên thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                
             }
         }
 
@@ -296,20 +273,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             }
             if (MessageBox.Show("Bạn có chắc chắn " + btnKhoaNV.Text + " không?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                if (nhanVienBLL.changeStatus(maNV, status))
-                {
-                    if (status == 1)
-                        MessageBox.Show("Đã mở khóa tài khoản nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Đã khóa tài khoản nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    loadDataToDataGridView(dgvNV, nhanVienBLL.findAll());
-                    btnLamMoiNV_Click(sender, e);
-                }
-                else
-                {
-                    MessageBox.Show("Khóa thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                
             }
         }
 
@@ -326,14 +290,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (check)
             {
-                DataTable dt = nhanVienBLL.search(txtHoTenNV.Text, dtpNgaySinhNV.Text, txtSDTNV.Text, txtCCCDNV.Text,
-                                                  dtpNgayVaoLam.Text, cmbChucVu.Text, txtTenTaiKhoan.Text, cmbQuyen.Text);
-                btnLamMoiNV.Enabled = true;
-                loadDataToDataGridView(dgvNV, dt);
-                if (dt.Rows.Count == 0)
-                {
-                    MessageBox.Show("Không tìm thấy nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                
             }
         }
 
@@ -346,7 +303,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             txtTenTaiKhoan.Text = "";
             txtMatKhau.Text = "";
 
-            loadDataToDataGridView(dgvNV, nhanVienBLL.findAll());
             cmbChucVu.DataSource = null;
             cmbQuyen.DataSource = null;
             //cmbChucVu.Items.Clear();

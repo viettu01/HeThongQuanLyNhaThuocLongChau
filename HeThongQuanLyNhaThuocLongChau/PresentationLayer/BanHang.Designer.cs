@@ -425,7 +425,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BanHang";
-            this.Text = "Phiếu Thu";
+            this.Text = "Bán hàng";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BanHang_FormClosing);
             this.Load += new System.EventHandler(this.BanHang_Load);
             this.groupBox1.ResumeLayout(false);

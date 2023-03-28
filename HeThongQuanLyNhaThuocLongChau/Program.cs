@@ -10,6 +10,8 @@ namespace HeThongQuanLyNhaThuocLongChau
 {
     static class Program
     {
+        public static string constr = "Data Source=KING;Initial Catalog=db_QuanLyHeThongNhaThuocLongChau;Integrated Security=True";
+        
         public static string maQuyenQuanLy = "Q01";
         public static string maQuyenBanHang = "Q02";
         public static string maQuyenKho = "Q03";

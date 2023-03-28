@@ -300,7 +300,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.cmbNCC.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cmbNCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNCC.FormattingEnabled = true;
-            this.cmbNCC.Location = new System.Drawing.Point(549, 20);
+            this.cmbNCC.Location = new System.Drawing.Point(549, 19);
             this.cmbNCC.Name = "cmbNCC";
             this.cmbNCC.Size = new System.Drawing.Size(286, 24);
             this.cmbNCC.TabIndex = 24;
@@ -342,7 +342,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.cmbLoaiSP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbLoaiSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLoaiSP.FormattingEnabled = true;
-            this.cmbLoaiSP.Location = new System.Drawing.Point(937, 20);
+            this.cmbLoaiSP.Location = new System.Drawing.Point(937, 19);
             this.cmbLoaiSP.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.cmbLoaiSP.Name = "cmbLoaiSP";
             this.cmbLoaiSP.Size = new System.Drawing.Size(302, 24);

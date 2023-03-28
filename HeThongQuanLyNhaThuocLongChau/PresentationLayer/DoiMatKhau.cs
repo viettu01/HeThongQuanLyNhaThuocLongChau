@@ -22,6 +22,33 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             InitializeComponent();
         }
 
+        private int CheckingPasswordStrength(string password)
+        {
+            int score = 0;
+
+            //Độ dài mật khẩu phải từ 8-20 ký tự
+            if (password.Length >= 8 && password.Length <= 20)
+                score++;
+
+            //Check xem mật khẩu có số hay không
+            if (Regex.IsMatch(password, @"[0-9]+(\.[0-9][0-9]?)?", RegexOptions.ECMAScript))   //number only //"^\d+$" if you need to match more than one digit.
+                score++;
+
+            //Chekc xem mật khẩu có chữ thường không
+            if (Regex.IsMatch(password, @"^(?=.*[a-z]).+$", RegexOptions.ECMAScript)) //lower
+                score++;
+
+            //Chekc xem mật khẩu có chữ hoa không
+            if (Regex.IsMatch(password, @"^(?=.*[A-Z]).+$", RegexOptions.ECMAScript)) //upper case
+                score++;
+
+            //Chekc xem mật khẩu có ký tự đặc biệt hay không
+            //if (Regex.IsMatch(password, @"[!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]", RegexOptions.ECMAScript)) //^[A-Z]+$
+            //    score++;
+
+            return score;
+        }
+
         private bool checkValidDoiMatKhau(object sender, EventArgs e)
         {
             bool check = true;
@@ -41,7 +68,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
                 errorProviderDoiMatKhau.SetError(txtMatKhauMoi, "Vui lòng nhập mật khẩu mới");
                 check = false;
             }
-            else if (CheckingPasswordStrength(txtNhapLaiMatKhauMoi.Text) < 4)
+            else if (CheckingPasswordStrength(txtMatKhauMoi.Text) < 4)
             {
                 MessageBox.Show("Mật khẩu cần có 8 ký tự trở lên, tối đa 20 ký tự, bao gồm chữ số, chữ thường, chữ hoa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 check = false;
@@ -72,18 +99,15 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
             string matKhauCu = txtMatKhauCu.Text;
-            string matKhauMoi = txtMatKhauMoi.Text;
             string nhapLaiMatKhauMoi = txtNhapLaiMatKhauMoi.Text;
 
             if (checkValidDoiMatKhau(sender, e))
             {
-                if (!taiKhoanBLL.checkPassword(Program.maTK, matKhauCu))
+                if (!taiKhoanBLL.checkPassword(Program.tenTK, matKhauCu))
                     MessageBox.Show("Mật khẩu cũ không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else if (nhapLaiMatKhauMoi != matKhauMoi)
-                    MessageBox.Show("Mật khẩu nhập lại không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                 {
-                    if (taiKhoanBLL.changePassword(Program.maTK, nhapLaiMatKhauMoi))
+                    if (taiKhoanBLL.changePassword(Program.tenTK, nhapLaiMatKhauMoi))
                     {
                         MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         new DangNhap().Show();
@@ -101,33 +125,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         {
             new TrangChu().Show();
             this.Hide();
-        }
-
-        private int CheckingPasswordStrength(string password)
-        {
-            int score = 0;
-
-            //Độ dài mật khẩu phải từ 8-20 ký tự
-            if (password.Length >= 8 && password.Length <= 20)
-                score++;
-
-            //Check xem mật khẩu có số hay không
-            if (Regex.IsMatch(password, @"[0-9]+(\.[0-9][0-9]?)?", RegexOptions.ECMAScript))   //number only //"^\d+$" if you need to match more than one digit.
-                score++;
-
-            //Chekc xem mật khẩu có chữ thường không
-            if (Regex.IsMatch(password, @"^(?=.*[a-z]).+$", RegexOptions.ECMAScript)) //lower
-                score++;
-
-            //Chekc xem mật khẩu có chữ hoa không
-            if (Regex.IsMatch(password, @"^(?=.*[A-Z]).+$", RegexOptions.ECMAScript)) //upper case
-                score++;
-
-            //Chekc xem mật khẩu có ký tự đặc biệt hay không
-            //if (Regex.IsMatch(password, @"[!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]", RegexOptions.ECMAScript)) //^[A-Z]+$
-            //    score++;
-
-            return score;
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)

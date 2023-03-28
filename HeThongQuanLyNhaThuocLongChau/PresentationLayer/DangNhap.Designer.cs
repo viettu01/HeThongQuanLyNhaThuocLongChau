@@ -178,6 +178,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnDangNhap.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnDangNhap.BorderRadius = 5;
             this.btnDangNhap.BorderSize = 0;
+            this.btnDangNhap.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDangNhap.FlatAppearance.BorderSize = 0;
             this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangNhap.ForeColor = System.Drawing.Color.White;
