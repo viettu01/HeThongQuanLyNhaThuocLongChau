@@ -8,7 +8,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
     public partial class QuanLyKho : Form
     {
-        ConvertDateToSecond convertDateToSecond = new ConvertDateToSecond();
         NhaCungCapBLL nhaCungCapBLL = new NhaCungCapBLL();
         LoaiSanPhamBLL loaiSanPhamBLL = new LoaiSanPhamBLL();
         SanPhamBLL sanPhamBLL = new SanPhamBLL();
@@ -17,6 +16,14 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         public QuanLyKho()
         {
             InitializeComponent();
+        }
+
+        private long convertDateToSecond()
+        {
+            long epochTicks = DateTime.Now.Ticks - new DateTime(2023, 1, 1).Ticks;
+            long epochSeconds = epochTicks / TimeSpan.TicksPerSecond;
+
+            return epochSeconds;
         }
 
         private void loadDataToDataGridView(DataGridView dgv, DataTable dt)
@@ -139,7 +146,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             {
                 if (sanPhamBLL.checkExistsNameAndCategory(txtTenSP.Text, cmbLoaiSP.Text))
                 {
-                    if (sanPhamBLL.insert("SP" + convertDateToSecond.convertDateToSecond(), txtTenSP.Text, txtDVT.Text, txtHanDung.Text, double.Parse(txtGiaBan.Text), cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
+                    if (sanPhamBLL.insert("SP" + convertDateToSecond(), txtTenSP.Text, txtDVT.Text, txtHanDung.Text, double.Parse(txtGiaBan.Text), cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
                     {
                         MessageBox.Show("Thêm sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         errorProviderQLKho.Clear();

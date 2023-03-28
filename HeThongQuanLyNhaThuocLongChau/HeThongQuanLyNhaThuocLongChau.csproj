@@ -72,7 +72,6 @@
     <Compile Include="BusinessLogicLayer\QuyenBLL.cs" />
     <Compile Include="BusinessLogicLayer\SanPhamBLL.cs" />
     <Compile Include="BusinessLogicLayer\TaiKhoanBLL.cs" />
-    <Compile Include="ConvertDateToSecond.cs" />
     <Compile Include="DataAccessLayer\LoaiSanPhamDAL.cs" />
     <Compile Include="DataAccessLayer\NhaCungCapDAL.cs" />
     <Compile Include="DataAccessLayer\QuyenDAL.cs" />
