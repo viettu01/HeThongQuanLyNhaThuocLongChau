@@ -170,7 +170,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         {
             if (checkValidSanPham(sender, e))
             {
-                if (sanPhamBLL.checkExistsNameAndCategoryForUpdate(maSP, txtTenSP.Text, cmbLoaiSP.Text))
+                if (sanPhamBLL.checkExistsNameAndCategory(txtTenSP.Text, cmbLoaiSP.Text))
                 {
                     if (sanPhamBLL.update(maSP, txtTenSP.Text, txtDVT.Text, txtHanDung.Text, double.Parse(txtGiaBan.Text), cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
                     {

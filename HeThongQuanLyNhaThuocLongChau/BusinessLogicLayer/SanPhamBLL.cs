@@ -66,20 +66,20 @@ namespace HeThongQuanLyNhaThuocLongChau.Model
             return true;
         }
 
-        public bool checkExistsNameAndCategoryForUpdate(string maSP, string tenSP, string tenLoai)
-        {
-            string sql = "SELECT * FROM vv_SanPham";
-            DataTable dt = sanPhamDAL.findAll(sql);
+        //public bool checkExistsNameAndCategoryForUpdate(string maSP, string tenSP, string tenLoai)
+        //{
+        //    string sql = "SELECT * FROM vv_SanPham";
+        //    DataTable dt = sanPhamDAL.findAll(sql);
 
-            foreach (DataRow dr in dt.Rows)
-            {
-                if (!String.Equals(dr["Mã SP"].ToString(), maSP, StringComparison.InvariantCultureIgnoreCase))
-                    if (String.Equals(dr["Tên SP"].ToString(), tenSP, StringComparison.InvariantCultureIgnoreCase) &&
-                        String.Equals(dr["Loại"].ToString(), tenLoai, StringComparison.InvariantCultureIgnoreCase))
-                        return false;
-            }
+        //    foreach (DataRow dr in dt.Rows)
+        //    {
+        //        if (!String.Equals(dr["Mã SP"].ToString(), maSP, StringComparison.InvariantCultureIgnoreCase))
+        //            if (String.Equals(dr["Tên SP"].ToString(), tenSP, StringComparison.InvariantCultureIgnoreCase) &&
+        //                String.Equals(dr["Loại"].ToString(), tenLoai, StringComparison.InvariantCultureIgnoreCase))
+        //                return false;
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
     }
 }

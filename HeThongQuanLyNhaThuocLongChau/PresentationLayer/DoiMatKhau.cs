@@ -86,6 +86,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             else if (txtNhapLaiMatKhauMoi.Text != txtMatKhauMoi.Text)
             {
                 errorProviderDoiMatKhau.SetError(txtNhapLaiMatKhauMoi, "Mật khẩu nhập lại không đúng");
+                txtNhapLaiMatKhauMoi.Text = "";
                 check = false;
             }
             else
