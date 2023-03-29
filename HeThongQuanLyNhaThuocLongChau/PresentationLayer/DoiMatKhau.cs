@@ -22,7 +22,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             InitializeComponent();
         }
 
-        private int CheckingPasswordStrength(string password)
+        private int checkingPasswordStrength(string password)
         {
             int score = 0;
 
@@ -68,7 +68,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
                 errorProviderDoiMatKhau.SetError(txtMatKhauMoi, "Vui lòng nhập mật khẩu mới");
                 check = false;
             }
-            else if (CheckingPasswordStrength(txtMatKhauMoi.Text) < 4)
+            else if (checkingPasswordStrength(txtMatKhauMoi.Text) < 4)
             {
                 MessageBox.Show("Mật khẩu cần có 8 ký tự trở lên, tối đa 20 ký tự, bao gồm chữ số, chữ thường, chữ hoa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 check = false;

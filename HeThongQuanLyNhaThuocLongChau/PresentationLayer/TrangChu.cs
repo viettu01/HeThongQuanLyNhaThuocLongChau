@@ -68,5 +68,19 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             quanLyBanHang.Show();
             this.Hide();
         }
+
+        private void tsmiQuanLyKeToan_Click(object sender, EventArgs e)
+        {
+            QuanLyKeToan quanLyKeToan = new QuanLyKeToan();
+            quanLyKeToan.Show();
+            this.Hide();
+        }
+
+        private void tsmiBaoCao_Click(object sender, EventArgs e)
+        {
+            BaoCao baoCao = new BaoCao();
+            baoCao.Show();
+            this.Hide();
+        }
     }
 }

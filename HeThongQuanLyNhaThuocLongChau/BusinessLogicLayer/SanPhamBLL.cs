@@ -38,7 +38,7 @@ namespace HeThongQuanLyNhaThuocLongChau.Model
             string sqlSearchPrice = "";
             if (donGiaBan != "" && double.TryParse(donGiaBan, out _))
             {
-                sqlSearchPrice = "AND [Giá bán] >= " + double.Parse(donGiaBan) + " ";
+                sqlSearchPrice = "AND [Giá bán] = " + double.Parse(donGiaBan) + " ";
             }
             String sql = "SELECT * FROM vv_SanPham " +
                 "WHERE [Tên SP] LIKE N'%" + tenSP + "%' " +

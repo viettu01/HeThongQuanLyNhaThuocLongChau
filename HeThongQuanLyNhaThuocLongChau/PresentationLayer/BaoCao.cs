@@ -17,9 +17,14 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             InitializeComponent();
         }
 
-        private void panel9_Paint(object sender, PaintEventArgs e)
+        private void BaoCao_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                // Tạo Form đích và hiển thị nó
+                TrangChu trangChu = new TrangChu();
+                trangChu.Show();
+            }
         }
     }
 }
