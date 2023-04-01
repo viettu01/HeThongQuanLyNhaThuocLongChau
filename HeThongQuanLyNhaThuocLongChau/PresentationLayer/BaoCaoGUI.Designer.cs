@@ -1,7 +1,7 @@
 ﻿
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    partial class BaoCao
+    partial class BaoCaoGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -41,7 +41,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaoCao));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaoCaoGUI));
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.panel12 = new System.Windows.Forms.Panel();

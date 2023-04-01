@@ -1,7 +1,7 @@
 ﻿
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    partial class DoiMatKhau
+    partial class DoiMatKhauGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoiMatKhau));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoiMatKhauGUI));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtNhapLaiMatKhauMoi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -182,7 +182,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             this.errorProviderDoiMatKhau.ContainerControl = this;
             // 
-            // DoiMatKhau
+            // DoiMatKhauGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -196,7 +196,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "DoiMatKhau";
+            this.Name = "DoiMatKhauGUI";
             this.Text = "Đổi mật khẩu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DoiMatKhau_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);

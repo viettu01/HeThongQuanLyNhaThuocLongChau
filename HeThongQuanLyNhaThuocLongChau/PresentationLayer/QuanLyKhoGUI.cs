@@ -1,19 +1,39 @@
 ﻿using HeThongQuanLyNhaThuocLongChau.BusinessLogicLayer;
-using HeThongQuanLyNhaThuocLongChau.Model;
 using System;
 using System.Data;
 using System.Windows.Forms;
 
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    public partial class QuanLyKho : Form
+    public partial class QuanLyKhoGUI : Form
     {
+        private const string MS_004 = "Thêm sản phẩm thành công";
+        private const string MS_005 = "Thêm sản phẩm thất bại";
+        private const string MS_011 = "Sửa sản phẩm thành công";
+        private const string MS_012 = "Sửa sản phẩm thất bại";
+        private const string MS_023 = "Xóa sản phẩm thành công";
+        private const string MS_024 = "Xóa sản phẩm thất bại";
+        private const string MS_019 = "Giá bán phải là số lớn hơn 0";
+        private const string MS_022 = "Bạn cần nhập thông tin muốn tìm";
+        private const string MS_025 = "Không tìm thấy sản phẩm";
+        private const string MS_030 = "Sản phẩm đã tồn tại";
+        private const string MS_013 = "Tên sản phẩm không được bỏ trống";
+        private const string MS_014 = "Nhà cung cấp không được bỏ trống";
+        private const string MS_015 = "Loại sản phẩm không được bỏ trống";
+        private const string MS_016 = "Đơn vị tính không được bỏ trống";
+        private const string MS_017 = "Hạn dùng không được bỏ trống";
+        private const string MS_018 = "Giá bán không được bỏ trống";
+        private const string MS_Notify = "Thông báo";
+        private const string MS_Error = "Lỗi";
+        private const string MS_Confirm = "Bạn có chắc chắn xóa không?";
+        private const string MS_Warn = "Cảnh báo";
+
         NhaCungCapBLL nhaCungCapBLL = new NhaCungCapBLL();
         LoaiSanPhamBLL loaiSanPhamBLL = new LoaiSanPhamBLL();
         SanPhamBLL sanPhamBLL = new SanPhamBLL();
         string maSP = "";
 
-        public QuanLyKho()
+        public QuanLyKhoGUI()
         {
             InitializeComponent();
         }
@@ -60,7 +80,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (txtTenSP.Text == "")
             {
-                errorProviderQLKho.SetError(txtTenSP, "Tên sản phẩm không được bỏ trống");
+                errorProviderQLKho.SetError(txtTenSP, MS_013);
                 check = false;
             }
             else
@@ -68,7 +88,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (cmbNCC.Text == "")
             {
-                errorProviderQLKho.SetError(cmbNCC, "Nhà cung cấp không được bỏ trống");
+                errorProviderQLKho.SetError(cmbNCC, MS_014);
                 check = false;
             }
             else
@@ -76,7 +96,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (cmbLoaiSP.Text == "")
             {
-                errorProviderQLKho.SetError(cmbLoaiSP, "Loại sản phẩm không được bỏ trống");
+                errorProviderQLKho.SetError(cmbLoaiSP, MS_015);
                 check = false;
             }
             else
@@ -84,7 +104,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (txtDVT.Text == "")
             {
-                errorProviderQLKho.SetError(txtDVT, "Đơn vị tính không được bỏ trống");
+                errorProviderQLKho.SetError(txtDVT, MS_016);
                 check = false;
             }
             else
@@ -92,7 +112,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (txtHanDung.Text == "")
             {
-                errorProviderQLKho.SetError(txtHanDung, "Hạn dùng không được bỏ trống");
+                errorProviderQLKho.SetError(txtHanDung, MS_017);
                 check = false;
             }
             else
@@ -100,12 +120,12 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (txtGiaBan.Text == "")
             {
-                errorProviderQLKho.SetError(txtGiaBan, "Giá bán không được bỏ trống");
+                errorProviderQLKho.SetError(txtGiaBan, MS_018);
                 check = false;
             }
             else if (!double.TryParse(txtGiaBan.Text, out _) || double.Parse(txtGiaBan.Text) <= 0)
             {
-                errorProviderQLKho.SetError(txtGiaBan, "Giá bán phải là số lớn hơn 0");
+                errorProviderQLKho.SetError(txtGiaBan, MS_019);
                 check = false;
             }
             else
@@ -146,23 +166,22 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             {
                 if (sanPhamBLL.checkExistsNameAndCategory(txtTenSP.Text, cmbLoaiSP.Text))
                 {
-                    if (sanPhamBLL.insert("SP" + convertDateToSecond(), txtTenSP.Text, txtDVT.Text, txtHanDung.Text, double.Parse(txtGiaBan.Text), cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
+                    if (sanPhamBLL.insert("SP" + convertDateToSecond(), txtTenSP.Text, txtDVT.Text, txtHanDung.Text, txtGiaBan.Text, cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
                     {
-                        MessageBox.Show("Thêm sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(MS_004, MS_Notify, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         errorProviderQLKho.Clear();
                         loadDataToDataGridView(dgvSP, sanPhamBLL.findAll());
                         btnLamMoiSP_Click(sender, e);
                     }
                     else
                     {
-                        MessageBox.Show("Thêm sản phẩm thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(MS_005, MS_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Sản phẩm đã tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(MS_030, MS_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
         }
 
@@ -172,34 +191,34 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             {
                 if (sanPhamBLL.checkExistsNameAndCategory(txtTenSP.Text, cmbLoaiSP.Text))
                 {
-                    if (sanPhamBLL.update(maSP, txtTenSP.Text, txtDVT.Text, txtHanDung.Text, double.Parse(txtGiaBan.Text), cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
+                    if (sanPhamBLL.update(maSP, txtTenSP.Text, txtDVT.Text, txtHanDung.Text, txtGiaBan.Text, cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
                     {
-                        MessageBox.Show("Sửa sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(MS_011, MS_Notify, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         loadDataToDataGridView(dgvSP, sanPhamBLL.findAll());
                         btnLamMoiSP_Click(sender, e);
                     }
                     else
-                        MessageBox.Show("Sửa sản phẩm thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(MS_012, MS_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Sản phẩm đã tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(MS_030, MS_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void btnXoaSP_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show(MS_Confirm, MS_Warn, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 if (sanPhamBLL.deleteById(maSP))
                 {
-                    MessageBox.Show("Xóa sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(MS_023, MS_Notify, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     loadDataToDataGridView(dgvSP, sanPhamBLL.findAll());
                     btnLamMoiSP_Click(sender, e);
                 }
                 else
-                    MessageBox.Show("Xóa sản phẩm thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(MS_024, MS_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -209,7 +228,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (txtTenSP.Text == "" && txtDVT.Text == "" && txtHanDung.Text == "" && txtGiaBan.Text == "" && cmbLoaiSP.Text == "" && cmbNCC.Text == "")
             {
-                MessageBox.Show("Bạn cần nhập thông tin muốn tìm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(MS_022, MS_Notify, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 check = false;
             }
 
@@ -217,7 +236,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             {
                 if (!double.TryParse(txtGiaBan.Text, out _) || double.Parse(txtGiaBan.Text) <= 0)
                 {
-                    MessageBox.Show("Giá bán phải là số lớn hơn 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(MS_019, MS_Notify, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     check = false;
                 }
             }
@@ -228,7 +247,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
                 DataTable dt = sanPhamBLL.search(txtTenSP.Text, txtDVT.Text, txtHanDung.Text, txtGiaBan.Text, cmbLoaiSP.Text, cmbNCC.Text);
                 if (dt.Rows.Count == 0)
                 {
-                    MessageBox.Show("Không tìm thấy sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(MS_025, MS_Notify, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 loadDataToDataGridView(dgvSP, dt);
             }
@@ -267,7 +286,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 // Tạo Form đích và hiển thị nó
-                TrangChu trangChu = new TrangChu();
+                TrangChuGUI trangChu = new TrangChuGUI();
                 trangChu.Show();
             }
         }

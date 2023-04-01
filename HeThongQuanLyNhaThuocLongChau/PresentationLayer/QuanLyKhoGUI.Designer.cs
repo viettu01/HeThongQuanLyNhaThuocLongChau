@@ -1,7 +1,7 @@
 ﻿
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    partial class QuanLyKho
+    partial class QuanLyKhoGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -51,7 +51,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyKho));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyKhoGUI));
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label59 = new System.Windows.Forms.Label();
@@ -5621,7 +5621,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             // 
             this.errorProviderQLKho.ContainerControl = this;
             // 
-            // QuanLyKho
+            // QuanLyKhoGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -5629,7 +5629,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "QuanLyKho";
+            this.Name = "QuanLyKhoGUI";
             this.Text = "Quản lý kho";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuanLyKho_FormClosing);
             this.Load += new System.EventHandler(this.QuanLyKho_Load);

@@ -1,7 +1,7 @@
 ﻿
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    partial class BanHang
+    partial class BanHangGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BanHang));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BanHangGUI));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.cmbHinhThucThanhToan = new System.Windows.Forms.ComboBox();

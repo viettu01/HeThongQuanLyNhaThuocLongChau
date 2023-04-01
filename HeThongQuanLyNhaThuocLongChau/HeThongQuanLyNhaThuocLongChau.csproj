@@ -77,17 +77,17 @@
     <Compile Include="DataAccessLayer\QuyenDAL.cs" />
     <Compile Include="DataAccessLayer\SanPhamDAL.cs" />
     <Compile Include="DataAccessLayer\TaiKhoanDAL.cs" />
-    <Compile Include="PresentationLayer\BanHang.cs">
+    <Compile Include="PresentationLayer\BanHangGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\BanHang.Designer.cs">
-      <DependentUpon>BanHang.cs</DependentUpon>
+    <Compile Include="PresentationLayer\BanHangGUI.Designer.cs">
+      <DependentUpon>BanHangGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\BaoCao.cs">
+    <Compile Include="PresentationLayer\BaoCaoGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\BaoCao.Designer.cs">
-      <DependentUpon>BaoCao.cs</DependentUpon>
+    <Compile Include="PresentationLayer\BaoCaoGUI.Designer.cs">
+      <DependentUpon>BaoCaoGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Custom\VBButton.cs">
       <SubType>Component</SubType>
@@ -95,85 +95,85 @@
     <Compile Include="PresentationLayer\Custom\VBTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\DangNhap.cs">
+    <Compile Include="PresentationLayer\DangNhapGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\DangNhap.Designer.cs">
-      <DependentUpon>DangNhap.cs</DependentUpon>
+    <Compile Include="PresentationLayer\DangNhapGUI.Designer.cs">
+      <DependentUpon>DangNhapGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\DoiMatKhau.cs">
+    <Compile Include="PresentationLayer\DoiMatKhauGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\DoiMatKhau.Designer.cs">
-      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    <Compile Include="PresentationLayer\DoiMatKhauGUI.Designer.cs">
+      <DependentUpon>DoiMatKhauGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\QuanLyBanHang.cs">
+    <Compile Include="PresentationLayer\QuanLyBanHangGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\QuanLyBanHang.Designer.cs">
-      <DependentUpon>QuanLyBanHang.cs</DependentUpon>
+    <Compile Include="PresentationLayer\QuanLyBanHangGUI.Designer.cs">
+      <DependentUpon>QuanLyBanHangGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\QuanLyKeToan.cs">
+    <Compile Include="PresentationLayer\QuanLyKeToanGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\QuanLyKeToan.Designer.cs">
-      <DependentUpon>QuanLyKeToan.cs</DependentUpon>
+    <Compile Include="PresentationLayer\QuanLyKeToanGUI.Designer.cs">
+      <DependentUpon>QuanLyKeToanGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\QuanLyKho.cs">
+    <Compile Include="PresentationLayer\QuanLyKhoGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\QuanLyKho.Designer.cs">
-      <DependentUpon>QuanLyKho.cs</DependentUpon>
+    <Compile Include="PresentationLayer\QuanLyKhoGUI.Designer.cs">
+      <DependentUpon>QuanLyKhoGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\QuanLyNhanSu.cs">
+    <Compile Include="PresentationLayer\QuanLyNhanSuGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\QuanLyNhanSu.Designer.cs">
-      <DependentUpon>QuanLyNhanSu.cs</DependentUpon>
+    <Compile Include="PresentationLayer\QuanLyNhanSuGUI.Designer.cs">
+      <DependentUpon>QuanLyNhanSuGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\ThongKeDoanhThu.cs">
+    <Compile Include="PresentationLayer\ThongKeDoanhThuGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\ThongKeDoanhThu.Designer.cs">
-      <DependentUpon>ThongKeDoanhThu.cs</DependentUpon>
+    <Compile Include="PresentationLayer\ThongKeDoanhThuGUI.Designer.cs">
+      <DependentUpon>ThongKeDoanhThuGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\TrangChu.cs">
+    <Compile Include="PresentationLayer\TrangChuGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\TrangChu.Designer.cs">
-      <DependentUpon>TrangChu.cs</DependentUpon>
+    <Compile Include="PresentationLayer\TrangChuGUI.Designer.cs">
+      <DependentUpon>TrangChuGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PresentationLayer\BanHang.resx">
-      <DependentUpon>BanHang.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\BanHangGUI.resx">
+      <DependentUpon>BanHangGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\BaoCao.resx">
-      <DependentUpon>BaoCao.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\BaoCaoGUI.resx">
+      <DependentUpon>BaoCaoGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\DangNhap.resx">
-      <DependentUpon>DangNhap.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\DangNhapGUI.resx">
+      <DependentUpon>DangNhapGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\DoiMatKhau.resx">
-      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\DoiMatKhauGUI.resx">
+      <DependentUpon>DoiMatKhauGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\QuanLyBanHang.resx">
-      <DependentUpon>QuanLyBanHang.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\QuanLyBanHangGUI.resx">
+      <DependentUpon>QuanLyBanHangGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\QuanLyKeToan.resx">
-      <DependentUpon>QuanLyKeToan.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\QuanLyKeToanGUI.resx">
+      <DependentUpon>QuanLyKeToanGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\QuanLyKho.resx">
-      <DependentUpon>QuanLyKho.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\QuanLyKhoGUI.resx">
+      <DependentUpon>QuanLyKhoGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\QuanLyNhanSu.resx">
-      <DependentUpon>QuanLyNhanSu.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\QuanLyNhanSuGUI.resx">
+      <DependentUpon>QuanLyNhanSuGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\ThongKeDoanhThu.resx">
-      <DependentUpon>ThongKeDoanhThu.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\ThongKeDoanhThuGUI.resx">
+      <DependentUpon>ThongKeDoanhThuGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\TrangChu.resx">
-      <DependentUpon>TrangChu.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\TrangChuGUI.resx">
+      <DependentUpon>TrangChuGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -203,6 +203,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Database\alter_sp_DoiMatJKhau.sql" />
+    <Content Include="Database\Create_sp_vv_SanPham.sql" />
     <Content Include="Database\db.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

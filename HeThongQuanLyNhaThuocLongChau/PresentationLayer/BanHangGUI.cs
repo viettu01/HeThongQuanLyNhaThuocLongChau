@@ -10,24 +10,34 @@ using System.Windows.Forms;
 
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    public partial class QuanLyKeToan : Form
+    public partial class BanHangGUI : Form
     {
-        public QuanLyKeToan()
+        public BanHangGUI()
         {
             InitializeComponent();
         }
 
-        private void QuanLyKeToan_Load(object sender, EventArgs e)
+        private void panel7_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void QuanLyKeToan_FormClosing(object sender, FormClosingEventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BanHang_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BanHang_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 // Tạo Form đích và hiển thị nó
-                TrangChu trangChu = new TrangChu();
+                TrangChuGUI trangChu = new TrangChuGUI();
                 trangChu.Show();
             }
         }

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    public partial class QuanLyNhanSu : Form
+    public partial class QuanLyNhanSuGUI : Form
     {
         //ConvertDateToSecond convertDateToSecond = new ConvertDateToSecond();
         //NhanVienBLL nhanVienBLL = new NhanVienBLL();
@@ -19,7 +19,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         QuyenBLL quyenBLL = new QuyenBLL();
         string maNV = "";
 
-        public QuanLyNhanSu()
+        public QuanLyNhanSuGUI()
         {
             InitializeComponent();
         }
@@ -387,7 +387,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 // Tạo Form đích và hiển thị nó
-                TrangChu trangChu = new TrangChu();
+                TrangChuGUI trangChu = new TrangChuGUI();
                 trangChu.Show();
             }
         }

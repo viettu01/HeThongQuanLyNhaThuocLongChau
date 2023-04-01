@@ -15,6 +15,7 @@ namespace HeThongQuanLyNhaThuocLongChau
         public static string maQuyenQuanLy = "Q01";
         public static string maQuyenBanHang = "Q02";
         public static string maQuyenKho = "Q03";
+        public static string maQuyenKeToan = "Q04";
 
         public static string tenNV, maTK, maQuyen, tenTK;
         /// <summary>
@@ -26,7 +27,7 @@ namespace HeThongQuanLyNhaThuocLongChau
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new DangNhap());
+            Application.Run(new DangNhapGUI());
 
         }
     }

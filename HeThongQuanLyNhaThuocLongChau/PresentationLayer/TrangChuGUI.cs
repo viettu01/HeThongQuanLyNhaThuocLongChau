@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    public partial class TrangChu : Form
+    public partial class TrangChuGUI : Form
     {
-        public TrangChu()
+        public TrangChuGUI()
         {
             InitializeComponent();
         }
@@ -24,6 +24,11 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             {
                 tsmiQuanLy.Visible = false;
             }
+
+            if (Program.maQuyen.Equals(Program.maQuyenBanHang))
+            {
+
+            }
         }
 
         private void tsmiDangXuat_Click(object sender, EventArgs e)
@@ -31,54 +36,54 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             Program.maTK = "";
             Program.maQuyen = "";
             Program.tenTK = "";
-            new DangNhap().Show();
+            new DangNhapGUI().Show();
             this.Hide();
         }
 
         private void tsmiBanHang_Click(object sender, EventArgs e)
         {
-            BanHang banHang = new BanHang();
+            BanHangGUI banHang = new BanHangGUI();
             banHang.Show();
             this.Hide();
         }
 
         private void tsmiQuanLyKho_Click(object sender, EventArgs e)
         {
-            QuanLyKho quanLyKho = new QuanLyKho();
+            QuanLyKhoGUI quanLyKho = new QuanLyKhoGUI();
             quanLyKho.Show();
             this.Hide();
         }
 
         private void tsmiDoiMatKhau_Click(object sender, EventArgs e)
         {
-            new DoiMatKhau().Show();
+            new DoiMatKhauGUI().Show();
             this.Hide();
         }
 
         private void tsmiQuanLyNhanSu_Click(object sender, EventArgs e)
         {
-            QuanLyNhanSu quanLyNhanSu = new QuanLyNhanSu();
+            QuanLyNhanSuGUI quanLyNhanSu = new QuanLyNhanSuGUI();
             quanLyNhanSu.Show();
             this.Hide();
         }
 
         private void tsmiQuanLyBanHang_Click(object sender, EventArgs e)
         {
-            QuanLyBanHang quanLyBanHang = new QuanLyBanHang();
+            QuanLyBanHangGUI quanLyBanHang = new QuanLyBanHangGUI();
             quanLyBanHang.Show();
             this.Hide();
         }
 
         private void tsmiQuanLyKeToan_Click(object sender, EventArgs e)
         {
-            QuanLyKeToan quanLyKeToan = new QuanLyKeToan();
+            QuanLyKeToanGUI quanLyKeToan = new QuanLyKeToanGUI();
             quanLyKeToan.Show();
             this.Hide();
         }
 
         private void tsmiBaoCao_Click(object sender, EventArgs e)
         {
-            BaoCao baoCao = new BaoCao();
+            BaoCaoGUI baoCao = new BaoCaoGUI();
             baoCao.Show();
             this.Hide();
         }

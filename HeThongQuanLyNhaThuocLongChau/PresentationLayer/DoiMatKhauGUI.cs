@@ -12,12 +12,21 @@ using System.Windows.Forms;
 
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    public partial class DoiMatKhau : Form
+    public partial class DoiMatKhauGUI : Form
     {
+        private const string MS_006 = "Mật khẩu cần có 8 ký tự trở lên, tối đa 20 ký tự, bao gồm chữ số, chữ thường, chữ hoa";
+        private const string MS_007 = "Mật khẩu nhập lại không đúng";
+        private const string MS_008 = "Mật khẩu cũ không đúng";
+        private const string MS_009 = "Đổi mật khẩu thành công";
+        private const string MS_010 = "Đổi mật khẩu thất bại";
+        private const string MS_031 = "Vui lòng nhập mật khẩu cũ";
+        private const string MS_032 = "Vui lòng nhập mật khẩu mới";
+        private const string MS_033 = "Vui lòng nhập lại mật khẩu mới";
+        private const string MS_Notify = "Thông báo";
 
         TaiKhoanBLL taiKhoanBLL = new TaiKhoanBLL();
 
-        public DoiMatKhau()
+        public DoiMatKhauGUI()
         {
             InitializeComponent();
         }
@@ -55,7 +64,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (txtMatKhauCu.Text.Equals(""))
             {
-                errorProviderDoiMatKhau.SetError(txtMatKhauCu, "Vui lòng nhập mật khẩu cũ");
+                errorProviderDoiMatKhau.SetError(txtMatKhauCu, MS_031);
                 check = false;
             }
             else
@@ -65,12 +74,12 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (txtMatKhauMoi.Text.Equals(""))
             {
-                errorProviderDoiMatKhau.SetError(txtMatKhauMoi, "Vui lòng nhập mật khẩu mới");
+                errorProviderDoiMatKhau.SetError(txtMatKhauMoi, MS_032);
                 check = false;
             }
             else if (checkingPasswordStrength(txtMatKhauMoi.Text) < 4)
             {
-                MessageBox.Show("Mật khẩu cần có 8 ký tự trở lên, tối đa 20 ký tự, bao gồm chữ số, chữ thường, chữ hoa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(MS_006, MS_Notify, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 check = false;
             }
             else
@@ -80,12 +89,12 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
             if (txtNhapLaiMatKhauMoi.Text.Equals(""))
             {
-                errorProviderDoiMatKhau.SetError(txtNhapLaiMatKhauMoi, "Vui lòng nhập lại mật khẩu mới");
+                errorProviderDoiMatKhau.SetError(txtNhapLaiMatKhauMoi, MS_033);
                 check = false;
             }
             else if (txtNhapLaiMatKhauMoi.Text != txtMatKhauMoi.Text)
             {
-                errorProviderDoiMatKhau.SetError(txtNhapLaiMatKhauMoi, "Mật khẩu nhập lại không đúng");
+                errorProviderDoiMatKhau.SetError(txtNhapLaiMatKhauMoi, MS_007);
                 txtNhapLaiMatKhauMoi.Text = "";
                 check = false;
             }
@@ -105,18 +114,18 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             if (checkValidDoiMatKhau(sender, e))
             {
                 if (!taiKhoanBLL.checkPassword(Program.tenTK, matKhauCu))
-                    MessageBox.Show("Mật khẩu cũ không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(MS_008, MS_Notify, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                 {
                     if (taiKhoanBLL.changePassword(Program.tenTK, nhapLaiMatKhauMoi))
                     {
-                        MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        new DangNhap().Show();
+                        MessageBox.Show(MS_009, MS_Notify, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        new DangNhapGUI().Show();
                         this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Đổi mật khẩu không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(MS_010, MS_Notify, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -124,7 +133,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
         private void btnVeTrangChu_Click(object sender, EventArgs e)
         {
-            new TrangChu().Show();
+            new TrangChuGUI().Show();
             this.Hide();
         }
 
@@ -141,7 +150,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 // Tạo Form đích và hiển thị nó
-                TrangChu trangChu = new TrangChu();
+                TrangChuGUI trangChu = new TrangChuGUI();
                 trangChu.Show();
             }
         }

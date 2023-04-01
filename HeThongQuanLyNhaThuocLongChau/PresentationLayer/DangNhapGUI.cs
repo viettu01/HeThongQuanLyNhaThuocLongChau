@@ -11,11 +11,15 @@ using System.Windows.Forms;
 
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    public partial class DangNhap : Form
+    public partial class DangNhapGUI : Form
     {
+        private const string MS_001 = "Vui lòng nhập đủ thông tin";
+        private const string MS_002 = "Sai tên tài khoản";
+        private const string MS_003 = "Sai mật khẩu";
+
         TaiKhoanBLL taiKhoanBLL = new TaiKhoanBLL();
 
-        public DangNhap()
+        public DangNhapGUI()
         {
             InitializeComponent();
         }
@@ -30,29 +34,26 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            string tenTK = txtTenTaiKhoan.Text;
-            string matKhau = txtMatKhau.Text;
-
-            if (!checkValidDangNhap(tenTK, matKhau))
+            if (!checkValidDangNhap(txtTenTaiKhoan.Text, txtMatKhau.Text))
             {
-                errorProviderLogin.SetError(txtTenTaiKhoan, "Vui lòng nhập đủ thông tin");
-                errorProviderLogin.SetError(txtMatKhau, "Vui lòng nhập đủ thông tin");
+                errorProviderLogin.SetError(txtTenTaiKhoan, MS_001);
+                errorProviderLogin.SetError(txtMatKhau, MS_001);
             }
             else
             {
                 errorProviderLogin.SetError(txtTenTaiKhoan, "");
                 errorProviderLogin.SetError(txtMatKhau, "");
 
-                if (taiKhoanBLL.login(tenTK, matKhau) == 0)
-                    errorProviderLogin.SetError(txtTenTaiKhoan, "Sai tên tài khoản");
-                else if (taiKhoanBLL.login(tenTK, matKhau) == 2)
+                if (taiKhoanBLL.login(txtTenTaiKhoan.Text, txtMatKhau.Text) == 0)
+                    errorProviderLogin.SetError(txtTenTaiKhoan, MS_002);
+                else if (taiKhoanBLL.login(txtTenTaiKhoan.Text, txtMatKhau.Text) == 2)
                 {
-                    errorProviderLogin.SetError(txtMatKhau, "Sai mật khẩu");
+                    errorProviderLogin.SetError(txtMatKhau, MS_003);
                     txtMatKhau.Text = "";
                 }
-                else if (taiKhoanBLL.login(tenTK, matKhau) == 1)
+                else if (taiKhoanBLL.login(txtTenTaiKhoan.Text, txtMatKhau.Text) == 1)
                 {
-                    new TrangChu().Show();
+                    new TrangChuGUI().Show();
                     this.Hide();
                 }
             }

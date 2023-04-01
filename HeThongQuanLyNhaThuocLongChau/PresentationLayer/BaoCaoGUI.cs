@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 {
-    public partial class BaoCao : Form
+    public partial class BaoCaoGUI : Form
     {
-        public BaoCao()
+        public BaoCaoGUI()
         {
             InitializeComponent();
         }
@@ -22,7 +22,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 // Tạo Form đích và hiển thị nó
-                TrangChu trangChu = new TrangChu();
+                TrangChuGUI trangChu = new TrangChuGUI();
                 trangChu.Show();
             }
         }
