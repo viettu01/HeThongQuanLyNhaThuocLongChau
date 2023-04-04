@@ -18,6 +18,14 @@ namespace HeThongQuanLyNhaThuocLongChau
         public static string maQuyenKeToan = "Q04";
 
         public static string tenNV, maTK, maQuyen, tenTK;
+
+        public static void setSession(string maTK, string maQuyen, string tenTK)
+        {
+            Program.maTK = maTK;
+            Program.maQuyen = maQuyen;
+            Program.tenTK = tenTK;
+        }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

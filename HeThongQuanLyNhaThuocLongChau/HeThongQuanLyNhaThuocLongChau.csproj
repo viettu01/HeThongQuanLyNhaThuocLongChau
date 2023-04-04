@@ -203,6 +203,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Database\alter_sp_DoiMatJKhau.sql" />
+    <Content Include="Database\Create_sp_vv_TaiKhoanNhanVienQuyen.sql" />
     <Content Include="Database\Create_sp_vv_SanPham.sql" />
     <Content Include="Database\db.sql" />
   </ItemGroup>

@@ -41,8 +41,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             }
             else
             {
-                errorProviderLogin.SetError(txtTenTaiKhoan, "");
-                errorProviderLogin.SetError(txtMatKhau, "");
+                errorProviderLogin.Clear();
 
                 if (taiKhoanBLL.login(txtTenTaiKhoan.Text, txtMatKhau.Text) == 0)
                     errorProviderLogin.SetError(txtTenTaiKhoan, MS_002);

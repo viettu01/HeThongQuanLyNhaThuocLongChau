@@ -36,7 +36,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.label2 = new System.Windows.Forms.Label();
             this.txtTenTaiKhoan = new MetroFramework.Controls.MetroTextBox();
             this.txtMatKhau = new MetroFramework.Controls.MetroTextBox();
-            this.lbQuenMatKhau = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.errorProviderLogin = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnDangNhap = new HeThongQuanLyNhaThuocLongChau.PresentationLayer.Custom.VBButton();
@@ -150,17 +149,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.txtMatKhau.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtMatKhau.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // lbQuenMatKhau
-            // 
-            this.lbQuenMatKhau.AutoSize = true;
-            this.lbQuenMatKhau.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbQuenMatKhau.Location = new System.Drawing.Point(309, 321);
-            this.lbQuenMatKhau.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbQuenMatKhau.Name = "lbQuenMatKhau";
-            this.lbQuenMatKhau.Size = new System.Drawing.Size(113, 17);
-            this.lbQuenMatKhau.TabIndex = 10;
-            this.lbQuenMatKhau.Text = "Quên mật khẩu?";
-            // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
@@ -182,7 +170,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnDangNhap.FlatAppearance.BorderSize = 0;
             this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangNhap.ForeColor = System.Drawing.Color.White;
-            this.btnDangNhap.Location = new System.Drawing.Point(76, 366);
+            this.btnDangNhap.Location = new System.Drawing.Point(76, 336);
             this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(353, 37);
@@ -192,13 +180,12 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.btnDangNhap.UseVisualStyleBackColor = false;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
-            // DangNhap
+            // DangNhapGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.lbQuenMatKhau);
             this.Controls.Add(this.txtMatKhau);
             this.Controls.Add(this.txtTenTaiKhoan);
             this.Controls.Add(this.btnDangNhap);
@@ -208,7 +195,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.Name = "DangNhap";
+            this.Name = "DangNhapGUI";
             this.Text = "  Đăng nhập";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderLogin)).EndInit();
@@ -224,7 +211,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         private Custom.VBButton btnDangNhap;
         private MetroFramework.Controls.MetroTextBox txtTenTaiKhoan;
         private MetroFramework.Controls.MetroTextBox txtMatKhau;
-        private System.Windows.Forms.Label lbQuenMatKhau;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ErrorProvider errorProviderLogin;
     }

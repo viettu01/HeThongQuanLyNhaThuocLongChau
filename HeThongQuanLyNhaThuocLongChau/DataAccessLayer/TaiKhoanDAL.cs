@@ -17,13 +17,14 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
         {
             using (SqlConnection cnn = new SqlConnection(constr))
             {
-                String sql = "SELECT * FROM vv_TaiKhoanNhanVienQuyen WHERE [Tên tài khoản] = '" + tenTK + "'";
-                using (SqlCommand cmd = new SqlCommand(sql, cnn))
+                using (SqlCommand cmd = cnn.CreateCommand())
                 {
-                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "sp_TimKiemTenTaiKhoan";
+                    cmd.Parameters.AddWithValue("@TenTK", tenTK);
                     using (SqlDataAdapter ad = new SqlDataAdapter(cmd))
                     {
-                        using (DataTable dt = new DataTable("vv_TaiKhoanNhanVienQuyen"))
+                        using (DataTable dt = new DataTable())
                         {
                             ad.Fill(dt);
                             return dt;

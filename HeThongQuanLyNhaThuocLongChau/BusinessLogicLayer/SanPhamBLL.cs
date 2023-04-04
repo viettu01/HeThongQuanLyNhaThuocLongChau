@@ -21,30 +21,22 @@ namespace HeThongQuanLyNhaThuocLongChau.BusinessLogicLayer
         {
             if (string.IsNullOrEmpty(maSP) || string.IsNullOrEmpty(tenSP) || string.IsNullOrEmpty(donViTinh) || string.IsNullOrEmpty(hanDung)
                 || string.IsNullOrEmpty(donGiaBan) || string.IsNullOrEmpty(maLoai) || string.IsNullOrEmpty(maNCC))
-            {
                 return false;
-            }
             else if (!double.TryParse(donGiaBan, out _) || double.Parse(donGiaBan) <= 0)
-            {
                 return false;
-            }
-
-            return sanPhamDAL.insert(maSP, tenSP, donViTinh, hanDung, double.Parse(donGiaBan), maLoai, maNCC);
+            else
+                return sanPhamDAL.insert(maSP, tenSP, donViTinh, hanDung, double.Parse(donGiaBan), maLoai, maNCC);
         }
 
         public bool update(string maSP, string tenSP, string donViTinh, string hanDung, string donGiaBan, string maLoai, string maNCC)
         {
             if (string.IsNullOrEmpty(maSP) || string.IsNullOrEmpty(tenSP) || string.IsNullOrEmpty(donViTinh) || string.IsNullOrEmpty(hanDung)
                 || string.IsNullOrEmpty(donGiaBan) || string.IsNullOrEmpty(maLoai) || string.IsNullOrEmpty(maNCC))
-            {
                 return false;
-            }
             else if (!double.TryParse(donGiaBan, out _) || double.Parse(donGiaBan) <= 0)
-            {
                 return false;
-            }
-
-            return sanPhamDAL.update(maSP, tenSP, donViTinh, hanDung, double.Parse(donGiaBan), maLoai, maNCC);
+            else
+                return sanPhamDAL.update(maSP, tenSP, donViTinh, hanDung, double.Parse(donGiaBan), maLoai, maNCC);
         }
 
         public bool deleteById(string maSP)
@@ -60,17 +52,10 @@ namespace HeThongQuanLyNhaThuocLongChau.BusinessLogicLayer
         {
             if (string.IsNullOrEmpty(tenSP) && string.IsNullOrEmpty(donViTinh) && string.IsNullOrEmpty(hanDung)
                 && string.IsNullOrEmpty(donGiaBan) && string.IsNullOrEmpty(tenLoai) && string.IsNullOrEmpty(tenNCC))
-            {
                 return null;
-            }
-
-            if (!string.IsNullOrEmpty(donGiaBan))
-            {
+            else if (!string.IsNullOrEmpty(donGiaBan))
                 if (!double.TryParse(donGiaBan, out _) || double.Parse(donGiaBan) <= 0)
-                {
                     return null;
-                }
-            }
 
             return sanPhamDAL.search(tenSP, donViTinh, hanDung, donGiaBan, tenLoai, tenNCC);
         }

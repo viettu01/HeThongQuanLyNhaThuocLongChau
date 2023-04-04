@@ -13,6 +13,7 @@ namespace UnitTestHeThongQuanLyNhaThuocLongChau
         SanPhamDAL sanPhamDAL;
         SanPhamBLL sanPhamBLL;
         string maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC, tenLoai, tenNCC;
+        bool expected, actual;
 
         [TestInitialize]
         public void SetUp()
@@ -20,8 +21,8 @@ namespace UnitTestHeThongQuanLyNhaThuocLongChau
             sanPhamDAL = new SanPhamDAL();
             sanPhamBLL = new SanPhamBLL();
 
-            maSP = "SP001";
-            tenSP = "Product 1";
+            maSP = "SP002";
+            tenSP = "Product 2";
             donViTinh = "Cái";
             hanDung = "1 năm";
             donGiaBan = "10000";
@@ -32,248 +33,365 @@ namespace UnitTestHeThongQuanLyNhaThuocLongChau
             tenNCC = "Công ty Cổ phần Dược liệu TW3";
         }
 
-
+        #region CheckExist
         [TestMethod]
-        public void TestCheckTenSPAndLoaiSPIsExists()
+        public void TestCheckExistsNameAndCategoryWithTenSPAndLoaiSPNotExists()
         {
-            tenSP = "Product 1";
-            tenLoai = "Thuốc hướng tâm thần";
+            tenSP = "Tiffy 2";
+            tenLoai = "Thuốc kháng sinh 2";
 
-            //Act
-            bool result = sanPhamBLL.checkExistsNameAndCategory(tenSP, tenLoai);
-            //Assert
-            Assert.IsFalse(result);
+            expected = true;
+            bool actual = sanPhamBLL.checkExistsNameAndCategory(tenSP, tenLoai);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
+        public void TestCheckExistsNameAndCategoryWithTenSPNotExistsAndLoaiSPExists()
+        {
+            tenSP = "Tiffy 2";
+            tenLoai = "Thuốc kháng sinh";
+
+            expected = true;
+            bool actual = sanPhamBLL.checkExistsNameAndCategory(tenSP, tenLoai);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void TestCheckExistsNameAndCategoryWithTenSPExistsAndLoaiSPNotExists()
+        {
+            tenSP = "Tiffy";
+            tenLoai = "Thuốc kháng sinh 2";
+
+            expected = true;
+            bool actual = sanPhamBLL.checkExistsNameAndCategory(tenSP, tenLoai);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void TestCheckExistsNameAndCategoryWithTenSPAndLoaiSPExists()
+        {
+            tenSP = "Tiffy";
+            tenLoai = "Thuốc kháng sinh";
+
+            expected = false;
+            bool actual = sanPhamBLL.checkExistsNameAndCategory(tenSP, tenLoai);
+
+            Assert.AreEqual(expected, actual);
+        }
+        #endregion
+
+        #region Thêm sản phẩm
+        [TestMethod]
         public void TestInsertWithAllParametersTrue()
         {
-            //Act
-            bool result = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsTrue(result);
+            maSP = "SP001";
+            tenSP = "Product 1";
+
+            expected = true;
+            actual = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+            
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestInsertWithEmptyMaSP()
         {
             maSP = "";
-            //Act
-            bool result = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+
+            expected = false;
+            actual = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestInsertWithEmptyTenSP()
         {
             tenSP = "";
-            //Act
-            bool result = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+
+            expected = false;
+            actual = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestInsertWithEmptyDonViTinh()
         {
             donViTinh = "";
-            //Act
-            bool result = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+
+            expected = false;
+            actual = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestInsertWithEmptyHanDung()
         {
             hanDung = "";
-            //Act
-            bool result = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+
+            expected = false;
+            actual = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestInsertWithEmptyDonGiaBan()
         {
             donGiaBan = "";
-            //Act
-            bool result = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+
+            expected = false;
+            actual = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestInsertWithInvalidDonGiaBan()
         {
             donGiaBan = "abc";
-            //Act
-            bool result = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+
+            expected = false;
+            actual = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void TestInsertWithDonGiaBanLessThanZero()
+        {
+            donGiaBan = "-100";
+
+            expected = false;
+            actual = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestInsertWithEmptyMaLoai()
         {
             maLoai = "";
-            //Act
-            bool result = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+
+            expected = false;
+            actual = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestInsertWithEmptyMaNCC()
         {
             maNCC = "";
-            //Act
-            bool result = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+
+            expected = false;
+            actual = sanPhamBLL.insert(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
+        #endregion
 
-
+        #region Sửa sản phẩm
         [TestMethod]
         public void TestUpdateWithAllParametersTrue()
         {
-            maSP = "SP6737806";
-            //Act
-            bool result = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsTrue(result);
+            maSP = "SP001";
+            tenSP = "Product 3";
+
+            expected = true;
+            actual = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+            
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestUpdateWithEmptyMaSP()
         {
             maSP = "";
-            //Act
-            bool result = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+            tenSP = "Product 3";
+
+            expected = false;
+            actual = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestUpdateWithEmptyTenSP()
         {
+            maSP = "SP001";
             tenSP = "";
-            //Act
-            bool result = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+
+            expected = false;
+            actual = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestUpdateWithEmptyDonViTinh()
         {
+            maSP = "SP001";
             donViTinh = "";
-            //Act
-            bool result = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+            tenSP = "Product 3";
+
+            expected = false;
+            actual = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestUpdateWithEmptyHanDung()
         {
+            maSP = "SP001";
             hanDung = "";
-            //Act
-            bool result = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+            tenSP = "Product 3";
+
+            expected = false;
+            actual = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestUpdateWithEmptyDonGiaBan()
         {
+            maSP = "SP001";
             donGiaBan = "";
-            //Act
-            bool result = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+            tenSP = "Product 3";
+
+            expected = false;
+            actual = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestUpdateWithInvalidDonGiaBan()
         {
+            maSP = "SP001";
             donGiaBan = "abc";
-            //Act
-            bool result = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+            tenSP = "Product 3";
+
+            expected = false;
+            actual = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
+        }
+        
+        [TestMethod]
+        public void TestUpdateWithDonGiaBanLessThanZero()
+        {
+            maSP = "SP001";
+            donGiaBan = "-100";
+            tenSP = "Product 3";
+
+            expected = false;
+            actual = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestUpdateWithEmptyMaLoai()
         {
+            maSP = "SP001";
             maLoai = "";
-            //Act
-            bool result = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+            tenSP = "Product 3";
+
+            expected = false;
+            actual = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestUpdateWithEmptyMaNCC()
         {
+            maSP = "SP001";
             maNCC = "";
-            //Act
-            bool result = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
-            //Assert
-            Assert.IsFalse(result);
+            tenSP = "Product 3";
+
+            expected = false;
+            actual = sanPhamBLL.update(maSP, tenSP, donViTinh, hanDung, donGiaBan, maLoai, maNCC);
+
+            Assert.AreEqual(expected, actual);
         }
+        #endregion
 
-
+        #region Xóa sản phẩm
         [TestMethod]
         public void TestDeleteWithEmptyMaSP()
         {
             maSP = "";
-            //Act
-            bool result = sanPhamBLL.deleteById(maSP);
-            //Assert
-            Assert.IsFalse(result);
+
+            expected = false;
+            actual = sanPhamBLL.deleteById(maSP);
+            
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void TestDeleteWithMaSPNotExists()
+        {
+            maSP = "SP002";
+
+            expected = false;
+            actual = sanPhamBLL.deleteById(maSP);
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void TestDeleteWithParametersTrue()
         {
-            //Act
-            bool result = sanPhamBLL.deleteById(maSP);
-            //Assert
-            Assert.IsTrue(result);
+            maSP = "SP001";
+
+            expected = true;
+            actual = sanPhamBLL.deleteById(maSP);
+
+            Assert.AreEqual(expected, actual);
         }
+        #endregion
 
-
+        #region Tìm kiếm sản phẩm
         [TestMethod]
-        public void TestSearchWithParametersTrueReturnRecord()
+        public void TestSearchWithTenSPExists()
         {
-            tenSP = "p";
+            tenSP = "Product 1";
             donViTinh = "";
             hanDung = "";
             donGiaBan = "";
             tenLoai = "";
             tenNCC = "";
+
+            expected = true;
             //Act
-            var result = sanPhamBLL.search(tenSP, donViTinh, hanDung, donGiaBan, tenLoai, tenNCC).Rows.Count;
+            actual = sanPhamBLL.search(tenSP, donViTinh, hanDung, donGiaBan, tenLoai, tenNCC).Rows.Count > 0;
             //Assert
-            Assert.IsTrue(result > 0);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void TestSearchWithParametersTrueReturnNull()
+        public void TestSearchWithTenSPNotExists()
         {
-            tenSP = "z";
+            tenSP = "Product 3";
             donViTinh = "";
             hanDung = "";
             donGiaBan = "";
             tenLoai = "";
             tenNCC = "";
-            //Act
-            var result = sanPhamBLL.search(tenSP, donViTinh, hanDung, donGiaBan, tenLoai, tenNCC).Rows.Count;
-            //Assert
-            Assert.IsFalse(result > 0);
+
+            expected = false;
+            actual = sanPhamBLL.search(tenSP, donViTinh, hanDung, donGiaBan, tenLoai, tenNCC).Rows.Count > 0;
+            
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -285,25 +403,27 @@ namespace UnitTestHeThongQuanLyNhaThuocLongChau
             donGiaBan = "";
             tenLoai = "";
             tenNCC = "";
-            //Act
-            var result = sanPhamBLL.search(tenSP, donViTinh, hanDung, donGiaBan, tenLoai, tenNCC);
-            //Assert
-            Assert.IsNull(result);
+
+            DataTable expected = null;
+            DataTable actual = sanPhamBLL.search(tenSP, donViTinh, hanDung, donGiaBan, tenLoai, tenNCC);
+            
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void TestSearchWithLessThan0()
+        public void TestSearchWithGiaBanLessThanZero()
         {
             tenSP = "";
             donViTinh = "";
             hanDung = "";
-            donGiaBan = "-1000";
+            donGiaBan = "-100";
             tenLoai = "";
             tenNCC = "";
-            //Act
-            var result = sanPhamBLL.search(tenSP, donViTinh, hanDung, donGiaBan, tenLoai, tenNCC);
-            //Assert
-            Assert.IsNull(result);
+
+            DataTable expected = null;
+            DataTable actual = sanPhamBLL.search(tenSP, donViTinh, hanDung, donGiaBan, tenLoai, tenNCC);
+            Assert.AreEqual(expected, actual);
         }
+        #endregion
     }
 }

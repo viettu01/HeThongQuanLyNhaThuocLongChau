@@ -27,6 +27,7 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         private const string MS_Error = "Lỗi";
         private const string MS_Confirm = "Bạn có chắc chắn xóa không?";
         private const string MS_Warn = "Cảnh báo";
+        private const string MS_NotAccess = "Bạn không có quyền truy cập chức năng này";
 
         NhaCungCapBLL nhaCungCapBLL = new NhaCungCapBLL();
         LoaiSanPhamBLL loaiSanPhamBLL = new LoaiSanPhamBLL();
@@ -162,6 +163,11 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
         private void btnThemSP_Click(object sender, EventArgs e)
         {
+            if (Program.maQuyen.Equals(Program.maQuyenBanHang) || Program.maQuyen.Equals(Program.maQuyenKeToan))
+            {
+                MessageBox.Show(MS_NotAccess, MS_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (checkValidSanPham(sender, e))
             {
                 if (sanPhamBLL.checkExistsNameAndCategory(txtTenSP.Text, cmbLoaiSP.Text))
@@ -187,6 +193,11 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
         private void btnSuaSP_Click(object sender, EventArgs e)
         {
+            if (Program.maQuyen.Equals(Program.maQuyenBanHang) || Program.maQuyen.Equals(Program.maQuyenKeToan))
+            {
+                MessageBox.Show(MS_NotAccess, MS_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (checkValidSanPham(sender, e))
             {
                 if (sanPhamBLL.checkExistsNameAndCategory(txtTenSP.Text, cmbLoaiSP.Text))
@@ -209,6 +220,11 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
 
         private void btnXoaSP_Click(object sender, EventArgs e)
         {
+            if (Program.maQuyen.Equals(Program.maQuyenBanHang) || Program.maQuyen.Equals(Program.maQuyenKeToan))
+            {
+                MessageBox.Show(MS_NotAccess, MS_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (MessageBox.Show(MS_Confirm, MS_Warn, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 if (sanPhamBLL.deleteById(maSP))

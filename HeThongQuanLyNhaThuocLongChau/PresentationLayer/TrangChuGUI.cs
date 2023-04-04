@@ -20,15 +20,6 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         private void TrangChu_Load(object sender, EventArgs e)
         {
             lbTaiKhoanDangDangNhap.Text = "Tài khoản đang đăng nhập: " + Program.tenTK;
-            if (!Program.maQuyen.Equals(Program.maQuyenQuanLy))
-            {
-                tsmiQuanLy.Visible = false;
-            }
-
-            if (Program.maQuyen.Equals(Program.maQuyenBanHang))
-            {
-
-            }
         }
 
         private void tsmiDangXuat_Click(object sender, EventArgs e)

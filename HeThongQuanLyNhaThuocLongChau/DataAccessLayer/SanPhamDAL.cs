@@ -34,32 +34,6 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
             }
         }
 
-        public DataTable search(string tenSP, string donViTinh, string hanDung, string donGiaBan, string tenLoai, string tenNCC)
-        {
-            using (SqlConnection cnn = new SqlConnection(constr))
-            {
-                using (SqlCommand cmd = cnn.CreateCommand())
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "sp_TimKiemSanPham";
-                    cmd.Parameters.AddWithValue("@TenSP", tenSP);
-                    cmd.Parameters.AddWithValue("@DonViTinh", donViTinh);
-                    cmd.Parameters.AddWithValue("@HanDung", hanDung);
-                    cmd.Parameters.AddWithValue("@DonGiaBan", donGiaBan);
-                    cmd.Parameters.AddWithValue("@TenLoai", tenLoai);
-                    cmd.Parameters.AddWithValue("@TenNCC", tenNCC);
-                    using (SqlDataAdapter ad = new SqlDataAdapter(cmd))
-                    {
-                        using (DataTable dt = new DataTable())
-                        {
-                            ad.Fill(dt);
-                            return dt;
-                        }
-                    }
-                }
-            }
-        }
-
         public bool insert(string maSP, string tenSP, string donViTinh, string hanDung, double donGiaBan, string maLoai, string maNCC)
         {
             using (SqlConnection cnn = new SqlConnection(constr))
@@ -122,6 +96,32 @@ namespace HeThongQuanLyNhaThuocLongChau.DataAccessLayer
                     cnn.Close();
 
                     return i > 0;
+                }
+            }
+        }
+
+        public DataTable search(string tenSP, string donViTinh, string hanDung, string donGiaBan, string tenLoai, string tenNCC)
+        {
+            using (SqlConnection cnn = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = cnn.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "sp_TimKiemSanPham";
+                    cmd.Parameters.AddWithValue("@TenSP", tenSP);
+                    cmd.Parameters.AddWithValue("@DonViTinh", donViTinh);
+                    cmd.Parameters.AddWithValue("@HanDung", hanDung);
+                    cmd.Parameters.AddWithValue("@DonGiaBan", donGiaBan);
+                    cmd.Parameters.AddWithValue("@TenLoai", tenLoai);
+                    cmd.Parameters.AddWithValue("@TenNCC", tenNCC);
+                    using (SqlDataAdapter ad = new SqlDataAdapter(cmd))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            ad.Fill(dt);
+                            return dt;
+                        }
+                    }
                 }
             }
         }

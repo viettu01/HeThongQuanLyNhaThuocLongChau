@@ -17,21 +17,14 @@ namespace HeThongQuanLyNhaThuocLongChau.BusinessLogicLayer
                 return 0; //Tên đăng nhập không tồn tại
             else
             {
-                foreach (DataRow dr in dt.Rows)
+                if (String.Equals(dt.Rows[0]["Mật khẩu"].ToString(), matKhau))
                 {
-                    if (String.Equals(dr["Mật khẩu"].ToString(), matKhau, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        Program.maTK = dr["Mã TK"].ToString();
-                        Program.maQuyen = dr["Mã Quyền"].ToString();
-                        Program.tenTK = dr["Tên tài khoản"].ToString();
-                        Program.tenNV = dr["Tên NV"].ToString();
-                        return 1; //Đúng mật khẩu và tên đăng nhập
-                    }
-                    else
-                        return 2; //Đúng tên dăng nhập nhưng Sai mật khẩu 
-                }
+                    Program.setSession(dt.Rows[0]["Mã TK"].ToString(), dt.Rows[0]["Mã Quyền"].ToString(), dt.Rows[0]["Tên tài khoản"].ToString());
+
+                    return 1;
+                } 
+                return 2; //Đúng tên dăng nhập nhưng Sai mật khẩu
             }
-            return -1;
         }
 
         public bool checkPassword(string tenTK, string matKhau)
