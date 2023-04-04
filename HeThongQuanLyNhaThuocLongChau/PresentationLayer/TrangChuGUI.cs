@@ -20,6 +20,41 @@ namespace HeThongQuanLyNhaThuocLongChau.PresentationLayer
         private void TrangChu_Load(object sender, EventArgs e)
         {
             lbTaiKhoanDangDangNhap.Text = "Tài khoản đang đăng nhập: " + Program.tenTK;
+            if (Program.maQuyen.Equals(Program.maQuyenBanHang))
+            {
+                tsmiQuanLyKho.Visible = false;
+                tsmiQuanLyKeToan.Visible = false;
+                tsmiQuanLyNhanSu.Visible = false;
+                tsmiBaoCao.Visible = false;
+            }
+
+            if (Program.maQuyen.Equals(Program.maQuyenKeToan))
+            {
+                tsmiQuanLyKho.Visible = false;
+                tsmiQuanLyBanHang.Visible = false;
+                tsmiQuanLyNhanSu.Visible = false;
+                tsmiBaoCao.Visible = false;
+                tsmiBanHang.Visible = false;
+            }
+
+            if (Program.maQuyen.Equals(Program.maQuyenKho))
+            {
+                tsmiQuanLyKeToan.Visible = false;
+                tsmiQuanLyBanHang.Visible = false;
+                tsmiQuanLyNhanSu.Visible = false;
+                tsmiBanHang.Visible = false;
+                tsmiBaoCao.Visible = false;
+            }
+
+            //if (Program.maQuyen.Equals(Program.maQuyenBanHang))
+            //{
+            //    tsmiBaoCao.Visible = false;
+            //}
+
+            //if (Program.maQuyen.Equals(Program.maQuyenKeToan))
+            //{
+            //    tsmiBanHang.Visible = false;
+            //}
         }
 
         private void tsmiDangXuat_Click(object sender, EventArgs e)
